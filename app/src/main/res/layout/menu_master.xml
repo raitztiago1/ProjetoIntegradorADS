@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtMenu"
+        android:layout_width="392dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="MENU"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btCadUserClinicaTMM"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="74dp"
+        android:text="Cadastrar Usuario Master"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
+
+    <Button
+        android:id="@+id/btCadFinanTMM"
+        android:layout_width="222dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="94dp"
+        android:text="CADASTRAR FINANCEIRA"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btCadUserClinicaTMM" />
+
+    <Button
+        android:id="@+id/btListaEmpresasTMM"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="124dp"
+        android:text="LISTA EMPRESAS"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btCadFinanTMM" />
+
+    <Button
+        android:id="@+id/btListaUserTMM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="122dp"
+        android:text="LISTAR USUARIOS"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btListaEmpresasTMM" />
+
+    <Button
+        android:id="@+id/btListaSimulTMM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="111dp"
+        android:text="LISTAR SIMULAÇÕES"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btListaUserTMM" />
+
+    <Button
+        android:id="@+id/btSairTMM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="220dp"
+        android:text="SAIR"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btListaSimulTMM" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

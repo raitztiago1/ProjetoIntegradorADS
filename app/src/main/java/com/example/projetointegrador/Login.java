@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
 
                 validaDados();
 
+
                 if (!validaDados()) {
                     Intent telaMenu = new Intent(getApplicationContext(), Menu.class);
                     startActivity(telaMenu);
