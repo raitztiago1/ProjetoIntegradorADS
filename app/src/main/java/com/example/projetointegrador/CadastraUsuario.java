@@ -36,6 +36,7 @@ public class CadastraUsuario extends AppCompatActivity {
                 String tipoUser = spnTipoUsuarioTCU.getSelectedItem().toString();
                 String statusUser = spnStatusUserTCU.getSelectedItem().toString();
                 txtUserLojaTCU.setText(tipoUser + statusUser);//só pra verificar se está funcionando, por função depois
+                limpaCampos();
             } else {
 
             }
@@ -84,6 +85,17 @@ public class CadastraUsuario extends AppCompatActivity {
                 R.layout.textview_spinner,
                 statusUsuario
         ));
+    }
+
+    private void limpaCampos() {
+        edtCpfTCU.setText("");
+        edtUserTCU.setText("");
+        edtEmailTCU.setText("");
+        edtTelCelTCU.setText("");
+        pswDigiteSenhaTCU.setText("");
+        pswRepetirSenhaTCU.setText("");
+        spnTipoUsuarioTCU.setSelection(0);
+        spnStatusUserTCU.setSelection(0);
     }
 
     private boolean validaDados() {

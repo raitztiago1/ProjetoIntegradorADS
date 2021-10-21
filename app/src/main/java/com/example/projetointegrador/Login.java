@@ -30,6 +30,7 @@ public class Login extends AppCompatActivity {
                 if (!validaDados()) {
                     Intent telaMenu = new Intent(getApplicationContext(), Menu.class);
                     startActivity(telaMenu);
+                    limpaCampos();
                 }
             }
         });
@@ -41,13 +42,13 @@ public class Login extends AppCompatActivity {
                 startActivity(telarecuperasenha);
             }
         });
-        btCadTL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent telaCadastraUsuario = new Intent(getApplicationContext(), CadastraUsuario.class);
-                startActivity(telaCadastraUsuario);
-            }
-        });
+//        btCadTL.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Intent telaCadastraNovoUsuario = new Intent(getApplicationContext(), .class);
+////                startActivity(telaCadastraNovoUsuario);
+//            }
+//        });
     }
 
     private void inicializarComponentes() {
@@ -59,6 +60,11 @@ public class Login extends AppCompatActivity {
         edtCpfTL = findViewById(R.id.edtCpfTL);
         edtPassTL = findViewById(R.id.edtPassTL);
 
+    }
+
+    private void limpaCampos(){
+        edtCpfTL.setText("");
+        edtPassTL.setText("");
     }
 
     private boolean validaDados() {
