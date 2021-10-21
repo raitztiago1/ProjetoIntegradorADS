@@ -1,3 +1,6 @@
+# MUITO CUIDADO
+com o que upar aqui, tenha sempre certeza de que está tudo correto antes de fazer o Commit!!
+
 # ProjetoIntegradorADS
 
 Participantes: 
