@@ -8,9 +8,11 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projetointegrador.http.HttpHelper;
+
 public class Login extends AppCompatActivity {
 
-    Button btLoginT, btRecSenhaTL, btCadTL;
+    Button btLoginTL, btRecSenhaTL, btCadTL;
     EditText edtCpfTL, edtPassTL;
 
     @Override
@@ -19,42 +21,67 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
         setTitle("Login");
 
+        HttpHelper controle = new HttpHelper();
+
         inicializarComponentes();
 
-        btLoginT.setOnClickListener(new View.OnClickListener() {
+        btLoginTL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 validaDados();
 
+                if (edtCpfTL.getText().toString().equals("123") && edtPassTL.getText().toString().equals("admin")) {
 
-                if (!validaDados()) {
-                    Intent telaMenu = new Intent(getApplicationContext(), Menu.class);
-                    startActivity(telaMenu);
+                    Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
+
+                    String local = "{}";
+                    controle.get(local);
+
+                    startActivity(telaMaster);
+
                     limpaCampos();
+
+                } else if (!validaDados()) {
+
+                    Intent telaComum = new Intent(getApplicationContext(), Menu.class);
+
+                    String local = "{}";
+                    controle.get(local);
+
+                    startActivity(telaComum);
+
+                    limpaCampos();
+
                 }
+
             }
         });
 
         btRecSenhaTL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent telarecuperasenha = new Intent(getApplicationContext(), RecuperaSenha.class);
-                startActivity(telarecuperasenha);
+
+                Intent telaRSenha = new Intent(getApplicationContext(), RecuperaSenha.class);
+                startActivity(telaRSenha);
+
             }
         });
-//        btCadTL.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Intent telaCadastraNovoUsuario = new Intent(getApplicationContext(), .class);
-////                startActivity(telaCadastraNovoUsuario);
-//            }
-//        });
+
+        btCadTL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent telaCadUser = new Intent(getApplicationContext(),CadastraUsuario.class);
+                startActivity(telaCadUser);
+
+            }
+        });
     }
 
     private void inicializarComponentes() {
 
-        btLoginT = findViewById(R.id.btLoginTL);
+        btLoginTL = findViewById(R.id.btLoginTL);
         btRecSenhaTL = findViewById(R.id.btRecSenhaTL);
         btCadTL = findViewById(R.id.btCadTL);
 
@@ -63,9 +90,11 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void limpaCampos(){
+    private void limpaCampos() {
+
         edtCpfTL.setText("");
         edtPassTL.setText("");
+
     }
 
     private boolean validaDados() {
@@ -73,13 +102,17 @@ public class Login extends AppCompatActivity {
         Boolean existemErros = false;
 
         if (edtCpfTL.getText().toString().isEmpty()) {
+
             edtCpfTL.setError("Campo Obrigatorio");
             edtCpfTL.requestFocus();
             existemErros = true;
+
         } else if (edtPassTL.getText().toString().isEmpty()) {
+
             edtPassTL.setError("Campo Obrigatorio");
             edtPassTL.requestFocus();
             existemErros = true;
+
         }
 
         return existemErros;

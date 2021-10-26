@@ -9,8 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuMaster extends AppCompatActivity {
-    Button btCadUserClinicaTM, btCadFinanTM, btListaEmpresasTM, btListaUserTM, btListaSimulTM, btSairTM;
-    TextView txtMenu;
+
+    Button btCadUserMasterTMM, btCadFinanTMM, btListaEmpresasTMM, btListaUserTMM, btListaSimulaTMM, btSairTMM;
+    TextView txtTMM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,30 +20,46 @@ public class MenuMaster extends AppCompatActivity {
 
         inicializarComponentes();
 
-        btSairTM.setOnClickListener(new View.OnClickListener() {
+        btCadUserMasterTMM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+
+                Intent telaCadUser = new Intent(getApplicationContext(), CadastraUsuarioMaster.class);
+                startActivity(telaCadUser);
+
             }
         });
 
-        btCadUserClinicaTM.setOnClickListener(new View.OnClickListener() {
+        btCadFinanTMM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent telaCadUser = new Intent(getApplicationContext(), CadastraUsuario.class);
-                startActivity(telaCadUser);
+
+                Intent telaCadFinan = new Intent(getApplicationContext(), CadastroFinanceira.class);
+                startActivity(telaCadFinan);
+
+            }
+        });
+
+        btSairTMM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
             }
         });
     }
 
     private void inicializarComponentes() {
-        btCadUserClinicaTM = findViewById(R.id.btCadUserClinicaTMM);
-        btCadFinanTM = findViewById(R.id.btCadFinanTMM);
-        btListaEmpresasTM = findViewById(R.id.btListaEmpresasTMM);
-        btListaUserTM = findViewById(R.id.btListaUserTMM);
-        btListaSimulTM = findViewById(R.id.btListaSimulTMM);
-        btSairTM = findViewById(R.id.btSairTMM);
 
-        txtMenu = findViewById(R.id.txtMenu);
+        btCadUserMasterTMM = findViewById(R.id.btCadUserMasterTMM);
+        btCadFinanTMM = findViewById(R.id.btCadFinanTMM);
+        btListaEmpresasTMM = findViewById(R.id.btListaEmpresasTMM);
+        btListaUserTMM = findViewById(R.id.btListaUserTMM);
+        btListaSimulaTMM = findViewById(R.id.btListaSimulaTMM);
+        btSairTMM = findViewById(R.id.btSairTMM);
+
+        txtTMM = findViewById(R.id.txtTMM);
+
     }
 }

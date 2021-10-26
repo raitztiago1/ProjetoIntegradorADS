@@ -1,5 +1,7 @@
 package com.example.projetointegrador;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -8,131 +10,132 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class CadastraUsuario extends AppCompatActivity {
 
-    Button btPesquisacpfTCU, btCancelaTCU, btConfirmaTCU;
-    Spinner spnTipoUsuarioTCU, spnStatusUserTCU;
-    EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtTelCelTCU, pswDigiteSenhaTCU, pswRepetirSenhaTCU;
-    TextView txtUserLojaTCU;
+    Button btnConfirmaTCU, btnCancelaTCU;
+    EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU;
+    Spinner spnStatusTCU;
 
-    String[] tipoUsuario = new String[]{"Selecione uma Opção", "Tipo 1", "Tipo 2", "Tipo 3", "Tipo 4"};
-    String[] statusUsuario = new String[]{"Selecione uma Opção", "Status 1", "Status 2", "Status 3", "Status 4"};
+    String[] statusUser = new String[]{"Selecione uma Opção", "teste 1", "teste 2"};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastra_usuario);
-        setTitle("Cadastra Usuarios");
+        setTitle("CadastraUsuario");
 
         inicializarComponentes();
         escolhaTipoUser();
-        escolhaStatusUser();
 
-        btConfirmaTCU.setOnClickListener((view -> {
+        btnConfirmaTCU.setOnClickListener((view -> {
             if (!validaDados()) {
-                String tipoUser = spnTipoUsuarioTCU.getSelectedItem().toString();
-                String statusUser = spnStatusUserTCU.getSelectedItem().toString();
-                txtUserLojaTCU.setText(tipoUser + statusUser);//só pra verificar se está funcionando, por função depois
+                String tipoUser = spnStatusTCU.getSelectedItem().toString();
+                System.out.println();
                 limpaCampos();
             } else {
 
             }
         }));
 
-        btCancelaTCU.setOnClickListener(new View.OnClickListener() {
+
+        btnCancelaTCU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 finish();
+
             }
         });
 
     }
 
-    private void inicializarComponentes() {
+    private void inicializarComponentes(){
+
+        btnConfirmaTCU = findViewById(R.id.btnConfirmaTCU);
+        btnCancelaTCU = findViewById(R.id.btnCancelaTCU);
 
         edtCpfTCU = findViewById(R.id.edtCpfTCU);
         edtUserTCU = findViewById(R.id.edtUserTCU);
         edtEmailTCU = findViewById(R.id.edtEmailTCU);
-        edtTelCelTCU = findViewById(R.id.edtTelCelTCU);
-        pswDigiteSenhaTCU = findViewById(R.id.pswDigiteSenhaTCU);
-        pswRepetirSenhaTCU = findViewById(R.id.pswRepetirSenhaTCU);
+        edtCelTCU = findViewById(R.id.edtCelTCU);
+        edtSenhaTCU = findViewById(R.id.edtSenhaTCU);
+        edtRptSenhaTCU = findViewById(R.id.edtRptSenhaTCU);
 
-        btCancelaTCU = findViewById(R.id.btCancelaTCU);
-        btConfirmaTCU = findViewById(R.id.btConfirmaTCU);
-        btPesquisacpfTCU = findViewById(R.id.btPesquisacpfTCU);
-
-        spnTipoUsuarioTCU = findViewById(R.id.spnTipoUsuarioTCU);
-        spnStatusUserTCU = findViewById(R.id.spnStatusUserTCU);
-
-        txtUserLojaTCU = findViewById(R.id.txtUserLojaTCU);
+        spnStatusTCU = findViewById(R.id.spnStatusTCU);
 
     }
 
     private void escolhaTipoUser() {
-        spnTipoUsuarioTCU.setAdapter(new ArrayAdapter<String>(
+        spnStatusTCU.setAdapter(new ArrayAdapter<String>(
                 getApplicationContext(),
                 R.layout.textview_spinner,
-                tipoUsuario
+                statusUser
         ));
     }
 
-    private void escolhaStatusUser() {
-        spnStatusUserTCU.setAdapter(new ArrayAdapter<String>(
-                getApplicationContext(),
-                R.layout.textview_spinner,
-                statusUsuario
-        ));
-    }
+    private void limpaCampos(){
 
-    private void limpaCampos() {
         edtCpfTCU.setText("");
         edtUserTCU.setText("");
         edtEmailTCU.setText("");
-        edtTelCelTCU.setText("");
-        pswDigiteSenhaTCU.setText("");
-        pswRepetirSenhaTCU.setText("");
-        spnTipoUsuarioTCU.setSelection(0);
-        spnStatusUserTCU.setSelection(0);
+        edtCelTCU.setText("");
+        edtSenhaTCU.setText("");
+        edtRptSenhaTCU.setText("");
+
+        spnStatusTCU.setSelection(0);
+
     }
 
-    private boolean validaDados() {
+    private boolean validaDados(){
 
         Boolean existeErros = false;
 
-        if (edtCpfTCU.getText().toString().isEmpty()) {
-            edtCpfTCU.setError("Campo Obrigatório");
+        if(edtCpfTCU.getText().toString().isEmpty()){
+
+            edtCpfTCU.setError("Campo Obrigatorio");
             edtCpfTCU.requestFocus();
             existeErros = true;
-        } else if (spnTipoUsuarioTCU.getSelectedItem().toString().equals("Selecione uma Opção")) {
-            ((TextView) spnTipoUsuarioTCU.getSelectedView()).setError("Campo Obrigatório");
-            existeErros = true;
-        } else if (edtUserTCU.getText().toString().isEmpty()) {
-            edtUserTCU.setError("Campo Obrigatório");
+
+        } else if(edtUserTCU.getText().toString().isEmpty()){
+
+            edtUserTCU.setError("Campo Obrigatorio");
             edtUserTCU.requestFocus();
             existeErros = true;
-        } else if (edtEmailTCU.getText().toString().isEmpty()) {
-            edtEmailTCU.setError("Campo Obrigatório");
+
+        } else if(edtEmailTCU.getText().toString().isEmpty()){
+
+            edtEmailTCU.setError("Campo Obrigatorio");
             edtEmailTCU.requestFocus();
             existeErros = true;
-        } else if (edtTelCelTCU.getText().toString().isEmpty()) {
-            edtTelCelTCU.setError("Campo Obrigatório");
-            edtTelCelTCU.requestFocus();
+
+        } else if(edtCelTCU.getText().toString().isEmpty()){
+
+            edtCelTCU.setError("Campo Obrigatorio");
+            edtCelTCU.requestFocus();
             existeErros = true;
-        } else if (spnStatusUserTCU.getSelectedItem().toString().equals("Selecione uma Opção")) {
-            ((TextView) spnStatusUserTCU.getSelectedView()).setError("Campo Obrigatório");
+
+        } else if (spnStatusTCU.getSelectedItem().toString().equals("Selecione uma Opção")) {
+
+            ((TextView) spnStatusTCU.getSelectedView()).setError("Campo Obrigatório");
             existeErros = true;
-        } else if (pswDigiteSenhaTCU.getText().toString().isEmpty()) {
-            pswDigiteSenhaTCU.setError("Campo Obrigatório");
-            pswDigiteSenhaTCU.requestFocus();
+
+        } else if(edtSenhaTCU.getText().toString().isEmpty()){
+
+            edtSenhaTCU.setError("Campo Obrigatorio");
+            edtSenhaTCU.requestFocus();
             existeErros = true;
-        } else if (pswRepetirSenhaTCU.getText().toString().isEmpty()) {
-            pswRepetirSenhaTCU.setError("Campo Obrigatório");
-            pswRepetirSenhaTCU.requestFocus();
+
+        } else if(edtRptSenhaTCU.getText().toString().isEmpty()){
+
+            edtRptSenhaTCU.setError("Campo Obrigatorio");
+            edtRptSenhaTCU.requestFocus();
             existeErros = true;
+
         }
+
         return existeErros;
+
     }
+
 }

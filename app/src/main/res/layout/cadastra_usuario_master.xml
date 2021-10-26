@@ -6,125 +6,151 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edtCpfTCU"
+        android:id="@+id/edtCpfTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Digite o CPF"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTCUM" />
 
     <EditText
-        android:id="@+id/edtUserTCU"
+        android:id="@+id/edtNomeTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Digite o Usuario"
+        android:hint="Digite o Nome"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpfTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCpfTCUM" />
 
     <EditText
-        android:id="@+id/edtEmailTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o E-mail"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtUserTCU" />
-
-    <EditText
-        android:id="@+id/edtCelTCU"
+        android:id="@+id/edtCelTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Digite o Telefone Celular"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNomeTCUM" />
 
-    <Spinner
-        android:id="@+id/spnStatusTCU"
-        android:layout_width="250dp"
+    <EditText
+        android:id="@+id/edtTelComTCUM"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="Digite o Tel. Comercial"
+        android:inputType="date"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCelTCU"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCelTCUM" />
 
     <EditText
-        android:id="@+id/edtSenhaTCU"
+        android:id="@+id/edtEmailTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="Digite o E-mail"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTelComTCUM" />
+
+    <EditText
+        android:id="@+id/edtSenhaTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Digite a Senha"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnStatusTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailTCUM" />
 
     <EditText
-        android:id="@+id/edtRptSenhaTCU"
+        android:id="@+id/edtRptSenhaTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Repita a Senha"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenhaTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSenhaTCUM" />
+
+    <Spinner
+        android:id="@+id/spnUserTypeTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtRptSenhaTCUM"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Spinner
+        android:id="@+id/spnCargoTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spnUserTypeTCUM"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/btnConfirmaTCU"
+        android:id="@+id/btnConfirmaTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Confirmar"
+        android:text="CONFIRMAR"
         app:backgroundTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btnCancelaTCU"
+        android:id="@+id/btnCancelaTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Cancelar"
+        android:text="CANCELAR"
         app:backgroundTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtTCU"
-        android:layout_width="388dp"
-        android:layout_height="62dp"
+        android:id="@+id/txtTCUM"
+        android:layout_width="386dp"
+        android:layout_height="90dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:gravity="center"
-        android:text="Cadastro de Usuario"
+        android:text="Cadastro de Usuario Master"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,82 +159,109 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtCpfTCU"
+        android:id="@+id/txtNomeCttTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="CPF"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="34dp"
+        android:text="Nome do Contato:"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCpfTCUM" />
 
     <TextView
-        android:id="@+id/txtNomeTCU"
+        android:id="@+id/txtCpfTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="29dp"
+        android:text="CPF Contato Master"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTCUM" />
+
+    <TextView
+        android:id="@+id/txtSenhaTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        android:text="Senha:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailTCUM" />
+
+    <TextView
+        android:id="@+id/txtRptSenhaTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="Repita a Senha:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSenhaTCUM" />
+
+    <TextView
+        android:id="@+id/txtTelCelTCUM"
         android:layout_width="87dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
-        android:text="Nome do Usuario:"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCpfTCU" />
-
-    <TextView
-        android:id="@+id/txtEmailTCU"
-        android:layout_width="92dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:text="E-mail:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNomeTCU" />
-
-    <TextView
-        android:id="@+id/txtCelTCU"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Telefone Celular:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailTCU" />
-
-    <TextView
-        android:id="@+id/txtStatusTCU"
-        android:layout_width="95dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:text="Status do Usuario:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCelTCU" />
-
-    <TextView
-        android:id="@+id/txtSenhaTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Senha:"
+        android:text="Telefone Celular:"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtStatusTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeCttTCUM" />
 
     <TextView
-        android:id="@+id/txtRptSenhaTCU"
+        android:id="@+id/txtTelComTCUM"
+        android:layout_width="87dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Telefone Comerical:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelCelTCUM" />
+
+    <TextView
+        android:id="@+id/txtEmailTCUM"
+        android:layout_width="53dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="E-mail:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelComTCUM" />
+
+    <TextView
+        android:id="@+id/txtUserTypeTCUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Tipo de Usuário:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRptSenhaTCUM" />
+
+    <TextView
+        android:id="@+id/txtCargoTCUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:text="Repita sua Senha:"
+        android:text="Cargo: "
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaTCU" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUserTypeTCUM" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

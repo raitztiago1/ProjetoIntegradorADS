@@ -16,16 +16,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
+            android:name=".CadastraUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".ConclusaoEmprestimo"
+            android:exported="false" />
+        <activity
+            android:name=".SimulacaoEmprestimo"
+            android:exported="false" />
+        <activity
             android:name=".MenuMaster"
             android:exported="false" />
         <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
-            android:name=".CadastraUsuario"
+            android:name=".CadastraUsuarioMaster"
             android:exported="false" />
         <activity
             android:name=".RecuperaSenha"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroFinanceira"
             android:exported="false" />
         <activity
             android:name=".Login"

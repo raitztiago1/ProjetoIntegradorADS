@@ -1,5 +1,6 @@
 package com.example.projetointegrador;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,11 +18,21 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.menu);
         inicializaComponentes();
 
+        btRealizaSimTMU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent simulacao = new Intent(getApplicationContext(), SimulacaoEmprestimo.class);
+                startActivity(simulacao);
+
+            }
+        });
 
 
         btSairTMU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 finish();
             }
         });
