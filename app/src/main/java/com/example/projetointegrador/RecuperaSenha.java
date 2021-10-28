@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RecuperaSenha extends AppCompatActivity {
@@ -32,32 +31,10 @@ public class RecuperaSenha extends AppCompatActivity {
         btConfirmarTRS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                authLocal();
                 limpaCampos();
             }
         });
 
-    }
-
-    private void limpaCampos() {
-        edtCpfTRS.setText("");
-        edtSenhaAntTRS.setText("");
-        edtNewSenhaTRS.setText("");
-        edtReNewSenhaTRS.setText("");
-        edtEmailTRS.setText("");
-        edtCodTRS.setText("");
-    }
-
-    private void authLocal(){
-        String cpfAux = edtCpfTRS.getText().toString();
-        Boolean retorno = autent.validaPfPj(cpfAux);
-        if(retorno == false){
-            AlertDialog.Builder erro = new AlertDialog.Builder(RecuperaSenha.this);
-            erro.setTitle("Erro!");
-            erro.setMessage("CPF INVÁLIDO!!");
-            erro.setNeutralButton("OK",null);
-            erro.show();
-        }
     }
 
     private void inicializarComponentes() {
@@ -74,5 +51,39 @@ public class RecuperaSenha extends AppCompatActivity {
         edtCodTRS = findViewById(R.id.edtCodTRS);
 
     }
+
+    private void limpaCampos() {
+
+        if (validaDadosLocal() == false) {
+
+            edtCpfTRS.setText("");
+            edtCpfTRS.requestFocus();
+
+        } else {
+
+            edtCpfTRS.setText("");
+            edtSenhaAntTRS.setText("");
+            edtNewSenhaTRS.setText("");
+            edtReNewSenhaTRS.setText("");
+            edtEmailTRS.setText("");
+            edtCodTRS.setText("");
+        }
+    }
+
+    private boolean validaDadosLocal() {
+
+        String cpfAux = edtCpfTRS.getText().toString();
+        Boolean existemErros = autent.validaDocumento(cpfAux);
+
+        if (existemErros == false) {
+
+            edtCpfTRS.setError("Campo Obrigatório!");
+            edtCpfTRS.requestFocus();
+            return existemErros;
+
+        }
+        return existemErros;
+    }
+
 
 }

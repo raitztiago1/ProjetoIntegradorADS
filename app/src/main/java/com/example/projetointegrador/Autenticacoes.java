@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 
 public class Autenticacoes {
 
-    public boolean validaPfPj(String changeDoc){
+    public boolean validaDocumento(String changeDoc){
         if (changeDoc.equals("00000000000") || changeDoc.equals("11111111111") ||
                 changeDoc.equals("22222222222") || changeDoc.equals("33333333333") ||
                 changeDoc.equals("44444444444") || changeDoc.equals("55555555555") ||

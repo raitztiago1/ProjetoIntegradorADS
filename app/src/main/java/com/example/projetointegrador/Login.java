@@ -12,11 +12,14 @@ import com.example.projetointegrador.http.HttpHelper;
 
 public class Login extends AppCompatActivity {
 
+    Autenticacoes autent = new Autenticacoes();
+
     Button btLoginTL, btRecSenhaTL, btCadTL;
     EditText edtCpfTL, edtPassTL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         setTitle("Login");
@@ -29,29 +32,36 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                validaDados();
+                if (validaCpfLocal() == true) {
 
-                if (edtCpfTL.getText().toString().equals("123") && edtPassTL.getText().toString().equals("admin")) {
+                    if (edtPassTL.getText().toString().equals("admin")) {
 
-                    Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
+                        Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
 
-                    String local = "{}";
-                    controle.get(local);
+                        String local = "{}";
+                        controle.get(local);
 
-                    startActivity(telaMaster);
+                        startActivity(telaMaster);
 
-                    limpaCampos();
+                        limpaCampos();
 
-                } else if (!validaDados()) {
 
-                    Intent telaComum = new Intent(getApplicationContext(), Menu.class);
+                    } else if (edtPassTL.getText().toString().isEmpty()) {
 
-                    String local = "{}";
-                    controle.get(local);
+                        edtPassTL.requestFocus();
+                        edtPassTL.setError("Senha Vazia!");
 
-                    startActivity(telaComum);
 
-                    limpaCampos();
+                    } else {
+
+                        Intent telaComum = new Intent(getApplicationContext(), Menu.class);
+
+                        String local = "{}";
+                        controle.get(local);
+
+                        startActivity(telaComum);
+
+                    }
 
                 }
 
@@ -72,12 +82,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent telaCadUser = new Intent(getApplicationContext(),CadastraUsuario.class);
+                Intent telaCadUser = new Intent(getApplicationContext(), CadastraUsuario.class);
                 startActivity(telaCadUser);
 
             }
         });
     }
+
 
     private void inicializarComponentes() {
 
@@ -97,21 +108,16 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private boolean validaDados() {
+    private boolean validaCpfLocal() {
 
-        Boolean existemErros = false;
+        String cpfAux = edtCpfTL.getText().toString();
+        Boolean existemErros = autent.validaDocumento(cpfAux);
 
-        if (edtCpfTL.getText().toString().isEmpty()) {
+        if (existemErros == false) {
 
             edtCpfTL.setError("Campo Obrigatorio");
             edtCpfTL.requestFocus();
-            existemErros = true;
-
-        } else if (edtPassTL.getText().toString().isEmpty()) {
-
-            edtPassTL.setError("Campo Obrigatorio");
-            edtPassTL.requestFocus();
-            existemErros = true;
+            return existemErros;
 
         }
 
