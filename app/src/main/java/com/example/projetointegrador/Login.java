@@ -1,127 +1,121 @@
 package com.example.projetointegrador;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.projetointegrador.http.HttpHelper;
+import com.example.projetointegrador.http.HttpHelperUsuario;
+import com.example.projetointegrador.http.JsonParse;
+import com.example.projetointegrador.model.Usuario;
 
 public class Login extends AppCompatActivity {
 
     Autenticacoes autent = new Autenticacoes();
-
     Button btLoginTL, btRecSenhaTL, btCadTL;
     EditText edtCpfTL, edtPassTL;
+    private final HttpHelper httpHelper = new HttpHelper();
+    private String edCpf;
+    private String edSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         setTitle("Login");
-
-        HttpHelper controle = new HttpHelper();
-
         inicializarComponentes();
+        httpHelper.HttpHelper("{}");
 
-        btLoginTL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (validaCpfLocal() == true) {
-
-                    if (edtPassTL.getText().toString().equals("admin")) {
-
-                        Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
-
-                        String local = "{}";
-                        controle.get(local);
-
-                        startActivity(telaMaster);
-
-                        limpaCampos();
-
-
-                    } else if (edtPassTL.getText().toString().isEmpty()) {
-
-                        edtPassTL.requestFocus();
-                        edtPassTL.setError("Senha Vazia!");
-
-
-                    } else {
-
-                        Intent telaComum = new Intent(getApplicationContext(), Menu.class);
-
-                        String local = "{}";
-                        controle.get(local);
-
-                        startActivity(telaComum);
-
-                    }
-
-                }
-
+        btLoginTL.setOnClickListener(view -> {
+            if (validaCpfLocal()) {
+                edCpf = edtCpfTL.getText().toString();
+                edSenha = edtPassTL.getText().toString();
+                TarefaUsuarioUnico tarefaUsuario = new TarefaUsuarioUnico();
+                tarefaUsuario.execute();
             }
+
         });
 
-        btRecSenhaTL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btRecSenhaTL.setOnClickListener(view -> {
 
-                Intent telaRSenha = new Intent(getApplicationContext(), RecuperaSenha.class);
-                startActivity(telaRSenha);
+            Intent telaRSenha = new Intent(getApplicationContext(), RecuperaSenha.class);
+            startActivity(telaRSenha);
 
-            }
         });
 
-        btCadTL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btCadTL.setOnClickListener(view -> {
 
-                Intent telaCadUser = new Intent(getApplicationContext(), CadastraUsuario.class);
-                startActivity(telaCadUser);
+            Intent telaCadUser = new Intent(getApplicationContext(), CadastraUsuario.class);
+            startActivity(telaCadUser);
 
-            }
         });
     }
 
+//realiza o processamento dos dados e encaminha para tela
+    private class TarefaUsuarioUnico extends AsyncTask<String,String,String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
+            return controleUsuario.getUsuario(edCpf);
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
+            alerta.setNeutralButton("OK", null);
+            alerta.setTitle("Login error");
 
+            Usuario user = JsonParse.JsonToObject(s);
+
+            if (user != null){
+                if(user.getSenha().equals(edSenha)){
+                    if(user.getCargo().equals("admin")){
+                        limpaCampos();
+                        Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
+                        startActivity(telaMaster);
+                    }else{
+                        limpaCampos();
+                        startActivity(new Intent(Login.this, Menu.class));
+                    }
+                }else{
+                    alerta.setMessage("Senha ou usuario invalido verifique e tente novamente");
+                    alerta.show();
+                }
+            }else{
+                alerta.setMessage("Usuario nao existe, verifique se digitou corretamente ou realize o cadastro");
+                alerta.show();
+            }
+        }
+    }
+
+//inicializa componentes da tela para versionamento
     private void inicializarComponentes() {
-
         btLoginTL = findViewById(R.id.btLoginTL);
         btRecSenhaTL = findViewById(R.id.btRecSenhaTL);
         btCadTL = findViewById(R.id.btCadTL);
-
         edtCpfTL = findViewById(R.id.edtCpfTL);
         edtPassTL = findViewById(R.id.edtPassTL);
-
     }
 
+//limpa os campos visiveis a usuario
     private void limpaCampos() {
-
         edtCpfTL.setText("");
         edtPassTL.setText("");
-
     }
 
+//chama validacao de cpf
     private boolean validaCpfLocal() {
-
         String cpfAux = edtCpfTL.getText().toString();
-        Boolean existemErros = autent.validaDocumento(cpfAux);
+        boolean existemErros = autent.validaDocumento(cpfAux);
 
-        if (existemErros == false) {
-
+        if (!existemErros) {
             edtCpfTL.setError("Campo Obrigatorio");
             edtCpfTL.requestFocus();
-            return existemErros;
-
+            return false;
         }
-
-        return existemErros;
+        return true;
     }
 
 }
