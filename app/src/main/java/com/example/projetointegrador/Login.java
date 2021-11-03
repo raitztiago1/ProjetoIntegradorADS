@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity {
 
             if (user != null){
                 if(user.getSenha().equals(edSenha)){
-                    if(user.getCargo().equals("admin")){
+                    if(user.getCargo().equals("Administrador")){
                         limpaCampos();
                         Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
                         startActivity(telaMaster);

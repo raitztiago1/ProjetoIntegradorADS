@@ -1,14 +1,18 @@
 package com.example.projetointegrador;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projetointegrador.http.HttpHelperUsuario;
+import com.example.projetointegrador.model.Usuario;
 
 public class CadastraUsuarioMaster extends AppCompatActivity {
 
@@ -17,7 +21,8 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
     EditText edtCpfTCUM, edtOrgaoEmissorTCUM, edtCidadeTCUM, edtNomeTCUM, edtCelTCUM, edtTelComTCUM, edtEmailTCUM, edtSenhaTCUM, edtRptSenhaTCUM;
 
     String[] estadoUsuario = new String[]{"Estado de Usuário", "Ativo", "Inativo"};
-    String[] cargoUsusario = new String[]{"Cargo de usuário", "Administrador", "Usuário"};
+    String[] cargoUsusario = new String[]{"Cargo de usuário", "Administrador", "Usuario"};
+    private final HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
 
 
     @Override
@@ -31,22 +36,100 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
 
         btnConfirmaTCUM.setOnClickListener((view -> {
             if (!validaDados()) {
-                String tipoUser = spnEstadoUserTCUM.getSelectedItem().toString();
-                String cargoUser = spnCargoTCUM.getSelectedItem().toString();
-                System.out.println(tipoUser + cargoUser);
-                limpaCampos();
-            } else {
-
+                TarefaUsuarioPost tarefaPost = new TarefaUsuarioPost();
+                tarefaPost.execute();
             }
         }));
 
-        btnCancelaTCUM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        btnCancelaTCUM.setOnClickListener(view -> finish());
 
+    }
+
+    //realiza o processamento dos dados(post)
+    private class TarefaUsuarioPost extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            Usuario user = criarObjeto();
+            if (user != null) {
+                return controleUsuario.postUsuario(user);
+            } else {
+                return null;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            AlertDialog.Builder alerta = new AlertDialog.Builder(CadastraUsuarioMaster.this);
+            alerta.setNeutralButton("OK", null);
+            if (s != null) {
+                limpaCampos();
+                alerta.setTitle("Sucesso");
+                alerta.setMessage("Cadastro realizado com sucesso!");
+                alerta.show();
+            } else {
+                alerta.setTitle("Cadastro error");
+                alerta.setMessage("Erro no cadastro, verifique os dados e tente novamente!");
+                alerta.show();
+            }
+        }
+    }
+
+    //tranforma dados da tela em um objeto
+    private Usuario criarObjeto() {
+        String cpf = edtCpfTCUM.getText().toString();
+        String nome = edtNomeTCUM.getText().toString();
+        String celular = edtCelTCUM.getText().toString();
+        String telefoneComercial = edtTelComTCUM.getText().toString();
+        String email = edtEmailTCUM.getText().toString();
+        String senha = edtSenhaTCUM.getText().toString();
+        String senhaVerficicacao = edtRptSenhaTCUM.getText().toString();
+        String estadoUser = spnEstadoUserTCUM.getSelectedItem().toString();
+        String cargoUser = spnCargoTCUM.getSelectedItem().toString();
+        String orgaoEmissor = edtOrgaoEmissorTCUM.getText().toString();
+        String cidadeNatural = edtCidadeTCUM.getText().toString();
+        String dataNascimento = null;
+        String dataEmissaoDocumento = null;
+        String dataValidade = null;
+        String tipoDocumento = null;
+        String numeroDocumento = null;
+        if (verificacoes(senha, senhaVerficicacao, cpf)) {
+            return new Usuario(
+                    cpf,
+                    nome,
+                    estadoUser,
+                    celular,
+                    telefoneComercial,
+                    email,
+                    senha,
+                    dataNascimento,
+                    dataEmissaoDocumento,
+                    dataValidade,
+                    tipoDocumento,
+                    numeroDocumento,
+                    orgaoEmissor,
+                    cidadeNatural,
+                    cargoUser
+            );
+        } else {
+            System.out.println("erro na criacao objeto");
+            return null;
+        }
+    }
+
+    //verifica os dados gerados para autenticacoes do objeto
+    private Boolean verificacoes(String senha, String senhaRepetida, String cpf) {
+        Autenticacoes aut = new Autenticacoes();
+        if (aut.validaDocumento(cpf)) {
+            if (senha.equals(senhaRepetida)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            System.out.println("erro nas verificacoes de dados (cpf e senha)");
+            return false;
+        }
     }
 
     private void inicializarComponentes() {
@@ -70,7 +153,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
     }
 
     private void escolhaTipoUser() {
-        spnEstadoUserTCUM.setAdapter(new ArrayAdapter<String>(
+        spnEstadoUserTCUM.setAdapter(new ArrayAdapter<>(
                 getApplicationContext(),
                 R.layout.textview_spinner,
                 estadoUsuario
@@ -78,7 +161,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
     }
 
     private void escolhaStatusUser() {
-        spnCargoTCUM.setAdapter(new ArrayAdapter<String>(
+        spnCargoTCUM.setAdapter(new ArrayAdapter<>(
                 getApplicationContext(),
                 R.layout.textview_spinner,
                 cargoUsusario
@@ -103,7 +186,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
 
     private boolean validaDados() {
 
-        Boolean existeErros = false;
+        boolean existeErros = false;
 
         if (edtCpfTCUM.getText().toString().isEmpty()) {
 
@@ -165,7 +248,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
             edtRptSenhaTCUM.requestFocus();
             existeErros = true;
 
-        }  else if (spnCargoTCUM.getSelectedItem().toString().equals(cargoUsusario[0])) {
+        } else if (spnCargoTCUM.getSelectedItem().toString().equals(cargoUsusario[0])) {
 
             ((TextView) spnCargoTCUM.getSelectedView()).setError("Campo Obrigatório");
             spnCargoTCUM.requestFocus();
