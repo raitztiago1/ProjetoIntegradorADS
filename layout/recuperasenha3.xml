@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/rs3textotopo"
+        android:layout_width="410dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="Recuperação de Senha"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rs3novasenha"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="90dp"
+        android:text="Nova Senha:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rs3textotopo" />
+
+    <TextView
+        android:id="@+id/rs3confirmarsenha"
+        android:layout_width="92dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="28dp"
+        android:text="Confirmar Senha:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rs3novasenha" />
+
+    <EditText
+        android:id="@+id/rs3nsenha"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginRight="73dp"
+        android:ems="10"
+        android:hint="Digite a nova senha"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rs3textotopo" />
+
+    <EditText
+        android:id="@+id/rs3csenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginRight="73dp"
+        android:ems="10"
+        android:hint="Confirme a nova senha"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rs3nsenha" />
+
+    <Button
+        android:id="@+id/btrs3cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="133dp"
+        android:text="CANCELAR"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rs3csenha" />
+
+    <Button
+        android:id="@+id/btrs3confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="133dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:text="CONFIRMAR"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rs3csenha" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

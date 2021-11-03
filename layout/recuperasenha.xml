@@ -5,208 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextTextPassword7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Repita a Senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword6" />
-
     <TextView
-        android:id="@+id/textodecima"
-        android:layout_width="388dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="1dp"
+        android:id="@+id/rstextotopo"
+        android:layout_width="410dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="6dp"
         android:gravity="center"
-        android:text="Recuperar Senha"
+        android:text="Recuperação de Senha"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ncontato"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="60dp"
-        android:text="CPF:"
+        android:id="@+id/rstextview"
+        android:layout_width="388dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center"
+        android:text="Digite o E-mail Cadastrado"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textodecima" />
-
-    <TextView
-        android:id="@+id/telcel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="29dp"
-        android:text="Senha atual:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ncontato" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="153dp"
-        android:layout_marginBottom="134dp"
-        android:text="Confirmar"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cod" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
-        android:layout_marginLeft="145dp"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="134dp"
-        android:text="Cancelar"
-        android:textSize="12sp"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber4" />
+        app:layout_constraintTop_toBottomOf="@+id/rstextotopo" />
 
     <TextView
-        android:id="@+id/novasenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="28dp"
-        android:text="Nova Senha:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/telcel" />
-
-    <TextView
-        android:id="@+id/rnovasenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="20dp"
-        android:text="Repita sua nova senha:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/novasenha" />
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/rsemailtext"
+        android:layout_width="113dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
         android:text="E-mail:"
         android:textColor="#000000"
+        android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rnovasenha" />
+        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
 
-    <TextView
-        android:id="@+id/cod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="28dp"
-        android:text="Código de Liberação:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+    <EditText
+        android:id="@+id/rsinsiraemail"
+        android:layout_width="276dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Digite o E-mail"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toEndOf="@+id/rsemailtext"
+        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btrsvoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:text="Pesquisar CPF"
-        android:textColor="#000000"
-        app:backgroundTint="#D3D3D3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textodecima" />
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="104dp"
+        android:text="VOLTAR"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rsinsiraemail" />
 
-    <EditText
-        android:id="@+id/editTextNumber3"
+    <Button
+        android:id="@+id/btrsavancar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Digite o CPF"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:text="AVANÇAR"
+        app:backgroundTint="#00BCD4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Digite a Senha Atual"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Digite a nova Senha"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword5" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Digite o E-mail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword7" />
-
-    <EditText
-        android:id="@+id/editTextNumber4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Digite o Código"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintStart_toEndOf="@+id/btrsvoltar"
+        app:layout_constraintTop_toBottomOf="@+id/rsinsiraemail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
