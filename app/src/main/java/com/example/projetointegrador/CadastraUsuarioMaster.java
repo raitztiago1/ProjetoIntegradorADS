@@ -13,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CadastraUsuarioMaster extends AppCompatActivity {
 
     Button btnConfirmaTCUM, btnCancelaTCUM;
-    Spinner spnUserTypeTCUM, spnCargoTCUM;
-    EditText edtCpfTCUM, edtNomeTCUM, edtCelTCUM, edtTelComTCUM, edtEmailTCUM, edtSenhaTCUM, edtRptSenhaTCUM;
+    Spinner spnEstadoUserTCUM, spnCargoTCUM;
+    EditText edtCpfTCUM, edtOrgaoEmissorTCUM, edtCidadeTCUM, edtNomeTCUM, edtCelTCUM, edtTelComTCUM, edtEmailTCUM, edtSenhaTCUM, edtRptSenhaTCUM;
 
-    String[] tipoUsuario = new String[]{"Selecione uma Opção", "Administrador", "Usuário"};
-    String[] cargoUsusario = new String[]{"Selecione uma Opção", "teste 1", "teste 2"};
+    String[] estadoUsuario = new String[]{"Estado de Usuário", "Ativo", "Inativo"};
+    String[] cargoUsusario = new String[]{"Cargo de usuário", "Administrador", "Usuário"};
 
 
     @Override
@@ -25,14 +25,13 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastra_usuario_master);
         setTitle("Cadastra Usuarios");
-
         inicializarComponentes();
         escolhaTipoUser();
         escolhaStatusUser();
 
         btnConfirmaTCUM.setOnClickListener((view -> {
             if (!validaDados()) {
-                String tipoUser = spnUserTypeTCUM.getSelectedItem().toString();
+                String tipoUser = spnEstadoUserTCUM.getSelectedItem().toString();
                 String cargoUser = spnCargoTCUM.getSelectedItem().toString();
                 System.out.println(tipoUser + cargoUser);
                 limpaCampos();
@@ -55,10 +54,12 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
         btnConfirmaTCUM = findViewById(R.id.btnConfirmaTCUM);
         btnCancelaTCUM = findViewById(R.id.btnCancelaTCUM);
 
-        spnUserTypeTCUM = findViewById(R.id.spnUserTypeTCUM);
+        spnEstadoUserTCUM = findViewById(R.id.spnEstadoUserTCUM);
         spnCargoTCUM = findViewById(R.id.spnCargoTCUM);
 
         edtCpfTCUM = findViewById(R.id.edtCpfTCUM);
+        edtOrgaoEmissorTCUM = findViewById(R.id.edtOrgaoEmissorTCUM);
+        edtCidadeTCUM = findViewById(R.id.edtCidadeTCUM);
         edtNomeTCUM = findViewById(R.id.edtNomeTCUM);
         edtCelTCUM = findViewById(R.id.edtCelTCUM);
         edtTelComTCUM = findViewById(R.id.edtTelComTCUM);
@@ -69,10 +70,10 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
     }
 
     private void escolhaTipoUser() {
-        spnUserTypeTCUM.setAdapter(new ArrayAdapter<String>(
+        spnEstadoUserTCUM.setAdapter(new ArrayAdapter<String>(
                 getApplicationContext(),
                 R.layout.textview_spinner,
-                tipoUsuario
+                estadoUsuario
         ));
     }
 
@@ -87,6 +88,8 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
     private void limpaCampos() {
 
         edtCpfTCUM.setText("");
+        edtOrgaoEmissorTCUM.setText("");
+        edtCidadeTCUM.setText("");
         edtNomeTCUM.setText("");
         edtCelTCUM.setText("");
         edtTelComTCUM.setText("");
@@ -94,7 +97,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
         edtSenhaTCUM.setText("");
         edtRptSenhaTCUM.setText("");
 
-        spnUserTypeTCUM.setSelection(0);
+        spnEstadoUserTCUM.setSelection(0);
         spnCargoTCUM.setSelection(0);
     }
 
@@ -108,10 +111,28 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
             edtCpfTCUM.requestFocus();
             existeErros = true;
 
+        } else if (edtOrgaoEmissorTCUM.getText().toString().isEmpty()) {
+
+            edtOrgaoEmissorTCUM.setError("Campo Obrigatório");
+            edtOrgaoEmissorTCUM.requestFocus();
+            existeErros = true;
+
+        } else if (edtCidadeTCUM.getText().toString().isEmpty()) {
+
+            edtCidadeTCUM.setError("Campo Obrigatório");
+            edtCidadeTCUM.requestFocus();
+            existeErros = true;
+
         } else if (edtNomeTCUM.getText().toString().isEmpty()) {
 
             edtNomeTCUM.setError("Campo Obrigatório");
             edtNomeTCUM.requestFocus();
+            existeErros = true;
+
+        } else if (spnEstadoUserTCUM.getSelectedItem().toString().equals(estadoUsuario[0])) {
+
+            ((TextView) spnEstadoUserTCUM.getSelectedView()).setError("Campo Obrigatório");
+            spnEstadoUserTCUM.requestFocus();
             existeErros = true;
 
         } else if (edtCelTCUM.getText().toString().isEmpty()) {
@@ -144,14 +165,10 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
             edtRptSenhaTCUM.requestFocus();
             existeErros = true;
 
-        } else if (spnUserTypeTCUM.getSelectedItem().toString().equals("Selecione uma Opção")) {
-
-            ((TextView) spnUserTypeTCUM.getSelectedView()).setError("Campo Obrigatório");
-            existeErros = true;
-
-        } else if (spnCargoTCUM.getSelectedItem().toString().equals("Selecione uma Opção")) {
+        }  else if (spnCargoTCUM.getSelectedItem().toString().equals(cargoUsusario[0])) {
 
             ((TextView) spnCargoTCUM.getSelectedView()).setError("Campo Obrigatório");
+            spnCargoTCUM.requestFocus();
             existeErros = true;
 
         }
