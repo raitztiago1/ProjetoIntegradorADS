@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
+            android:name=".ListarUsuario"
+            android:exported="false" />
+        <activity
             android:name=".NovaSenha"
             android:exported="false" />
         <activity

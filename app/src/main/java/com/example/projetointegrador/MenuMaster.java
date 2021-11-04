@@ -40,6 +40,16 @@ public class MenuMaster extends AppCompatActivity {
             }
         });
 
+        btListaUserTMM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent telaListaUser = new Intent(getApplicationContext(), ListarUsuario.class);
+                startActivity(telaListaUser);
+
+            }
+        });
+
         btSairTMM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

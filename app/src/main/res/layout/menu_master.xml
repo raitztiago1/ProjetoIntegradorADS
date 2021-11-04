@@ -77,7 +77,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="124dp"
         android:layout_marginRight="124dp"
-        android:text="LISTA EMPRESAS"
+        android:text="LISTAR EMPRESAS"
         app:backgroundTint="#00BCD4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
