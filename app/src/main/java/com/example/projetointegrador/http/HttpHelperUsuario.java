@@ -14,27 +14,8 @@ import java.net.URL;
 public class HttpHelperUsuario {
     private static final String urlApi = "https://rest-api-projeto-integrador.herokuapp.com/usuario";
 
-    public void getAll() {
-        TarefaAll tarefaUsuarioAll = new TarefaAll();
-        tarefaUsuarioAll.execute();
-    }
-
-    private static class TarefaAll extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... strings) {
-            HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
-            return controleUsuario.getUsuarioAll();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            System.out.println(s);
-            //super.onPostExecute(s);
-        }
-    }
-
     //busca tudo da tabela usuario e tranforma em uma List do tipo Usuario (Ajustar)
-    private String getUsuarioAll() {
+    public String getUsuarioAll() {
         BufferedReader buffReader = null;
         try {
             URL url = new URL(urlApi + "/all");
@@ -54,7 +35,6 @@ public class HttpHelperUsuario {
         } finally {
             if (buffReader != null) {
                 try {
-
                     buffReader.close();
                 } catch (Exception e) {
                     e.printStackTrace();

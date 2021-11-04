@@ -1,46 +1,52 @@
 package com.example.projetointegrador;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projetointegrador.http.HttpHelperUsuario;
+import com.example.projetointegrador.http.JsonParse;
+import com.example.projetointegrador.model.Usuario;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListarUsuario extends AppCompatActivity {
 
-    ListView lvUsuarioTLE;
+    private static ListView lvUsuarioTLE;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listar_usuario);
-
         setTitle("Lista de Usuario");
-
         inicializaComponentes();
 
-        ArrayList<String> listaEmpresas = preencherDados();
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaEmpresas);
-        lvUsuarioTLE.setAdapter(arrayAdapter);
+        TarefaUsuarioAll tarefaUsuarioAll = new TarefaUsuarioAll();
+        tarefaUsuarioAll.execute();
     }
 
-    private ArrayList<String> preencherDados() {
-        ArrayList<String> dados = new ArrayList<String>();
-        dados.add("teste 1");
-        dados.add("teste 2");
-        dados.add("teste 3");
-        dados.add("teste 4");
-        dados.add("teste 5");
-        dados.add("teste 6");
-        dados.add("teste 7");
-        dados.add("teste 8");
-        dados.add("teste 9");
-        dados.add("teste 10");
-        return dados;
+    private static class TarefaUsuarioAll extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
+            return controleUsuario.getUsuarioAll();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            List<Usuario> listaUsuario = new ArrayList<>();
+            listaUsuario = JsonParse.JsonToList(s);
+            for (int x=0; x<listaUsuario.size(); x++){
+                System.out.println(listaUsuario.get(x).toString());
+            }
+            //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaUsuario);
+            //lvUsuarioTLE.setAdapter(arrayAdapter);
+        }
     }
 
     private void inicializaComponentes() {
