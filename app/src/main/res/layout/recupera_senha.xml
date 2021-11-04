@@ -38,8 +38,19 @@
         android:layout_width="113dp"
         android:layout_height="47dp"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="40dp"
+        android:text="Cpf:"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
+
+    <TextView
+        android:id="@+id/rsemailtext2"
+        android:layout_width="113dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="116dp"
         android:text="E-mail:"
         android:textColor="#000000"
         android:textSize="34sp"
@@ -47,12 +58,24 @@
         app:layout_constraintTop_toBottomOf="@+id/rstextview" />
 
     <EditText
-        android:id="@+id/edtEmailTRS"
+        android:id="@+id/edtCpfTRS"
         android:layout_width="276dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Digite o CPF"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toEndOf="@+id/rsemailtext"
+        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
+
+    <EditText
+        android:id="@+id/edtEmailTRS"
+        android:layout_width="276dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="112dp"
         android:ems="10"
         android:hint="Digite o E-mail"
         android:inputType="textEmailAddress"
@@ -70,7 +93,7 @@
         android:text="VOLTAR"
         app:backgroundTint="#00BCD4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailTRS" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCpfTRS" />
 
     <Button
         android:id="@+id/btAvancTRS"
@@ -83,6 +106,6 @@
         app:backgroundTint="#00BCD4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btCancelaTRS"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailTRS" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCpfTRS" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
