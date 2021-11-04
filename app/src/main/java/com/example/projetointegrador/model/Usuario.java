@@ -1,7 +1,5 @@
 package com.example.projetointegrador.model;
 
-import java.util.Date;
-
 public class Usuario {
     private String cpf_usuario;
     private String nome_contato;
@@ -159,22 +157,14 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "cpf_usuario='" + cpf_usuario + '\'' +
-                ", nome_contato='" + nome_contato + '\'' +
-                ", estado_usuario='" + estado_usuario + '\'' +
-                ", telefone_celular='" + telefone_celular + '\'' +
-                ", telefone_comercial='" + telefone_comercial + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", data_nascimento='" + data_nascimento + '\'' +
-                ", data_emissao_documento='" + data_emissao_documento + '\'' +
-                ", data_validade='" + data_validade + '\'' +
-                ", tipo_documento='" + tipo_documento + '\'' +
-                ", numero_documento='" + numero_documento + '\'' +
-                ", orgao_emissor_documento='" + orgao_emissor_documento + '\'' +
-                ", natural_cidade='" + natural_cidade + '\'' +
-                ", cargo='" + cargo + '\'' +
-                '}';
+        return "" +
+                " \n CPF Usuario: " + cpf_usuario +
+                " \n Nome Contato: " + nome_contato +
+                " \n Estado Usuario: " + estado_usuario +
+                " \n Telefone Celular: " + telefone_celular +
+                " \n Telefone Comercial: " + telefone_comercial +
+                " \n Email: " + email +
+                " \n Natural Cidade: " + natural_cidade +
+                " \n Cargo: " + cargo + "\n";
     }
 }

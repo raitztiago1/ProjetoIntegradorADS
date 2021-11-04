@@ -30,7 +30,13 @@ public class ListarUsuario extends AppCompatActivity {
         tarefaUsuarioAll.execute();
     }
 
-    private static class TarefaUsuarioAll extends AsyncTask<String, String, String> {
+    private void inicializaComponentes() {
+
+        lvUsuarioTLE = findViewById(R.id.lvUsuarioTLE);
+
+    }
+
+    private class TarefaUsuarioAll extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
             HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
@@ -39,20 +45,26 @@ public class ListarUsuario extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            List<Usuario> listaUsuario = new ArrayList<>();
-            listaUsuario = JsonParse.JsonToList(s);
-            for (int x=0; x<listaUsuario.size(); x++){
-                System.out.println(listaUsuario.get(x).toString());
-            }
-            //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaUsuario);
-            //lvUsuarioTLE.setAdapter(arrayAdapter);
+
+            ArrayList<String> asdf = preencherDados(s);
+
+            ArrayAdapter<String> arrayAdapter;
+            arrayAdapter = new ArrayAdapter<String>(ListarUsuario.this, android.R.layout.simple_list_item_1, asdf);
+            lvUsuarioTLE.setAdapter(arrayAdapter);
+
         }
     }
+    private static ArrayList<String> preencherDados(String s){
+        ArrayList<String> teste = new ArrayList<>();
 
-    private void inicializaComponentes() {
+        List<Usuario> listaUsuario = new ArrayList<>();
+        listaUsuario = JsonParse.JsonToList(s);
+        for (int x = 0; x < listaUsuario.size(); x++) {
 
-        lvUsuarioTLE = findViewById(R.id.lvUsuarioTLE);
+            teste.add(listaUsuario.get(x).toString());
 
+        }
+        return teste;
     }
 
 }
