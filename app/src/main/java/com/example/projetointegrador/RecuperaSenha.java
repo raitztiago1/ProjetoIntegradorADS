@@ -1,5 +1,6 @@
 package com.example.projetointegrador;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,10 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RecuperaSenha extends AppCompatActivity {
 
-    Autenticacoes autent = new Autenticacoes();
-
-    Button btCancelaTRS, btConfirmarTRS, btPesquisacpfTRS;
-    EditText edtCpfTRS, edtSenhaAntTRS, edtNewSenhaTRS, edtReNewSenhaTRS, edtEmailTRS, edtCodTRS;
+    Button btCancelaTRS, btConfirmarTRS;
+    EditText edtEmailTRS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +20,7 @@ public class RecuperaSenha extends AppCompatActivity {
         setTitle("Recupera Senha");
 
         inicializarComponentes();
+
         btCancelaTRS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,61 +28,38 @@ public class RecuperaSenha extends AppCompatActivity {
             }
         });
 
-        btConfirmarTRS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                limpaCampos();
+        btConfirmarTRS.setOnClickListener((view -> {
+            if (!validaDados()) {
+                Intent telaRecupera = new Intent(getApplicationContext(), RecuperaCodigo.class);
+                startActivity(telaRecupera);
+            } else {
+
             }
-        });
+        }));
 
     }
 
     private void inicializarComponentes() {
 
         btCancelaTRS = findViewById(R.id.btCancelaTRS);
-        btConfirmarTRS = findViewById(R.id.btConfirmarTRS);
-        btPesquisacpfTRS = findViewById(R.id.btPesquisacpfTRS);
+        btConfirmarTRS = findViewById(R.id.btAvancTRS);
 
-        edtCpfTRS = findViewById(R.id.edtCpfTRS);
-        edtSenhaAntTRS = findViewById(R.id.edtSenhaAntTRS);
-        edtNewSenhaTRS = findViewById(R.id.edtNewSenhaTRS);
-        edtReNewSenhaTRS = findViewById(R.id.edtReNewSenhaTRS);
         edtEmailTRS = findViewById(R.id.edtEmailTRS);
-        edtCodTRS = findViewById(R.id.edtCodTRS);
 
     }
 
-    private void limpaCampos() {
+    private boolean validaDados() {
 
-        if (validaDadosLocal() == false) {
+        Boolean existeErros = false;
 
-            edtCpfTRS.setText("");
-            edtCpfTRS.requestFocus();
+        if (edtEmailTRS.getText().toString().isEmpty()) {
 
-        } else {
-
-            edtCpfTRS.setText("");
-            edtSenhaAntTRS.setText("");
-            edtNewSenhaTRS.setText("");
-            edtReNewSenhaTRS.setText("");
-            edtEmailTRS.setText("");
-            edtCodTRS.setText("");
-        }
-    }
-
-    private boolean validaDadosLocal() {
-
-        String cpfAux = edtCpfTRS.getText().toString();
-        Boolean existemErros = autent.validaDocumento(cpfAux);
-
-        if (existemErros == false) {
-
-            edtCpfTRS.setError("Campo Obrigatório!");
-            edtCpfTRS.requestFocus();
-            return existemErros;
+            edtEmailTRS.setError("Campo Obrigatório!");
+            edtEmailTRS.requestFocus();
+            existeErros = true;
 
         }
-        return existemErros;
+        return existeErros;
     }
 
 
