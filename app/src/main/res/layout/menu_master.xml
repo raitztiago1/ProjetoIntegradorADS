@@ -1,107 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MenuMaster">
 
-    <TextView
-        android:id="@+id/txtTMM"
-        android:layout_width="386dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="MENU"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <Button
-        android:id="@+id/btCadUserMasterTMM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="122dp"
-        android:layout_marginEnd="74dp"
-        android:text="Cadastrar Usuario Master"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btCadFinanTMM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="74dp"
-        android:text="CADASTRAR FINANCEIRA"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btCadUserMasterTMM" />
+            <TextView
+                android:id="@+id/txtTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:padding="10dp"
+                android:text="MENU"
+                android:textColor="@android:color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btListaEmpresasTMM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="124dp"
-        android:text="LISTAR EMPRESAS"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btCadFinanTMM" />
+            <Button
+                android:id="@+id/btCadUserMasterTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:padding="10dp"
+                android:text="CADASTRA USUÁRIO MASTER" />
 
-    <Button
-        android:id="@+id/btListaUserTMM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="122dp"
-        android:text="LISTAR USUARIOS"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btListaEmpresasTMM" />
+            <Button
+                android:id="@+id/btCadFinanTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:padding="10dp"
+                android:text="CADASTRAR FINANCEIRA" />
 
-    <Button
-        android:id="@+id/btListaSimulaTMM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="111dp"
-        android:layout_marginLeft="111dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="111dp"
-        android:layout_marginRight="111dp"
-        android:text="LISTAR SIMULAÇÕES"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btListaUserTMM" />
+            <Button
+                android:id="@+id/btListaEmpresasTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:padding="10dp"
+                android:text="LISTAR EMPRESAS" />
 
-    <Button
-        android:id="@+id/btSairTMM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="220dp"
-        android:text="SAIR"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btListaSimulaTMM" />
+            <Button
+                android:id="@+id/btListaUserTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:text="LISTAR USUARIOS" />
+
+            <Button
+                android:id="@+id/btListaSimulaTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:padding="10dp"
+                android:text="LISTAR SIMULAÇÕES" />
+
+            <Button
+                android:id="@+id/btSairTMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:padding="10dp"
+                android:text="SAIR" />
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
