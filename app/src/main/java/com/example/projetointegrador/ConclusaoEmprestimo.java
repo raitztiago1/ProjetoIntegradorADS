@@ -9,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ConclusaoEmprestimo extends AppCompatActivity {
 
-    Button btnConfirmaTCE, btnCancelaTCE;
-    EditText edtEstadoCivTCE, edtDataTCE, edtDataAdmTCE, edtRendaTCE, edtCepTCE;
+    Button btnConfirmaTCE, btnCancelaTCE, btCepTCE;
+    EditText edtEstadoCivTCE, edtDataTCE, edtDataAdmTCE, edtRendaTCE, edtCepTCE, edtLogradouroTCE, edtNumeroCasaTCE;
+    EditText edtComplementoLogradouroTCE, edtBairroTCE, edtComplementoBairroTCE, edtLocalidadeTCE, edtUfTCE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,13 @@ public class ConclusaoEmprestimo extends AppCompatActivity {
         edtDataAdmTCE = findViewById(R.id.edtDataAdmTCE);
         edtRendaTCE = findViewById(R.id.edtRendaTCE);
         edtCepTCE = findViewById(R.id.edtCepTCE);
+        edtLogradouroTCE = findViewById(R.id.edtLogradouroTCE);
+        edtNumeroCasaTCE = findViewById(R.id.edtNumeroCasaTCE);
+        edtComplementoLogradouroTCE = findViewById(R.id.edtComplementoLogradouroTCE);
+        edtBairroTCE = findViewById(R.id.edtBairroTCE);
+        edtComplementoBairroTCE = findViewById(R.id.edtComplementoBairroTCE);
+        edtLocalidadeTCE = findViewById(R.id.edtLocalidadeTCE);
+        edtUfTCE = findViewById(R.id.edtUfTCE);
 
     }
 
@@ -96,6 +104,48 @@ public class ConclusaoEmprestimo extends AppCompatActivity {
 
             edtCepTCE.setError("Campo Obrigatório");
             edtCepTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtLogradouroTCE.getText().toString().isEmpty()) {
+
+            edtLogradouroTCE.setError("Campo Obrigatório");
+            edtLogradouroTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtNumeroCasaTCE.getText().toString().isEmpty()) {
+
+            edtNumeroCasaTCE.setError("Campo Obrigatório");
+            edtNumeroCasaTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtComplementoLogradouroTCE.getText().toString().isEmpty()) {
+
+            edtComplementoLogradouroTCE.setError("Campo Obrigatório");
+            edtComplementoLogradouroTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtBairroTCE.getText().toString().isEmpty()) {
+
+            edtBairroTCE.setError("Campo Obrigatório");
+            edtBairroTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtComplementoBairroTCE.getText().toString().isEmpty()) {
+
+            edtComplementoBairroTCE.setError("Campo Obrigatório");
+            edtComplementoBairroTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtLocalidadeTCE.getText().toString().isEmpty()) {
+
+            edtLocalidadeTCE.setError("Campo Obrigatório");
+            edtLocalidadeTCE.requestFocus();
+            existeErros = true;
+
+        } else if (edtUfTCE.getText().toString().isEmpty()) {
+
+            edtUfTCE.setError("Campo Obrigatório");
+            edtUfTCE.requestFocus();
             existeErros = true;
 
         }

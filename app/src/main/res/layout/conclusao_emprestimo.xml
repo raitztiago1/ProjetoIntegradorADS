@@ -3,168 +3,221 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".ConclusaoEmprestimo">
 
-    <EditText
-        android:id="@+id/edtEstadoCivTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o Estado Civil"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTCE" />
-
-    <EditText
-        android:id="@+id/edtDataTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite a Data"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEstadoCivTCE" />
-
-    <EditText
-        android:id="@+id/edtDataAdmTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite a Data"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtDataTCE" />
-
-    <EditText
-        android:id="@+id/edtRendaTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite a Renda"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtDataAdmTCE" />
-
-    <EditText
-        android:id="@+id/edtCepTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o CEP"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRendaTCE"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/btnConfirmaTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Confirmar"
-        app:backgroundTint="#00BCD4"
+    <ScrollView
+        android:id="@+id/svTCE"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/btnCancelaTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Cancelar"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTCE"
-        android:layout_width="386dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="Informe os dados Para Concluir a simulação"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <TextView
-        android:id="@+id/txtEstadoTCE"
-        android:layout_width="101dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:text="Estado Civil:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTCE" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtDataNascTCE"
-        android:layout_width="101dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Data Nascimento:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEstadoTCE" />
 
-    <TextView
-        android:id="@+id/txtDataAdmTCE"
-        android:layout_width="101dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Data Admissão:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDataNascTCE" />
+            <TextView
+                android:id="@+id/txtTCE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="INFORME OS DADOS PARA CONCLUIR A SIMULAÇÃO"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtRendaTCE"
-        android:layout_width="101dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Renda Mensal:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDataAdmTCE" />
+            <EditText
+                android:id="@+id/edtEstadoCivTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira o Estado Civil"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
 
-    <TextView
-        android:id="@+id/txtCepTCE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="CEP"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRendaTCE" />
+            <EditText
+                android:id="@+id/edtDataTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Data de Nascimento"
+                android:inputType="date"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
 
+            <EditText
+                android:id="@+id/edtDataAdmTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Data de Admissão"
+                android:inputType="date"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtRendaTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Renda Mensal"
+                android:inputType="numberDecimal"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+
+            <EditText
+                android:id="@+id/edtCepTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira o CEP"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <Button
+                android:id="@+id/btCepTCE"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PESQUISA CEP"
+                android:backgroundTint="#00BCD4"/>
+
+            <EditText
+                android:id="@+id/edtLogradouroTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Logradouro"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtNumeroCasaTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Número da Residência"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtComplementoLogradouroTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Complemento"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtBairroTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Bairro"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtComplementoBairroTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Complemento do Bairro"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtLocalidadeTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Localidade"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtUfTCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="UF"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp">
+
+                <Button
+                    android:id="@+id/btnCancelaTCE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="35dp"
+                    android:text="CANCELAR"
+                    android:backgroundTint="#00BCD4"/>
+
+                <Button
+                    android:id="@+id/btnConfirmaTCE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="35dp"
+                    android:text="CONFIRMAR"
+                    android:backgroundTint="#00BCD4"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

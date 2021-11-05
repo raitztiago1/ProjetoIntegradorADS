@@ -2,7 +2,9 @@ package com.example.projetointegrador;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,8 @@ public class ListarUsuario extends AppCompatActivity {
 
     private static ListView lvUsuarioTLE;
 
+    Button btSairTLE;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +32,21 @@ public class ListarUsuario extends AppCompatActivity {
 
         TarefaUsuarioAll tarefaUsuarioAll = new TarefaUsuarioAll();
         tarefaUsuarioAll.execute();
+
+        btSairTLE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
     private void inicializaComponentes() {
 
         lvUsuarioTLE = findViewById(R.id.lvUsuarioTLE);
+
+        btSairTLE = findViewById(R.id.btSairTLE);
 
     }
 
