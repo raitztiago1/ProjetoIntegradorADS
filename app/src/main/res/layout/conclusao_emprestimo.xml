@@ -117,7 +117,7 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp"
                 android:layout_marginTop="15dp"/>
-
+<!-- tomanocu-->>
             <EditText
                 android:id="@+id/edtNumeroCasaTCE"
                 android:layout_width="wrap_content"
