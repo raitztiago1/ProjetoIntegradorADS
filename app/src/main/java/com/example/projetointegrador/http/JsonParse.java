@@ -1,5 +1,6 @@
 package com.example.projetointegrador.http;
 
+import com.example.projetointegrador.model.Cep;
 import com.example.projetointegrador.model.Usuario;
 
 import org.json.JSONArray;
@@ -70,6 +71,24 @@ public class JsonParse {
 
             return usuarioList;
         }catch (Exception e){
+            return null;
+        }
+    }
+
+    public static Cep JsonToObjectCep(String conteudo){
+        try{
+            JSONObject jsonObject = null;
+            jsonObject = new JSONObject(conteudo);
+            return new Cep(
+                    jsonObject.getString("cep"),
+                    jsonObject.getString("logradouro"),
+                    jsonObject.getString("complemento"),
+                    jsonObject.getString("bairro"),
+                    jsonObject.getString("localidade"),
+                    jsonObject.getString("uf")
+            );
+        }catch (Exception e){
+            e.printStackTrace();
             return null;
         }
     }

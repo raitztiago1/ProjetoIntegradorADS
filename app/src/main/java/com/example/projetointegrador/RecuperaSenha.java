@@ -14,10 +14,9 @@ import com.example.projetointegrador.http.HttpHelperAuth;
 
 public class RecuperaSenha extends AppCompatActivity {
 
-    private final HttpHelperAuth auth = new HttpHelperAuth();
     Button btCancelaTRS, btConfirmarTRS;
     EditText edtEmailTRS, edtCpfTRS;
-
+    private final HttpHelperAuth auth = new HttpHelperAuth();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +41,42 @@ public class RecuperaSenha extends AppCompatActivity {
 
     }
 
+    private class TarefaRecuperaSenha extends AsyncTask<String, String, String>{
+        @Override
+        protected String doInBackground(String... strings) {
+           try{
+               Autenticacoes validar = new Autenticacoes();
+               if(validar.validaDocumento(edtCpfTRS.getText().toString())){
+                   String cpf = edtCpfTRS.getText().toString();
+                   String email = edtEmailTRS.getText().toString();
+                   return auth.gerarToken(cpf,email);
+               } else{
+                    return  "305";
+               }
+           }catch (Exception e){
+               return null;
+           }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            AlertDialog.Builder alerta = new AlertDialog.Builder(RecuperaSenha.this);
+            alerta.setNeutralButton("ok", null);
+            try{
+                if(s.equals("200")){
+                    Intent telaRecupera = new Intent(getApplicationContext(), RecuperaCodigo.class);
+                    startActivity(telaRecupera);
+                }else if(s.equals("305")){
+                    alerta.setMessage("Cpf invalido, verifique e tente novamente");
+                    alerta.show();
+                }
+            }catch (Exception e){
+                alerta.setMessage("Nenhuma conta localizada, verifique e tente novamente");
+                alerta.show();
+            }
+        }
+    }
+
     private void inicializarComponentes() {
 
         btCancelaTRS = findViewById(R.id.btCancelaTRS);
@@ -64,42 +99,6 @@ public class RecuperaSenha extends AppCompatActivity {
             existeErros = true;
         }
         return existeErros;
-    }
-
-    private class TarefaRecuperaSenha extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                Autenticacoes validar = new Autenticacoes();
-                if (validar.validaDocumento(edtCpfTRS.getText().toString())) {
-                    String cpf = edtCpfTRS.getText().toString();
-                    String email = edtEmailTRS.getText().toString();
-                    return auth.gerarToken(cpf, email);
-                } else {
-                    return "305";
-                }
-            } catch (Exception e) {
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            AlertDialog.Builder alerta = new AlertDialog.Builder(RecuperaSenha.this);
-            alerta.setNeutralButton("ok", null);
-            try {
-                if (s.equals("200")) {
-                    Intent telaRecupera = new Intent(getApplicationContext(), RecuperaCodigo.class);
-                    startActivity(telaRecupera);
-                } else if (s.equals("305")) {
-                    alerta.setMessage("Cpf invalido, verifique e tente novamente");
-                    alerta.show();
-                }
-            } catch (Exception e) {
-                alerta.setMessage("Nenhuma conta localizada, verifique e tente novamente");
-                alerta.show();
-            }
-        }
     }
 
 
