@@ -13,6 +13,7 @@ public class ConclusaoEmprestimo extends AppCompatActivity {
     EditText edtEstadoCivTCE, edtDataTCE, edtDataAdmTCE, edtRendaTCE, edtCepTCE, edtLogradouroTCE, edtNumeroCasaTCE;
     EditText edtComplementoLogradouroTCE, edtBairroTCE, edtComplementoBairroTCE, edtLocalidadeTCE, edtUfTCE;
 
+    //asd
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

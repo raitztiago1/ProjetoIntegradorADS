@@ -40,163 +40,163 @@
                 android:id="@+id/edtEstadoCivTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira o Estado Civil"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtDataTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira a Data de Nascimento"
                 android:inputType="date"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtDataAdmTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira a Data de Admissão"
                 android:inputType="date"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtRendaTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira a Renda Mensal"
                 android:inputType="numberDecimal"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
 
             <EditText
                 android:id="@+id/edtCepTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira o CEP"
                 android:inputType="number"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <Button
                 android:id="@+id/btCepTCE"
-                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="PESQUISA CEP"
-                android:backgroundTint="#00BCD4"/>
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00BCD4"
+                android:text="PESQUISA CEP" />
 
             <EditText
                 android:id="@+id/edtLogradouroTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Logradouro"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
-<!-- tomanocu-->>
+                android:minHeight="48dp" />
+
             <EditText
                 android:id="@+id/edtNumeroCasaTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Número da Residência"
                 android:inputType="number"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtComplementoLogradouroTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Complemento"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtBairroTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Bairro"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtComplementoBairroTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Complemento do Bairro"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtLocalidadeTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Localidade"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtUfTCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="UF"
                 android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnCancelaTCE"
@@ -204,8 +204,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginEnd="35dp"
-                    android:text="CANCELAR"
-                    android:backgroundTint="#00BCD4"/>
+                    android:backgroundTint="#00BCD4"
+                    android:text="CANCELAR" />
 
                 <Button
                     android:id="@+id/btnConfirmaTCE"
@@ -213,8 +213,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginStart="35dp"
-                    android:text="CONFIRMAR"
-                    android:backgroundTint="#00BCD4"/>
+                    android:backgroundTint="#00BCD4"
+                    android:text="CONFIRMAR" />
 
             </LinearLayout>
 
