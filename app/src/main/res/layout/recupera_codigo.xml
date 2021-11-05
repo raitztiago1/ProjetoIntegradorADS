@@ -93,7 +93,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnCancelaTCUM"
+                    android:id="@+id/btVoltarTRC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
@@ -102,7 +102,7 @@
                     android:text="VOLTAR" />
 
                 <Button
-                    android:id="@+id/btnConfirmaTCUM"
+                    android:id="@+id/btConfirmaTRC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"

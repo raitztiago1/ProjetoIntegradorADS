@@ -1,18 +1,18 @@
 package com.example.projetointegrador;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class RecuperaCodigo extends AppCompatActivity {
 
-    Button btVoltarTRCD, btAvancTRCD;
+    Button btVoltarTRC, btConfirmaTRC;
 
-    EditText edtCodTRCD;
+    EditText edtCodigoLiberacaoTRC, edtSenhaTRC, edtSenhaRptTRC;
 
 
     @Override
@@ -23,16 +23,18 @@ public class RecuperaCodigo extends AppCompatActivity {
 
         inicializarComponentes();
 
-        btAvancTRCD.setOnClickListener((view -> {
+        btConfirmaTRC.setOnClickListener((view -> {
             if (!validaDados()) {
-                Intent telaNovaSenha = new Intent(getApplicationContext(), NovaSenha.class);
-                startActivity(telaNovaSenha);
+                System.out.println("deu bom");
+                Intent voltaInicio = new Intent(getApplicationContext(), Login.class);
+                startActivity(voltaInicio);
+                finish();
             } else {
-
+                btConfirmaTRC.setError("ALGO DE ERRADO NÃO ESTÁ CERTO");
             }
         }));
 
-        btVoltarTRCD.setOnClickListener(new View.OnClickListener() {
+        btVoltarTRC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -43,10 +45,12 @@ public class RecuperaCodigo extends AppCompatActivity {
 
     private void inicializarComponentes() {
 
-        btVoltarTRCD = findViewById(R.id.btVoltarTRCD);
-        btAvancTRCD = findViewById(R.id.btAvancTRCD);
+        btVoltarTRC = findViewById(R.id.btVoltarTRC);
+        btConfirmaTRC = findViewById(R.id.btConfirmaTRC);
 
-        edtCodTRCD = findViewById(R.id.edtCodTRCD);
+        edtCodigoLiberacaoTRC = findViewById(R.id.edtCodigoLiberacaoTRC);
+        edtSenhaTRC = findViewById(R.id.edtSenhaTRC);
+        edtSenhaRptTRC = findViewById(R.id.edtSenhaRptTRC);
 
     }
 
@@ -54,10 +58,22 @@ public class RecuperaCodigo extends AppCompatActivity {
 
         Boolean existeErros = false;
 
-        if (edtCodTRCD.getText().toString().isEmpty()) {
+        if (edtCodigoLiberacaoTRC.getText().toString().isEmpty()) {
 
-            edtCodTRCD.setError("Campo Obrigatório!");
-            edtCodTRCD.requestFocus();
+            edtCodigoLiberacaoTRC.setError("Campo Obrigatório!");
+            edtCodigoLiberacaoTRC.requestFocus();
+            existeErros = true;
+
+        } else if (edtSenhaTRC.getText().toString().isEmpty()) {
+
+            edtSenhaTRC.setError("Campo Obrigatório!");
+            edtSenhaTRC.requestFocus();
+            existeErros = true;
+
+        } else if (edtSenhaRptTRC.getText().toString().isEmpty()) {
+
+            edtSenhaRptTRC.setError("Campo Obrigatório!");
+            edtSenhaRptTRC.requestFocus();
             existeErros = true;
 
         }
