@@ -16,14 +16,12 @@ import com.example.projetointegrador.model.Usuario;
 
 public class CadastraUsuarioMaster extends AppCompatActivity {
 
-    Button btnConfirmaTCUM, btnCancelaTCUM;
+    private final HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
+    Button btConfirmaTCUM, btVoltarTCUM;
     Spinner spnEstadoUserTCUM, spnCargoTCUM;
     EditText edtCpfTCUM, edtOrgaoEmissorTCUM, edtCidadeTCUM, edtNomeTCUM, edtCelTCUM, edtTelComTCUM, edtEmailTCUM, edtSenhaTCUM, edtRptSenhaTCUM;
-
     String[] estadoUsuario = new String[]{"Estado de Usuário", "Ativo", "Inativo"};
     String[] cargoUsusario = new String[]{"Cargo de usuário", "Administrador", "Usuario"};
-    private final HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,45 +32,15 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
         escolhaTipoUser();
         escolhaStatusUser();
 
-        btnConfirmaTCUM.setOnClickListener((view -> {
+        btConfirmaTCUM.setOnClickListener((view -> {
             if (!validaDados()) {
                 TarefaUsuarioPost tarefaPost = new TarefaUsuarioPost();
                 tarefaPost.execute();
             }
         }));
 
-        btnCancelaTCUM.setOnClickListener(view -> finish());
+        btConfirmaTCUM.setOnClickListener(view -> finish());
 
-    }
-
-    //realiza o processamento dos dados(post)
-    private class TarefaUsuarioPost extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... strings) {
-            Usuario user = criarObjeto();
-            if (user != null) {
-                return controleUsuario.postUsuario(user);
-            } else {
-                return null;
-            }
-
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            AlertDialog.Builder alerta = new AlertDialog.Builder(CadastraUsuarioMaster.this);
-            alerta.setNeutralButton("OK", null);
-            if (s != null) {
-                limpaCampos();
-                alerta.setTitle("Sucesso");
-                alerta.setMessage("Cadastro realizado com sucesso!");
-                alerta.show();
-            } else {
-                alerta.setTitle("Cadastro error");
-                alerta.setMessage("Erro no cadastro, verifique os dados e tente novamente!");
-                alerta.show();
-            }
-        }
     }
 
     //tranforma dados da tela em um objeto
@@ -134,8 +102,8 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
 
     private void inicializarComponentes() {
 
-        btnConfirmaTCUM = findViewById(R.id.btnConfirmaTCUM);
-        btnCancelaTCUM = findViewById(R.id.btnCancelaTCUM);
+        btConfirmaTCUM = findViewById(R.id.btConfirmaTCUM);
+        btVoltarTCUM = findViewById(R.id.btVoltarTCUM);
 
         spnEstadoUserTCUM = findViewById(R.id.spnEstadoUserTCUM);
         spnCargoTCUM = findViewById(R.id.spnCargoTCUM);
@@ -256,5 +224,35 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
 
         }
         return existeErros;
+    }
+
+    //realiza o processamento dos dados(post)
+    private class TarefaUsuarioPost extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            Usuario user = criarObjeto();
+            if (user != null) {
+                return controleUsuario.postUsuario(user);
+            } else {
+                return null;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            AlertDialog.Builder alerta = new AlertDialog.Builder(CadastraUsuarioMaster.this);
+            alerta.setNeutralButton("OK", null);
+            if (s != null) {
+                limpaCampos();
+                alerta.setTitle("Sucesso");
+                alerta.setMessage("Cadastro realizado com sucesso!");
+                alerta.show();
+            } else {
+                alerta.setTitle("Cadastro error");
+                alerta.setMessage("Erro no cadastro, verifique os dados e tente novamente!");
+                alerta.show();
+            }
+        }
     }
 }

@@ -205,7 +205,7 @@
                     android:layout_gravity="left"
                     android:layout_marginEnd="35dp"
                     android:backgroundTint="#00BCD4"
-                    android:text="CANCELAR" />
+                    android:text="VOLTAR" />
 
                 <Button
                     android:id="@+id/btnConfirmaTCE"

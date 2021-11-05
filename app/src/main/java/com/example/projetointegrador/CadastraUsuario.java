@@ -1,7 +1,5 @@
 package com.example.projetointegrador;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,9 +8,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class CadastraUsuario extends AppCompatActivity {
 
-    Button btnConfirmaTCU, btnCancelaTCU;
+    Button btConfirmaTCU, btVoltarTCU;
     EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU;
     Spinner spnStatusTCU;
 
@@ -28,7 +28,7 @@ public class CadastraUsuario extends AppCompatActivity {
         inicializarComponentes();
         escolhaTipoUser();
 
-        btnConfirmaTCU.setOnClickListener((view -> {
+        btConfirmaTCU.setOnClickListener((view -> {
             if (!validaDados()) {
                 String tipoUser = spnStatusTCU.getSelectedItem().toString();
                 System.out.println();
@@ -39,7 +39,7 @@ public class CadastraUsuario extends AppCompatActivity {
         }));
 
 
-        btnCancelaTCU.setOnClickListener(new View.OnClickListener() {
+        btVoltarTCU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -50,10 +50,10 @@ public class CadastraUsuario extends AppCompatActivity {
 
     }
 
-    private void inicializarComponentes(){
+    private void inicializarComponentes() {
 
-        btnConfirmaTCU = findViewById(R.id.btnConfirmaTCU);
-        btnCancelaTCU = findViewById(R.id.btnCancelaTCU);
+        btConfirmaTCU = findViewById(R.id.btConfirmaTCU);
+        btVoltarTCU = findViewById(R.id.btVoltarTCU);
 
         edtCpfTCU = findViewById(R.id.edtCpfTCU);
         edtUserTCU = findViewById(R.id.edtUserTCU);
@@ -74,7 +74,7 @@ public class CadastraUsuario extends AppCompatActivity {
         ));
     }
 
-    private void limpaCampos(){
+    private void limpaCampos() {
 
         edtCpfTCU.setText("");
         edtUserTCU.setText("");
@@ -87,29 +87,29 @@ public class CadastraUsuario extends AppCompatActivity {
 
     }
 
-    private boolean validaDados(){
+    private boolean validaDados() {
 
         Boolean existeErros = false;
 
-        if(edtCpfTCU.getText().toString().isEmpty()){
+        if (edtCpfTCU.getText().toString().isEmpty()) {
 
             edtCpfTCU.setError("Campo Obrigatorio");
             edtCpfTCU.requestFocus();
             existeErros = true;
 
-        } else if(edtUserTCU.getText().toString().isEmpty()){
+        } else if (edtUserTCU.getText().toString().isEmpty()) {
 
             edtUserTCU.setError("Campo Obrigatorio");
             edtUserTCU.requestFocus();
             existeErros = true;
 
-        } else if(edtEmailTCU.getText().toString().isEmpty()){
+        } else if (edtEmailTCU.getText().toString().isEmpty()) {
 
             edtEmailTCU.setError("Campo Obrigatorio");
             edtEmailTCU.requestFocus();
             existeErros = true;
 
-        } else if(edtCelTCU.getText().toString().isEmpty()){
+        } else if (edtCelTCU.getText().toString().isEmpty()) {
 
             edtCelTCU.setError("Campo Obrigatorio");
             edtCelTCU.requestFocus();
@@ -120,13 +120,13 @@ public class CadastraUsuario extends AppCompatActivity {
             ((TextView) spnStatusTCU.getSelectedView()).setError("Campo Obrigatório");
             existeErros = true;
 
-        } else if(edtSenhaTCU.getText().toString().isEmpty()){
+        } else if (edtSenhaTCU.getText().toString().isEmpty()) {
 
             edtSenhaTCU.setError("Campo Obrigatorio");
             edtSenhaTCU.requestFocus();
             existeErros = true;
 
-        } else if(edtRptSenhaTCU.getText().toString().isEmpty()){
+        } else if (edtRptSenhaTCU.getText().toString().isEmpty()) {
 
             edtRptSenhaTCU.setError("Campo Obrigatorio");
             edtRptSenhaTCU.requestFocus();

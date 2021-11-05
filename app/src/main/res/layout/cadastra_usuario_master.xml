@@ -171,19 +171,22 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnConfirmaTCUM"
+                    android:id="@+id/btVoltarTCUM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginEnd="15dp"
-                    android:text="CONFIRMAR" />
+                    android:backgroundTint="#00BCD4"
+                    android:text="Voltar" />
 
                 <Button
-                    android:id="@+id/btnCancelaTCUM"
+                    android:id="@+id/btConfirmaTCUM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="CANCELAR" />
+                    android:backgroundTint="#00BCD4"
+                    android:text="CONFIRMA"
+                    android:layout_marginLeft="40dp"/>
             </LinearLayout>
 
         </LinearLayout>

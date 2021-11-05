@@ -19,9 +19,6 @@
             android:name=".ListarUsuario"
             android:exported="false" />
         <activity
-            android:name=".NovaSenha"
-            android:exported="false" />
-        <activity
             android:name=".CadastraUsuario"
             android:exported="false" />
         <activity
@@ -44,9 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".RecuperaCodigo"
-            android:exported="false" />
-        <activity
-            android:name=".NovaSenha"
             android:exported="false" />
         <activity
             android:name=".CadastroFinanceira"

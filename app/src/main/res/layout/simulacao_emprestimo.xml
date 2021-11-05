@@ -103,7 +103,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtCetTSP"
         tools:ignore="SpeakableTextPresentCheck" />
-<!-- teste -->>
+    <!-- teste -->>
+
     <EditText
         android:id="@+id/edtIofTSP"
         android:layout_width="wrap_content"
@@ -134,7 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
-        android:text="cancelar"
+        android:text="VOLTAR"
         app:backgroundTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

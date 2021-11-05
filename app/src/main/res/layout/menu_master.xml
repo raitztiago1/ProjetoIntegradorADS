@@ -39,6 +39,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#00BCD4"
                 android:padding="10dp"
                 android:text="CADASTRA USUÁRIO MASTER" />
 
@@ -48,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#00BCD4"
                 android:padding="10dp"
                 android:text="CADASTRAR FINANCEIRA" />
 
@@ -57,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#00BCD4"
                 android:padding="10dp"
                 android:text="LISTAR EMPRESAS" />
 
@@ -66,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#00BCD4"
                 android:minHeight="48dp"
                 android:padding="10dp"
                 android:text="LISTAR USUARIOS" />
@@ -76,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#00BCD4"
                 android:padding="10dp"
                 android:text="LISTAR SIMULAÇÕES" />
 
@@ -85,8 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#00BCD4"
                 android:padding="10dp"
-                android:text="SAIR" />
+                android:text="VOLTAR" />
         </LinearLayout>
 
     </ScrollView>

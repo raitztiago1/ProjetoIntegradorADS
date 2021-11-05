@@ -1,110 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".RecuperaSenha">
 
-    <TextView
-        android:id="@+id/rstextotopo"
-        android:layout_width="410dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:text="Recuperação de Senha"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/rstextview"
-        android:layout_width="388dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:gravity="center"
-        android:text="Digite o E-mail Cadastrado"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
+    <ScrollView
+        android:id="@+id/svTRS"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rstextotopo" />
-
-    <TextView
-        android:id="@+id/rsemailtext"
-        android:layout_width="113dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
-        android:text="Cpf:"
-        android:textColor="#000000"
-        android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <TextView
-        android:id="@+id/rsemailtext2"
-        android:layout_width="113dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="116dp"
-        android:text="E-mail:"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edtCpfTRS"
-        android:layout_width="276dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Digite o CPF"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/rsemailtext"
-        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
 
-    <EditText
-        android:id="@+id/edtEmailTRS"
-        android:layout_width="276dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="112dp"
-        android:ems="10"
-        android:hint="Digite o E-mail"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/rsemailtext"
-        app:layout_constraintTop_toBottomOf="@+id/rstextview" />
+            <TextView
+                android:id="@+id/txtTRS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp"
+                android:padding="10dp"
+                android:text="Recuperação de Senha"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btCancelaTRS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="104dp"
-        android:text="VOLTAR"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpfTRS" />
 
-    <Button
-        android:id="@+id/btAvancTRS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="80dp"
-        android:text="AVANÇAR"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btCancelaTRS"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpfTRS" />
+            <EditText
+                android:id="@+id/edtCpfTRS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu CPF"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
+            <EditText
+                android:id="@+id/edtEmailTRS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu Email"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCancelaTRS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="35dp"
+                    android:backgroundTint="#00BCD4"
+                    android:text="VOLTAR" />
+
+                <Button
+                    android:id="@+id/btnConfirmaTRS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="35dp"
+                    android:backgroundTint="#00BCD4"
+                    android:text="CONFIRMAR" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

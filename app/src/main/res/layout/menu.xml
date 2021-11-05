@@ -37,6 +37,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
                 android:padding="10dp"
+                android:backgroundTint="#00BCD4"
                 android:text="REALIZAR SIMULAÇÃO" />
 
             <Button
@@ -46,6 +47,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
                 android:padding="10dp"
+                android:backgroundTint="#00BCD4"
                 android:text="CONSULTA SIMULAÇÃO" />
 
             <Button
@@ -55,7 +57,8 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
                 android:padding="10dp"
-                android:text="SAIR" />
+                android:backgroundTint="#00BCD4"
+                android:text="VOLTAr" />
 
         </LinearLayout>
     </ScrollView>
