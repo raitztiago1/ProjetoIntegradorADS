@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity {
 
     Autenticacoes autent = new Autenticacoes();
     Button btLoginTL, btRecSenhaTL, btCadTL;
-    EditText edtCpfTL, edtPassTL;
+    EditText edtCpfTL, edtSenhaTL;
     private final HttpHelper httpHelper = new HttpHelper();
     private String edCpf;
     private String edSenha;
@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
         btLoginTL.setOnClickListener(view -> {
             if (validaCpfLocal()) {
                 edCpf = edtCpfTL.getText().toString();
-                edSenha = edtPassTL.getText().toString();
+                edSenha = edtSenhaTL.getText().toString();
                 TarefaUsuarioUnico tarefaUsuario = new TarefaUsuarioUnico();
                 tarefaUsuario.execute();
             }
@@ -101,13 +101,13 @@ public class Login extends AppCompatActivity {
         btRecSenhaTL = findViewById(R.id.btRecSenhaTL);
         btCadTL = findViewById(R.id.btCadTL);
         edtCpfTL = findViewById(R.id.edtCpfTL);
-        edtPassTL = findViewById(R.id.edtPassTL);
+        edtSenhaTL = findViewById(R.id.edtSenhaTL);
     }
 
     //limpa os campos visiveis a usuario
     private void limpaCampos() {
         edtCpfTL.setText("");
-        edtPassTL.setText("");
+        edtSenhaTL.setText("");
     }
 
     //chama validacao de cpf

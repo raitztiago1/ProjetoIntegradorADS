@@ -1,127 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".Login">
 
-    <TextView
-        android:id="@+id/txtUserLojaTCU"
-        android:layout_width="386dp"
-        android:layout_height="112dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="Bem Vindo(a)"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="373dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:text="Por favor digite seus dados para acessar"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserLojaTCU" />
-
-    <TextView
-        android:id="@+id/txtTipoUserTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="46dp"
-        android:text="CPF Usuario:"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/edtCpfTL"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/txtNomeTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="38dp"
-        android:text="Senha:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/edtPassTL"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTipoUserTCU" />
-
-    <EditText
-        android:id="@+id/edtCpfTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="60dp"
-        android:ems="10"
-        android:hint="Digite o CPF"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/edtPassTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="60dp"
-        android:ems="10"
-        android:hint="Digite a Senha"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpfTL" />
-
-    <Button
-        android:id="@+id/btLoginTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="24dp"
-        android:text="Login"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toTopOf="@+id/btRecSenhaTL"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btRecSenhaTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="126dp"
-        android:layout_marginEnd="126dp"
-        android:layout_marginBottom="24dp"
-        android:text="Recuperar Senha"
-        android:textSize="12sp"
-        app:backgroundTint="#00BCD4"
+    <ScrollView
+        android:id="@+id/svTL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <Button
-        android:id="@+id/btCadTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="24dp"
-        android:text="Cadastre-se"
-        android:textSize="12sp"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toTopOf="@+id/btRecSenhaTL"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
+
+            <TextView
+                android:id="@+id/txtTL"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginBottom="40dp"
+                android:background="#00BCD4"
+                android:fontFamily="@font/font1"
+                android:padding="10dp"
+                android:text="ES21"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="45sp" />
+
+            <TextView
+                android:id="@+id/txtdigTL"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:textAlignment="center"
+                android:text="Insira seus dados para acessar"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:layout_marginBottom="40dp"/>
+
+
+            <EditText
+                android:id="@+id/edtCpfTL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu CPF"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edtSenhaTL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira sua Senha"
+                android:inputType="textPassword"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp">
+
+                <Button
+                    android:id="@+id/btLoginTL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="35dp"
+                    android:text="LOGIN"
+                    android:backgroundTint="#00BCD4"/>
+
+                <Button
+                    android:id="@+id/btCadTL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="35dp"
+                    android:text="CADASTRAR"
+                    android:backgroundTint="#00BCD4"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btRecSenhaTL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RECUPERAR SENHA"
+                android:backgroundTint="#00BCD4"/>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
