@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
+            android:name=".ListarEmpresas"
+            android:exported="false" />
+        <activity
+            android:name=".ListarSimulacoes"
+            android:exported="false" />
+        <activity
             android:name=".ListarUsuario"
             android:exported="false" />
         <activity

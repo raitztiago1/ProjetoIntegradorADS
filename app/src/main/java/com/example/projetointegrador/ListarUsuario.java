@@ -19,10 +19,22 @@ import java.util.List;
 public class ListarUsuario extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
-    private static ListView lvUsuarioTLE;
+    private static ListView lvUsuarioTLU;
 
-    Button btSairTLE;
+    Button btVoltarTLU;
 
+    private static ArrayList<String> preencherDados(String s) {
+        ArrayList<String> teste = new ArrayList<>();
+
+        List<Usuario> listaUsuario;
+        listaUsuario = JsonParse.JsonToList(s);
+        for (int x = 0; x < listaUsuario.size(); x++) {
+
+            teste.add(listaUsuario.get(x).toString());
+
+        }
+        return teste;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +46,15 @@ public class ListarUsuario extends AppCompatActivity {
         TarefaUsuarioAll tarefaUsuarioAll = new TarefaUsuarioAll();
         tarefaUsuarioAll.execute();
 
-        btSairTLE.setOnClickListener(view -> finish());
+        btVoltarTLU.setOnClickListener(view -> finish());
 
     }
 
     private void inicializaComponentes() {
 
-        lvUsuarioTLE = findViewById(R.id.lvUsuarioTLE);
+        lvUsuarioTLU = findViewById(R.id.lvUsuarioTLU);
 
-        btSairTLE = findViewById(R.id.btSairTLE);
+        btVoltarTLU = findViewById(R.id.btVoltarTLU);
 
     }
 
@@ -61,21 +73,9 @@ public class ListarUsuario extends AppCompatActivity {
 
             ArrayAdapter<String> arrayAdapter;
             arrayAdapter = new ArrayAdapter<>(ListarUsuario.this, android.R.layout.simple_list_item_1, asdf);
-            lvUsuarioTLE.setAdapter(arrayAdapter);
+            lvUsuarioTLU.setAdapter(arrayAdapter);
 
         }
-    }
-    private static ArrayList<String> preencherDados(String s){
-        ArrayList<String> teste = new ArrayList<>();
-
-        List<Usuario> listaUsuario;
-        listaUsuario = JsonParse.JsonToList(s);
-        for (int x = 0; x < listaUsuario.size(); x++) {
-
-            teste.add(listaUsuario.get(x).toString());
-
-        }
-        return teste;
     }
 
 }

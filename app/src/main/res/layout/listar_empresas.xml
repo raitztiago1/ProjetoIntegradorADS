@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListarUsuario">
+    tools:context=".ListarEmpresas">
 
 
     <RelativeLayout
@@ -13,20 +13,20 @@
         tools:layout_editor_absoluteY="-16dp">
 
         <TextView
-            android:id="@+id/txtTLU"
+            android:id="@+id/txtTLE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="40dp"
             android:background="@color/light_blue"
             android:fontFamily="sans-serif-light"
-            android:text="Lista de Usuários"
+            android:text="Lista de Empresas"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="34sp" />
 
         <ListView
-            android:id="@+id/lvUsuarioTLU"
+            android:id="@+id/lvEmpresasTLE"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
@@ -34,7 +34,7 @@
             android:layout_marginBottom="60dp" />
 
         <Button
-            android:id="@+id/btVoltarTLU"
+            android:id="@+id/btVoltarTLE"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
