@@ -103,7 +103,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira sua Senha"
-                android:inputType="number"
+                android:inputType="textPassword"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
@@ -116,7 +116,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Repita sua Senha"
-                android:inputType="number"
+                android:inputType="textPassword"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 

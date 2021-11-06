@@ -70,7 +70,7 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a Cidade Natural"
+                android:hint="Insira a Cidade Natal"
                 android:inputType="text"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
@@ -128,7 +128,7 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o E-mail"
+                android:hint="Insira o E-Mail"
                 android:inputType="text"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
