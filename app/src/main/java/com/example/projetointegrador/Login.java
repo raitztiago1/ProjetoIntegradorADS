@@ -17,10 +17,10 @@ import com.example.projetointegrador.model.Usuario;
 
 public class Login extends AppCompatActivity {
 
+    private final HttpHelper httpHelper = new HttpHelper();
     Autenticacoes autent = new Autenticacoes();
     Button btLoginTL, btRecSenhaTL, btCadTL;
     EditText edtCpfTL, edtSenhaTL;
-    private final HttpHelper httpHelper = new HttpHelper();
     private String edCpf;
     private String edSenha;
 
@@ -55,6 +55,34 @@ public class Login extends AppCompatActivity {
             startActivity(telaCadUser);
 
         });
+    }
+
+    //inicializa componentes da tela para versionamento
+    private void inicializarComponentes() {
+        btLoginTL = findViewById(R.id.btLoginTL);
+        btRecSenhaTL = findViewById(R.id.btRecSenhaTL);
+        btCadTL = findViewById(R.id.btCadTL);
+        edtCpfTL = findViewById(R.id.edtCpfTL);
+        edtSenhaTL = findViewById(R.id.edtSenhaTL);
+    }
+
+    //limpa os campos visiveis a usuario
+    private void limpaCampos() {
+        edtCpfTL.setText("");
+        edtSenhaTL.setText("");
+    }
+
+    //chama validacao de cpf
+    private boolean validaCpfLocal() {
+        String cpfAux = edtCpfTL.getText().toString();
+        boolean existemErros = autent.validaDocumento(cpfAux);
+
+        if (!existemErros) {
+            edtCpfTL.setError("Campo Obrigatorio");
+            edtCpfTL.requestFocus();
+            return false;
+        }
+        return true;
     }
 
     //realiza o processamento dos dados e encaminha para tela
@@ -93,34 +121,6 @@ public class Login extends AppCompatActivity {
                 alerta.show();
             }
         }
-    }
-
-    //inicializa componentes da tela para versionamento
-    private void inicializarComponentes() {
-        btLoginTL = findViewById(R.id.btLoginTL);
-        btRecSenhaTL = findViewById(R.id.btRecSenhaTL);
-        btCadTL = findViewById(R.id.btCadTL);
-        edtCpfTL = findViewById(R.id.edtCpfTL);
-        edtSenhaTL = findViewById(R.id.edtSenhaTL);
-    }
-
-    //limpa os campos visiveis a usuario
-    private void limpaCampos() {
-        edtCpfTL.setText("");
-        edtSenhaTL.setText("");
-    }
-
-    //chama validacao de cpf
-    private boolean validaCpfLocal() {
-        String cpfAux = edtCpfTL.getText().toString();
-        boolean existemErros = autent.validaDocumento(cpfAux);
-
-        if (!existemErros) {
-            edtCpfTL.setError("Campo Obrigatorio");
-            edtCpfTL.requestFocus();
-            return false;
-        }
-        return true;
     }
 
 }

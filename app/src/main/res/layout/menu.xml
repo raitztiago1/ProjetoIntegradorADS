@@ -18,46 +18,46 @@
 
             <TextView
                 android:id="@+id/txtSuperior"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:background="@color/light_blue"
+                android:fontFamily="sans-serif-light"
                 android:padding="10dp"
                 android:text="MENU"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textSize="34sp" />
 
             <Button
                 android:id="@+id/btRealizaSimTMU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
-                android:backgroundTint="#00BCD4"
                 android:text="REALIZAR SIMULAÇÃO" />
 
             <Button
                 android:id="@+id/btConsultaSimTMU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
-                android:backgroundTint="#00BCD4"
                 android:text="CONSULTA SIMULAÇÃO" />
 
             <Button
                 android:id="@+id/btSairTMU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
-                android:backgroundTint="#00BCD4"
                 android:text="VOLTAr" />
 
         </LinearLayout>

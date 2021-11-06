@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginBottom="40dp"
-                android:background="#00BCD4"
+                android:background="@color/light_blue"
                 android:fontFamily="@font/font1"
                 android:padding="10dp"
                 android:text="ES21"
@@ -42,71 +42,85 @@
                 android:id="@+id/txtdigTL"
                 android:layout_width="300dp"
                 android:layout_height="30dp"
-                android:textAlignment="center"
+                android:layout_marginBottom="40dp"
                 android:text="Insira seus dados para acessar"
+                android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                android:layout_marginBottom="40dp"/>
+                android:textSize="20sp" />
 
 
             <EditText
                 android:id="@+id/edtCpfTL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira seu CPF"
                 android:inputType="number"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtSenhaTL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira sua Senha"
                 android:inputType="textPassword"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:layout_marginTop="15dp"/>
+                android:minHeight="48dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp">
-
-                <Button
-                    android:id="@+id/btLoginTL"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginEnd="35dp"
-                    android:text="LOGIN"
-                    android:backgroundTint="#00BCD4"/>
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btCadTL"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:text="CADASTRAR" />
+
+                <Button
+                    android:id="@+id/btLoginTL"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="right"
-                    android:layout_marginStart="35dp"
-                    android:text="CADASTRAR"
-                    android:backgroundTint="#00BCD4"/>
+                    android:layout_marginStart="5dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:text="LOGIN" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/btRecSenhaTL"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/light_blue"
+                android:text="RECUPERAR SENHA" />
+
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RECUPERAR SENHA"
-                android:backgroundTint="#00BCD4"/>
+                android:layout_marginTop="100dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Equipe STW™ 2021 Copyright®"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
         </LinearLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

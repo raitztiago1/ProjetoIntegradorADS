@@ -21,76 +21,76 @@
 
             <TextView
                 android:id="@+id/txtTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:background="@color/light_blue"
+                android:fontFamily="sans-serif-light"
                 android:padding="10dp"
                 android:text="MENU"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textSize="34sp" />
 
             <Button
                 android:id="@+id/btCadUserMasterTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
                 android:text="CADASTRA USUÁRIO MASTER" />
 
             <Button
                 android:id="@+id/btCadFinanTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
                 android:text="CADASTRAR FINANCEIRA" />
 
             <Button
                 android:id="@+id/btListaEmpresasTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
                 android:text="LISTAR EMPRESAS" />
 
             <Button
                 android:id="@+id/btListaUserTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:minHeight="48dp"
                 android:padding="10dp"
                 android:text="LISTAR USUARIOS" />
 
             <Button
                 android:id="@+id/btListaSimulaTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
                 android:text="LISTAR SIMULAÇÕES" />
 
             <Button
                 android:id="@+id/btSairTMM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:padding="10dp"
                 android:text="VOLTAR" />
         </LinearLayout>

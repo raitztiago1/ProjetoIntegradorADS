@@ -13,8 +13,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -29,12 +31,13 @@
                 android:id="@+id/txtTCUM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/light_blue"
+                android:fontFamily="sans-serif-light"
                 android:padding="10dp"
                 android:text="Cadastro de Usuario Master"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textSize="34sp" />
 
             <EditText
                 android:id="@+id/edtCpfTCUM"
@@ -45,7 +48,7 @@
                 android:gravity="center"
                 android:hint="Insira o CPF"
                 android:inputType="number"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -57,7 +60,7 @@
                 android:gravity="center"
                 android:hint="Insira o Órgão Emissor"
                 android:inputType="text"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -69,7 +72,7 @@
                 android:gravity="center"
                 android:hint="Insira a Cidade Natural"
                 android:inputType="text"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -81,7 +84,7 @@
                 android:gravity="center"
                 android:hint="Insira o Nome Completo"
                 android:inputType="text"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <Spinner
@@ -90,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -103,7 +106,7 @@
                 android:gravity="center"
                 android:hint="Insira o Celular"
                 android:inputType="number"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -115,7 +118,7 @@
                 android:gravity="center"
                 android:hint="Insira o Telefone Comercial"
                 android:inputType="number"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -127,7 +130,7 @@
                 android:gravity="center"
                 android:hint="Insira o E-mail"
                 android:inputType="text"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -139,7 +142,7 @@
                 android:gravity="center"
                 android:hint="Insira a senha"
                 android:inputType="textPassword"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -151,7 +154,7 @@
                 android:gravity="center"
                 android:hint="Repita a senha"
                 android:inputType="textPassword"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <Spinner
@@ -160,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:minWidth="250dp"
+                android:minWidth="300dp"
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -172,21 +175,21 @@
 
                 <Button
                     android:id="@+id/btVoltarTCUM"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="left"
-                    android:layout_marginEnd="15dp"
-                    android:backgroundTint="#00BCD4"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/light_blue"
                     android:text="Voltar" />
 
                 <Button
                     android:id="@+id/btConfirmaTCUM"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:backgroundTint="#00BCD4"
-                    android:text="CONFIRMA"
-                    android:layout_marginLeft="40dp"/>
+                    android:layout_marginLeft="5dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:text="CONFIRMA" />
             </LinearLayout>
 
         </LinearLayout>

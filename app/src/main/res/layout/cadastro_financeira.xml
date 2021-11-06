@@ -3,216 +3,237 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".CadastroFinanceira">
 
-    <TextView
-        android:id="@+id/textodecima"
-        android:layout_width="386dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:text="Cadastro Financeira"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtCnpjTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:text="CNPJ"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textodecima" />
-
-    <TextView
-        android:id="@+id/txtRazSocTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Razão Social:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCnpjTCF" />
-
-    <TextView
-        android:id="@+id/txtNumBancoTCF"
-        android:layout_width="87dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Número do Banco:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRazSocTCF" />
-
-    <TextView
-        android:id="@+id/telcomerical"
-        android:layout_width="87dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
-        android:text="Número da Agência:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumBancoTCF" />
-
-    <TextView
-        android:id="@+id/txtNumccTCF"
-        android:layout_width="90dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
-        android:text="Número da Conta Corrente:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/telcomerical" />
-
-    <TextView
-        android:id="@+id/txtCepTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="CEP:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumccTCF" />
-
-    <TextView
-        android:id="@+id/txtCttMasterTCF"
-        android:layout_width="101dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginBottom="154dp"
-        android:text="Contato Master:"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/btCancelaTCF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCepTCF" />
-
-    <EditText
-        android:id="@+id/edtCnpjTCF"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o CNPJ"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textodecima" />
-
-    <EditText
-        android:id="@+id/edtRazSocTCF"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite uma Razão Social"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCnpjTCF" />
-
-    <Spinner
-        android:id="@+id/spnBancoTCF"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRazSocTCF"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/edtAgenciaTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite a Agencia"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnBancoTCF" />
-
-    <EditText
-        android:id="@+id/edtCcTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite a Conta Corrente"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAgenciaTCF" />
-
-    <EditText
-        android:id="@+id/edtCepTCF"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o CEP"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCcTCF" />
-
-    <Spinner
-        android:id="@+id/spnCttTCF"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="153dp"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/btAvancTCF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCepTCF"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/btAvancTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="AVANÇAR"
-        app:backgroundTint="#00BCD4"
+    <ScrollView
+        android:id="@+id/svTCF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <Button
-        android:id="@+id/btCancelaTCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="VOLTAR"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
+
+            <TextView
+                android:id="@+id/txtTCF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:background="@color/light_blue"
+                android:fontFamily="sans-serif-light"
+                android:padding="10dp"
+                android:text="Cadastro da Financeira"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/edtCnpjTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira o CNPJ"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtRazSocTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Razão Social"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <Spinner
+                android:id="@+id/spnBancoTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtAgenciaTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Agência"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtCcTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Conta Corrente"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <Spinner
+                android:id="@+id/spnCttTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtCepTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira o CEP"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+
+            <Button
+                android:id="@+id/btCepTCF"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/light_blue"
+                android:text="PESQUISA CEP" />
+
+            <EditText
+                android:id="@+id/edtLogradouroTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Logradouro"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtNumeroCasaTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Número da Residência"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtComplementoLogradouroTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Complemento"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtBairroTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Bairro"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtComplementoBairroTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Complemento do Bairro"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtLocalidadeTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Localidade"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtUfTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="UF"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btVoltarTCF"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="#00BCD4"
+                    android:text="VOLTAR" />
+
+                <Button
+                    android:id="@+id/btConfirmaTCF"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="5dp"
+                    android:backgroundTint="#00BCD4"
+                    android:text="CONFIRMAR" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

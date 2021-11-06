@@ -3,212 +3,149 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".CadastraUsuario">
 
-    <EditText
-        android:id="@+id/edtCpfTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o CPF"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTCU" />
-
-    <EditText
-        android:id="@+id/edtUserTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o Usuario"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpfTCU" />
-
-    <EditText
-        android:id="@+id/edtEmailTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o E-mail"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtUserTCU" />
-
-    <EditText
-        android:id="@+id/edtCelTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite o Telefone Celular"
-        android:inputType="phone"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailTCU" />
-
-    <Spinner
-        android:id="@+id/spnStatusTCU"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCelTCU"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/edtSenhaTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Digite a Senha"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnStatusTCU" />
-
-    <EditText
-        android:id="@+id/edtRptSenhaTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Repita a Senha"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenhaTCU" />
-
-    <Button
-        android:id="@+id/btConfirmaTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Confirmar"
-        app:backgroundTint="#00BCD4"
+    <ScrollView
+        android:id="@+id/svTL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/btVoltarTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="VOLTAR"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTCU"
-        android:layout_width="388dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="Cadastro de Usuario"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <TextView
-        android:id="@+id/txtCpfTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="CPF"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTCU" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtNomeTCU"
-        android:layout_width="87dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
-        android:text="Nome do Usuario:"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCpfTCU" />
 
-    <TextView
-        android:id="@+id/txtEmailTCU"
-        android:layout_width="92dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:text="E-mail:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNomeTCU" />
+            <TextView
+                android:id="@+id/txtTCU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:background="@color/light_blue"
+                android:fontFamily="sans-serif-light"
+                android:padding="10dp"
+                android:text="Cadastro de Usuário"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
 
-    <TextView
-        android:id="@+id/txtCelTCU"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Telefone Celular:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailTCU" />
+            <EditText
+                android:id="@+id/edtCpfTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu CPF"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
-    <TextView
-        android:id="@+id/txtStatusTCU"
-        android:layout_width="95dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Status do Usuario:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCelTCU" />
+            <EditText
+                android:id="@+id/edtUserTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu Nome"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
-    <TextView
-        android:id="@+id/txtSenhaTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Senha:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtStatusTCU" />
+            <EditText
+                android:id="@+id/edtEmailTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu E-Mail"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
-    <TextView
-        android:id="@+id/txtRptSenhaTCU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Repita sua Senha:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaTCU" />
+            <EditText
+                android:id="@+id/edtCelTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira seu Celular"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
+            <Spinner
+                android:id="@+id/spnStausTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtSenhaTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira sua Senha"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtRptSenhaTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Repita sua Senha"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btVoltarTCU"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:text="VOLTAR" />
+
+                <Button
+                    android:id="@+id/btConfirmaTCU"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="5dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:text="CONFIRMAR" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

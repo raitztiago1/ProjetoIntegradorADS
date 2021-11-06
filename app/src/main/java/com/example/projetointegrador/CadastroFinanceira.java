@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CadastroFinanceira extends AppCompatActivity {
 
-    Button btCancelaTCF, btAvancTCF;
+    Button btVoltarTCF, btConfirmaTCF;
     TextView edtCnpjTCF, edtRazSocTCF, edtAgenciaTCF, edtCcTCF, edtCepTCF;
     Spinner spnBancoTCF, spnCttTCF;
 
@@ -61,7 +61,7 @@ public class CadastroFinanceira extends AppCompatActivity {
         escolhaTipoUser();
         escolhaContato();
 
-        btAvancTCF.setOnClickListener((view -> {
+        btConfirmaTCF.setOnClickListener((view -> {
 
             if (!validaDados()) {
 
@@ -75,7 +75,7 @@ public class CadastroFinanceira extends AppCompatActivity {
             }
         }));
 
-        btCancelaTCF.setOnClickListener(new View.OnClickListener() {
+        btVoltarTCF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -90,8 +90,8 @@ public class CadastroFinanceira extends AppCompatActivity {
 
     private void inicializarComponentes() {
 
-        btCancelaTCF = findViewById(R.id.btCancelaTCF);
-        btAvancTCF = findViewById(R.id.btAvancTCF);
+        btVoltarTCF = findViewById(R.id.btVoltarTCF);
+        btConfirmaTCF = findViewById(R.id.btConfirmaTCF);
 
         edtCnpjTCF = findViewById(R.id.edtCnpjTCF);
         edtRazSocTCF = findViewById(R.id.edtRazSocTCF);

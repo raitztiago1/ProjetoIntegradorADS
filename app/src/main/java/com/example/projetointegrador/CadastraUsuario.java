@@ -16,7 +16,7 @@ public class CadastraUsuario extends AppCompatActivity {
     EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU;
     Spinner spnStatusTCU;
 
-    String[] statusUser = new String[]{"Selecione uma Opção", "teste 1", "teste 2"};
+    String[] statusUser = new String[]{"Status do Usuário", "teste 1", "teste 2"};
 
 
     @Override
@@ -62,7 +62,7 @@ public class CadastraUsuario extends AppCompatActivity {
         edtSenhaTCU = findViewById(R.id.edtSenhaTCU);
         edtRptSenhaTCU = findViewById(R.id.edtRptSenhaTCU);
 
-        spnStatusTCU = findViewById(R.id.spnStatusTCU);
+        spnStatusTCU = findViewById(R.id.spnStausTCU);
 
     }
 

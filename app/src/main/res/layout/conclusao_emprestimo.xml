@@ -24,17 +24,18 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/txtTCE"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:background="@color/light_blue"
+                android:fontFamily="sans-serif-light"
                 android:padding="10dp"
-                android:text="INFORME OS DADOS PARA CONCLUIR A SIMULAÇÃO"
+                android:text="Informe os Dados para Concluir a Simulação"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textSize="34sp" />
 
             <EditText
                 android:id="@+id/edtEstadoCivTCE"
@@ -99,11 +100,11 @@
 
             <Button
                 android:id="@+id/btCepTCE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/light_blue"
                 android:text="PESQUISA CEP" />
 
             <EditText
@@ -200,20 +201,20 @@
 
                 <Button
                     android:id="@+id/btnCancelaTCE"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="left"
-                    android:layout_marginEnd="35dp"
-                    android:backgroundTint="#00BCD4"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/light_blue"
                     android:text="VOLTAR" />
 
                 <Button
                     android:id="@+id/btnConfirmaTCE"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:layout_marginStart="35dp"
-                    android:backgroundTint="#00BCD4"
+                    android:layout_marginStart="5dp"
+                    android:backgroundTint="@color/light_blue"
                     android:text="CONFIRMAR" />
 
             </LinearLayout>
