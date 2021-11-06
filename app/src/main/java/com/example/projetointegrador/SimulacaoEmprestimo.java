@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SimulacaoEmprestimo extends AppCompatActivity {
 
-    Button btnSimulTSP, btnCancelaTSP, btnContinuaTSP;
+    Button btSimulTSP, btVoltarTSP, btConfirmaTSP;
     EditText edtCpfTSP, edtCelTSP, edtValorTSP, edtTarifaTSP, edtCetTSP, edtDataTSP, edtIofTSP;
     Spinner spnFinanTSP;
 
@@ -28,7 +28,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         inicializaComponentes();
         escolhaFinan();
 
-        btnContinuaTSP.setOnClickListener((view -> {
+        btConfirmaTSP.setOnClickListener((view -> {
 
             if (!validaDados()) {
 
@@ -45,7 +45,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             }
         }));
 
-        btnCancelaTSP.setOnClickListener(new View.OnClickListener() {
+        btVoltarTSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -57,9 +57,9 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
     }
 
     private void inicializaComponentes() {
-        btnSimulTSP = findViewById(R.id.btnSimulTSP);
-        btnCancelaTSP = findViewById(R.id.btnCancelaTSP);
-        btnContinuaTSP = findViewById(R.id.btnContinuaTSP);
+        btSimulTSP = findViewById(R.id.btSimulTSP);
+        btVoltarTSP = findViewById(R.id.btVoltarTSP);
+        btConfirmaTSP = findViewById(R.id.btConfirmaTSP);
 
         edtCpfTSP = findViewById(R.id.edtCpfTSP);
         edtCelTSP = findViewById(R.id.edtCelTSP);
