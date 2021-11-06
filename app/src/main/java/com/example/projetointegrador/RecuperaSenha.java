@@ -92,6 +92,8 @@ public class RecuperaSenha extends AppCompatActivity {
             try {
                 if (s.equals("200")) {
                     Intent telaRecupera = new Intent(getApplicationContext(), RecuperaCodigo.class);
+                    telaRecupera.putExtra("cpf", edtCpfTRS.getText().toString());
+                    telaRecupera.putExtra("email", edtEmailTRS.getText().toString());
                     startActivity(telaRecupera);
                 } else if (s.equals("305")) {
                     alerta.setMessage("Cpf invalido, verifique e tente novamente");

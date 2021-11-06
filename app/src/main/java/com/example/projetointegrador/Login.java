@@ -1,12 +1,15 @@
 package com.example.projetointegrador;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.projetointegrador.http.HttpHelper;
 import com.example.projetointegrador.http.HttpHelperUsuario;
 import com.example.projetointegrador.http.JsonParse;
@@ -27,7 +30,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
         setTitle("Login");
         inicializarComponentes();
-        httpHelper.HttpHelper("{}");
+        httpHelper.HttpHelperStart();
 
         btLoginTL.setOnClickListener(view -> {
             if (validaCpfLocal()) {
@@ -54,13 +57,15 @@ public class Login extends AppCompatActivity {
         });
     }
 
-//realiza o processamento dos dados e encaminha para tela
-    private class TarefaUsuarioUnico extends AsyncTask<String,String,String> {
+    //realiza o processamento dos dados e encaminha para tela
+    @SuppressLint("StaticFieldLeak")
+    private class TarefaUsuarioUnico extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
             HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
             return controleUsuario.getUsuario(edCpf);
         }
+
         @Override
         protected void onPostExecute(String s) {
             AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
@@ -69,28 +74,28 @@ public class Login extends AppCompatActivity {
 
             Usuario user = JsonParse.JsonToObject(s);
 
-            if (user != null){
-                if(user.getSenha().equals(edSenha)){
-                    if(user.getCargo().equals("Administrador")){
+            if (user != null) {
+                if (user.getSenha().equals(edSenha)) {
+                    if (user.getCargo().equals("Administrador")) {
                         limpaCampos();
                         Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
                         startActivity(telaMaster);
-                    }else{
+                    } else {
                         limpaCampos();
                         startActivity(new Intent(Login.this, Menu.class));
                     }
-                }else{
+                } else {
                     alerta.setMessage("Senha ou usuario invalido verifique e tente novamente");
                     alerta.show();
                 }
-            }else{
+            } else {
                 alerta.setMessage("Usuario nao existe, verifique se digitou corretamente ou realize o cadastro");
                 alerta.show();
             }
         }
     }
 
-//inicializa componentes da tela para versionamento
+    //inicializa componentes da tela para versionamento
     private void inicializarComponentes() {
         btLoginTL = findViewById(R.id.btLoginTL);
         btRecSenhaTL = findViewById(R.id.btRecSenhaTL);
@@ -99,13 +104,13 @@ public class Login extends AppCompatActivity {
         edtPassTL = findViewById(R.id.edtPassTL);
     }
 
-//limpa os campos visiveis a usuario
+    //limpa os campos visiveis a usuario
     private void limpaCampos() {
         edtCpfTL.setText("");
         edtPassTL.setText("");
     }
 
-//chama validacao de cpf
+    //chama validacao de cpf
     private boolean validaCpfLocal() {
         String cpfAux = edtCpfTL.getText().toString();
         boolean existemErros = autent.validaDocumento(cpfAux);

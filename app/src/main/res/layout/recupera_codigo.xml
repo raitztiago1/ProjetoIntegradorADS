@@ -56,7 +56,6 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira o Código"
-                android:inputType="number"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
@@ -83,7 +82,6 @@
                 android:inputType="textPassword"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
-
 
             <LinearLayout
                 android:layout_width="wrap_content"

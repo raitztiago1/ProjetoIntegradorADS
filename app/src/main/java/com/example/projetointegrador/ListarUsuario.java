@@ -1,8 +1,8 @@
 package com.example.projetointegrador;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ListarUsuario extends AppCompatActivity {
 
+    @SuppressLint("StaticFieldLeak")
     private static ListView lvUsuarioTLE;
 
     Button btSairTLE;
@@ -33,12 +34,7 @@ public class ListarUsuario extends AppCompatActivity {
         TarefaUsuarioAll tarefaUsuarioAll = new TarefaUsuarioAll();
         tarefaUsuarioAll.execute();
 
-        btSairTLE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        btSairTLE.setOnClickListener(view -> finish());
 
     }
 
@@ -50,6 +46,7 @@ public class ListarUsuario extends AppCompatActivity {
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class TarefaUsuarioAll extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
@@ -63,7 +60,7 @@ public class ListarUsuario extends AppCompatActivity {
             ArrayList<String> asdf = preencherDados(s);
 
             ArrayAdapter<String> arrayAdapter;
-            arrayAdapter = new ArrayAdapter<String>(ListarUsuario.this, android.R.layout.simple_list_item_1, asdf);
+            arrayAdapter = new ArrayAdapter<>(ListarUsuario.this, android.R.layout.simple_list_item_1, asdf);
             lvUsuarioTLE.setAdapter(arrayAdapter);
 
         }
@@ -71,7 +68,7 @@ public class ListarUsuario extends AppCompatActivity {
     private static ArrayList<String> preencherDados(String s){
         ArrayList<String> teste = new ArrayList<>();
 
-        List<Usuario> listaUsuario = new ArrayList<>();
+        List<Usuario> listaUsuario;
         listaUsuario = JsonParse.JsonToList(s);
         for (int x = 0; x < listaUsuario.size(); x++) {
 

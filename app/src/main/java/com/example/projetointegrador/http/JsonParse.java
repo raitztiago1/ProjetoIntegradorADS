@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonParse {
-    public static Usuario JsonToObject(String conteudo){
-        try{
-            JSONObject jsonObject = null;
+    public static Usuario JsonToObject(String conteudo) {
+        try {
+            JSONObject jsonObject;
             jsonObject = new JSONObject(conteudo);
 
-            Usuario  usuario = new Usuario(
+            return new Usuario(
                     jsonObject.getString("cpf_usuario"),
                     jsonObject.getString("nome_contato"),
                     jsonObject.getString("estado_usuario"),
@@ -32,24 +32,22 @@ public class JsonParse {
                     jsonObject.getString("natural_cidade"),
                     jsonObject.getString("cargo")
             );
-
-            return usuario;
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
 
-    public static List<Usuario> JsonToList(String conteudo){
-        try{
-            List<Usuario> usuarioList= new ArrayList<>();
-            JSONArray jsonArray = null;
-            JSONObject jsonObject = null;
+    public static List<Usuario> JsonToList(String conteudo) {
+        try {
+            List<Usuario> usuarioList = new ArrayList<>();
+            JSONArray jsonArray;
+            JSONObject jsonObject;
 
             jsonArray = new JSONArray(conteudo);
 
-            for(int x=0; x<jsonArray.length(); x++){
+            for (int x = 0; x < jsonArray.length(); x++) {
                 jsonObject = jsonArray.getJSONObject(x);
-                Usuario  usuario = new Usuario(
+                Usuario usuario = new Usuario(
                         jsonObject.getString("cpf_usuario"),
                         jsonObject.getString("nome_contato"),
                         jsonObject.getString("estado_usuario"),
@@ -70,14 +68,14 @@ public class JsonParse {
             }
 
             return usuarioList;
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
 
-    public static Cep JsonToObjectCep(String conteudo){
-        try{
-            JSONObject jsonObject = null;
+    public static Cep JsonToObjectCep(String conteudo) {
+        try {
+            JSONObject jsonObject;
             jsonObject = new JSONObject(conteudo);
             return new Cep(
                     jsonObject.getString("cep"),
@@ -87,7 +85,7 @@ public class JsonParse {
                     jsonObject.getString("localidade"),
                     jsonObject.getString("uf")
             );
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

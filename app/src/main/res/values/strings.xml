@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">projetoIntegrador</string>
     <string name="bem_vindo_a">Bem Vindo(a).</string>
+    <string name="ok" />
 </resources>

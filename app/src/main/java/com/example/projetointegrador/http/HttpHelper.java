@@ -2,28 +2,23 @@ package com.example.projetointegrador.http;
 
 import android.os.AsyncTask;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class HttpHelper {
-    private static String URL = "https://rest-api-projeto-integrador.herokuapp.com/";
-    private static String jsonlocal;
+    private static final String URL = "https://rest-api-projeto-integrador.herokuapp.com/";
 
-    public void HttpHelper(String json) {
-        jsonlocal = json;
+    public void HttpHelperStart() {
         TarefaStart tarefaStart = new TarefaStart();
         tarefaStart.execute();
     }
 
-    private class TarefaStart extends AsyncTask<String, String, String> {
+    private static class TarefaStart extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
             HttpHelper controleStart = new HttpHelper();
-            String retorno = controleStart.getStartApi(jsonlocal);
-            return retorno;
+            return controleStart.getStartApi();
         }
 
         @Override
@@ -32,24 +27,20 @@ public class HttpHelper {
         }
     }
 
-    private String getStartApi(String json){
-                try {
-                    MediaType headerHttp = MediaType.parse("application/json; charset=utf-8");
+    private String getStartApi() {
+        try {
+            Request request = new Request.Builder().url(URL).get().build();
 
-                    RequestBody body = RequestBody.create(headerHttp, json);
+            OkHttpClient client = new OkHttpClient();
 
-                    Request request = new Request.Builder().url(URL).get().build();
+            Response resposta = client.newCall(request).execute();
 
-                    OkHttpClient client = new OkHttpClient();
+            return resposta.toString();
 
-                    Response resposta = client.newCall(request).execute();
-
-                   return resposta.toString();
-
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    e.printStackTrace();
-                    return  null;
-                }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return null;
         }
     }
+}

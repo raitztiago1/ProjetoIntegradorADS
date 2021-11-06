@@ -1,7 +1,5 @@
 package com.example.projetointegrador.http;
 
-import android.os.AsyncTask;
-
 import com.example.projetointegrador.model.Usuario;
 import com.google.gson.Gson;
 
