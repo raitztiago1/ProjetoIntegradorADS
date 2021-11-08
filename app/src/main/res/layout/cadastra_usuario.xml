@@ -51,6 +51,19 @@
                 android:minHeight="48dp" />
 
             <EditText
+                android:id="@+id/edtOrgaoEmissorTCU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira o Orgão Emissor do Documento"
+                android:textSize="17dp"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
                 android:id="@+id/edtUserTCU"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,14 +99,17 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
-            <Spinner
-                android:id="@+id/spnStausTCU"
+            <EditText
+                android:id="@+id/edtNaturalCidadeTCU"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira sua Cidade Natal"
+                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp"
-                android:textAlignment="center" />
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtSenhaTCU"

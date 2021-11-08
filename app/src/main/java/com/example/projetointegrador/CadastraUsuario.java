@@ -1,23 +1,22 @@
 package com.example.projetointegrador;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projetointegrador.http.HttpHelperUsuario;
+import com.example.projetointegrador.model.Usuario;
 
 public class CadastraUsuario extends AppCompatActivity {
 
     Button btConfirmaTCU, btVoltarTCU;
-    EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU;
-    Spinner spnStatusTCU;
-
-    String[] statusUser = new String[]{"Status do Usuário", "teste 1", "teste 2"};
-
+    EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU, edtOrgaoEmissorTCU, edtNaturalCidadeTCU;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +25,66 @@ public class CadastraUsuario extends AppCompatActivity {
         setTitle("CadastraUsuario");
 
         inicializarComponentes();
-        escolhaTipoUser();
 
         btConfirmaTCU.setOnClickListener((view -> {
             if (!validaDados()) {
-                String tipoUser = spnStatusTCU.getSelectedItem().toString();
-                System.out.println();
-                limpaCampos();
-            } else {
-
+                TarefaCadastra tarefa = new TarefaCadastra();
+                tarefa.execute();
             }
         }));
 
 
-        btVoltarTCU.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btVoltarTCU.setOnClickListener(view -> finish());
 
-                finish();
+    }
 
+    @SuppressLint("StaticFieldLeak")
+    private class TarefaCadastra extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            HttpHelperUsuario helperUsuario = new HttpHelperUsuario();
+            return helperUsuario.postUsuario(
+                    new Usuario(
+                            edtCpfTCU.getText().toString(),
+                            edtUserTCU.getText().toString().toUpperCase(),
+                            "ATIVO",
+                            edtCelTCU.getText().toString(),
+                            null,
+                            edtEmailTCU.getText().toString(),
+                            edtSenhaTCU.getText().toString(),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            edtOrgaoEmissorTCU.getText().toString(),
+                            edtNaturalCidadeTCU.getText().toString().toUpperCase(),
+                            "Usuario"
+                    ));
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            Intent chamaTelaInicio = new Intent(CadastraUsuario.this, Login.class);
+            chamaTelaInicio.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            chamaTelaInicio.putExtra("EXIT", true);
+            AlertDialog.Builder alerta = new AlertDialog.Builder(CadastraUsuario.this);
+
+            if (s != null) {
+                limpaCampos();
+                alerta.setTitle("Cadastro Sucesso");
+                alerta.setMessage("Cadastro realizado com sucesso!")
+                        .setCancelable(false)
+                        .setPositiveButton("ok", (dialogInterface, i) -> startActivity(chamaTelaInicio)).create().show();
+            } else {
+                alerta.setTitle("Cadastro Error");
+                alerta.setNeutralButton("OK", null);
+                alerta.setMessage("Erro no cadastro, verifique os dados e tente novamente!");
+                alerta.show();
             }
-        });
 
+        }
     }
 
     private void inicializarComponentes() {
@@ -61,17 +98,9 @@ public class CadastraUsuario extends AppCompatActivity {
         edtCelTCU = findViewById(R.id.edtCelTCU);
         edtSenhaTCU = findViewById(R.id.edtSenhaTCU);
         edtRptSenhaTCU = findViewById(R.id.edtRptSenhaTCU);
+        edtNaturalCidadeTCU = findViewById(R.id.edtNaturalCidadeTCU);
+        edtOrgaoEmissorTCU = findViewById(R.id.edtOrgaoEmissorTCU);
 
-        spnStatusTCU = findViewById(R.id.spnStausTCU);
-
-    }
-
-    private void escolhaTipoUser() {
-        spnStatusTCU.setAdapter(new ArrayAdapter<String>(
-                getApplicationContext(),
-                R.layout.textview_spinner,
-                statusUser
-        ));
     }
 
     private void limpaCampos() {
@@ -82,14 +111,14 @@ public class CadastraUsuario extends AppCompatActivity {
         edtCelTCU.setText("");
         edtSenhaTCU.setText("");
         edtRptSenhaTCU.setText("");
-
-        spnStatusTCU.setSelection(0);
+        edtOrgaoEmissorTCU.setText("");
+        edtNaturalCidadeTCU.setText("");
 
     }
 
     private boolean validaDados() {
 
-        Boolean existeErros = false;
+        boolean existeErros = false;
 
         if (edtCpfTCU.getText().toString().isEmpty()) {
 
@@ -115,11 +144,6 @@ public class CadastraUsuario extends AppCompatActivity {
             edtCelTCU.requestFocus();
             existeErros = true;
 
-        } else if (spnStatusTCU.getSelectedItem().toString().equals("Selecione uma Opção")) {
-
-            ((TextView) spnStatusTCU.getSelectedView()).setError("Campo Obrigatório");
-            existeErros = true;
-
         } else if (edtSenhaTCU.getText().toString().isEmpty()) {
 
             edtSenhaTCU.setError("Campo Obrigatorio");
@@ -132,6 +156,10 @@ public class CadastraUsuario extends AppCompatActivity {
             edtRptSenhaTCU.requestFocus();
             existeErros = true;
 
+        } else if (!edtSenhaTCU.getText().toString().equals(edtRptSenhaTCU.getText().toString())) {
+            edtRptSenhaTCU.setError("Senhas não coincidem");
+            edtRptSenhaTCU.requestFocus();
+            existeErros = true;
         }
 
         return existeErros;
