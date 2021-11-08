@@ -1,6 +1,7 @@
 package com.example.projetointegrador.model;
 
-public class Cep {
+public class LojaEndereco {
+    private String id_cnpj;
     private String uf;
     private String cidade;
     private String bairro;
@@ -10,7 +11,8 @@ public class Cep {
     private String complemento;
     private String cep;
 
-    public Cep(String uf, String cidade, String bairro, String tipo_logradouro, String logradouro, String numero, String complemento, String cep) {
+    public LojaEndereco(String id_cnpj, String uf, String cidade, String bairro, String tipo_logradouro, String logradouro, String numero, String complemento, String cep) {
+        this.id_cnpj = id_cnpj;
         this.uf = uf;
         this.cidade = cidade;
         this.bairro = bairro;
@@ -19,6 +21,14 @@ public class Cep {
         this.numero = numero;
         this.complemento = complemento;
         this.cep = cep;
+    }
+
+    public String getId_cnpj() {
+        return id_cnpj;
+    }
+
+    public void setId_cnpj(String id_cnpj) {
+        this.id_cnpj = id_cnpj;
     }
 
     public String getUf() {
@@ -87,8 +97,9 @@ public class Cep {
 
     @Override
     public String toString() {
-        return "Cep{" +
-                "uf='" + uf + '\'' +
+        return "LojaEndereco{" +
+                "id_cnpj='" + id_cnpj + '\'' +
+                ", uf='" + uf + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", bairro='" + bairro + '\'' +
                 ", tipo_logradouro='" + tipo_logradouro + '\'' +

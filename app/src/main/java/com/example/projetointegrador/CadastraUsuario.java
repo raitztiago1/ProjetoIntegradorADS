@@ -66,17 +66,15 @@ public class CadastraUsuario extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Intent chamaTelaInicio = new Intent(CadastraUsuario.this, Login.class);
-            chamaTelaInicio.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            chamaTelaInicio.putExtra("EXIT", true);
+            Intent chamaTela = new Intent(CadastraUsuario.this, CadastraEndereco.class);
+            chamaTela.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            chamaTela.putExtra("EXIT", true);
             AlertDialog.Builder alerta = new AlertDialog.Builder(CadastraUsuario.this);
 
             if (s != null) {
+                chamaTela.putExtra("cpf", edtCpfTCU.getText().toString());
                 limpaCampos();
-                alerta.setTitle("Cadastro Sucesso");
-                alerta.setMessage("Cadastro realizado com sucesso!")
-                        .setCancelable(false)
-                        .setPositiveButton("ok", (dialogInterface, i) -> startActivity(chamaTelaInicio)).create().show();
+                startActivity(chamaTela);
             } else {
                 alerta.setTitle("Cadastro Error");
                 alerta.setNeutralButton("OK", null);

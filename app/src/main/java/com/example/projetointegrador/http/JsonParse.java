@@ -78,12 +78,14 @@ public class JsonParse {
             JSONObject jsonObject;
             jsonObject = new JSONObject(conteudo);
             return new Cep(
-                    jsonObject.getString("cep"),
-                    jsonObject.getString("logradouro"),
-                    jsonObject.getString("complemento"),
-                    jsonObject.getString("bairro"),
+                    jsonObject.getString("uf"),
                     jsonObject.getString("localidade"),
-                    jsonObject.getString("uf")
+                    jsonObject.getString("bairro"),
+                    "Rua",
+                    jsonObject.getString("logradouro"),
+                    "000",
+                    jsonObject.getString("complemento"),
+                    jsonObject.getString("cep")
             );
         } catch (Exception e) {
             e.printStackTrace();

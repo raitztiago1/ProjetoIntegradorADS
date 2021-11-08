@@ -107,18 +107,6 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/edtComplementoBairroTCEn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Complemento do Bairro"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
                 android:id="@+id/edtLocalidadeTCEn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
