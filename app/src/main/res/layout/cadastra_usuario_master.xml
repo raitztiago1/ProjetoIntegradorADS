@@ -31,12 +31,12 @@
                 android:id="@+id/txtTCUM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/light_blue"
+                android:background="@color/blue_grey"
                 android:fontFamily="sans-serif-light"
                 android:padding="10dp"
                 android:text="Cadastro de Usuario Master"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="@color/white"
                 android:textSize="34sp" />
 
             <EditText
@@ -179,7 +179,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="left"
                     android:layout_marginEnd="5dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="@color/button"
                     android:text="Voltar" />
 
                 <Button
@@ -188,7 +188,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="right"
                     android:layout_marginLeft="5dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="@color/button"
                     android:text="CONFIRMA" />
             </LinearLayout>
 

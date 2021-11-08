@@ -39,7 +39,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
             }
         }));
 
-        btConfirmaTCUM.setOnClickListener(view -> finish());
+        btVoltarTCUM.setOnClickListener(view -> finish());
 
     }
 

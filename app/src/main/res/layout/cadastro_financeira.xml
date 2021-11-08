@@ -30,12 +30,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:background="@color/light_blue"
+                android:background="@color/blue_grey"
                 android:fontFamily="sans-serif-light"
                 android:padding="10dp"
                 android:text="Cadastro da Financeira"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="34sp" />
 
             <EditText
@@ -102,112 +102,6 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/edtCepTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira o CEP"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-
-            <Button
-                android:id="@+id/btCepTCF"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="@color/light_blue"
-                android:text="PESQUISA CEP" />
-
-            <EditText
-                android:id="@+id/edtLogradouroTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Logradouro"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtNumeroCasaTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Número da Residência"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtComplementoLogradouroTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Complemento"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtBairroTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Bairro"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtComplementoBairroTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Complemento do Bairro"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtLocalidadeTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Localidade"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtUfTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="UF"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -221,7 +115,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="left"
                     android:layout_marginEnd="5dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="@color/button"
                     android:text="VOLTAR" />
 
                 <Button
@@ -230,7 +124,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="right"
                     android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="@color/button"
                     android:text="CONFIRMAR" />
 
             </LinearLayout>

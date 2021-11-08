@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
-            android:name=".CadastraEntereco"
+            android:name=".CadastraEndereco"
             android:exported="false" />
         <activity
             android:name=".ListarEmpresas"

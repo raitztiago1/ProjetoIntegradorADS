@@ -77,14 +77,7 @@ public class CadastroFinanceira extends AppCompatActivity {
 
         btVoltarTCF.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                finish();
-
-            }
-
-        });
-
+            public void onClick(View view) {finish();}});
     }
 
 
@@ -97,7 +90,6 @@ public class CadastroFinanceira extends AppCompatActivity {
         edtRazSocTCF = findViewById(R.id.edtRazSocTCF);
         edtAgenciaTCF = findViewById(R.id.edtAgenciaTCF);
         edtCcTCF = findViewById(R.id.edtCcTCF);
-        edtCepTCF = findViewById(R.id.edtCepTCF);
 
         spnBancoTCF = findViewById(R.id.spnBancoTCF);
         spnCttTCF = findViewById(R.id.spnCttTCF);
