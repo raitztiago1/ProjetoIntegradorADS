@@ -24,7 +24,6 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/txtTSP"
                 android:layout_width="match_parent"

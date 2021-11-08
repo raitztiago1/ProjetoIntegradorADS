@@ -206,7 +206,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             edtCetTSP.setText(auxCetPrint + "%");
 
         }
-
     }
 
 
