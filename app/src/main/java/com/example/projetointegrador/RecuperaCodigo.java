@@ -14,9 +14,7 @@ import com.example.projetointegrador.http.HttpHelperAuth;
 public class RecuperaCodigo extends AppCompatActivity {
 
     Button btVoltarTRC, btConfirmaTRC;
-
     EditText edtCodigoLiberacaoTRC, edtSenhaTRC, edtSenhaRptTRC;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +70,18 @@ public class RecuperaCodigo extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
+
+            //CRIA INTENT E PASSA OS PARAMETROS PARA ENCERRAR TELAS ANTERIORES
+            Intent chamaTelaInicio = new Intent(RecuperaCodigo.this, Login.class);
+            chamaTelaInicio.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            chamaTelaInicio.putExtra("EXIT", true);
+
             AlertDialog.Builder alerta = new AlertDialog.Builder(RecuperaCodigo.this);
             if (s.equals("Senha alterada com sucesso")) {
-                alerta.setTitle("Reset Senha")
+                alerta.setTitle("Alteração de Senha")
                         .setMessage(s)
                         .setCancelable(false)
-                        .setPositiveButton("ok", (dialogInterface, i) -> startActivity(new Intent(RecuperaCodigo.this, Login.class))).create().show();
+                        .setPositiveButton("ok", (dialogInterface, i) -> startActivity(chamaTelaInicio)).create().show();
             } else {
                 alerta.setNeutralButton("ok", null);
                 alerta.setTitle("Reset Senha");
