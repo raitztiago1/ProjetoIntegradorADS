@@ -68,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:minWidth="300dp"
+                android:gravity="center"
                 android:minHeight="48dp" />
 
             <EditText
@@ -76,8 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:ems="10"
-                android:gravity="center"
                 android:hint="Insira a Agência"
+                android:gravity="center"
                 android:inputType="number"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
@@ -100,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:minWidth="300dp"
+                android:gravity="center"
                 android:minHeight="48dp" />
 
             <LinearLayout

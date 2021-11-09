@@ -56,6 +56,7 @@
                 android:layout_marginTop="15dp"
                 android:minWidth="300dp"
                 android:minHeight="48dp"
+                android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
@@ -99,6 +100,7 @@
                 android:layout_marginTop="15dp"
                 android:minWidth="300dp"
                 android:minHeight="48dp"
+                android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
