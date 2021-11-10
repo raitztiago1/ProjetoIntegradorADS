@@ -12,13 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SimulacaoEmprestimo extends AppCompatActivity {
 
+    Autenticacoes autent = new Autenticacoes();
     final Double tarifa = 0.017;
     final Double iofFixo = 0.0038;
     final Double iofRotativo = 0.0025;
     Button btSimulTSP, btVoltarTSP, btConfirmaTSP;
-    EditText edtCpfTSP, edtCelTSP, edtValorTSP, edtTarifaTSP, edtCetTSP, edtDataTSP, edtIofTSP;
+    EditText edtCpfTSP, edtCelTSP, edtValorTSP, edtTarifaTSP, edtCetTSP, edtDataTSP, edtIofTSP, edtRendaTSP, edtValorTotalTSP, edtValorParcTSP;
     Spinner spnFinanTSP, spnParcelasTSP;
-    Double cet, cetPrint, iofFinal, iofPrint, tarifaPrint;
+    Double cet, cetPrint, iofFinal, iofPrint, tarifaPrint, valorParcela, valorFinal, valorInicial;
     int qtdParcelas;
 
     String[] financeira = new String[]{"Selecione uma opção", "Financeira 1", "Financeira 2", "Financeira 3"};
@@ -38,15 +39,12 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
         btConfirmaTSP.setOnClickListener((view -> {
 
-            if (!validaDados()) {
+            if (!validaDados() || validaCpfLocal()) {
 
                 String auxFinan = spnFinanTSP.getSelectedItem().toString();
                 System.out.println(auxFinan);
 
                 limpaCampos();
-
-                Intent telaConclusao = new Intent(getApplicationContext(), ConclusaoEmprestimo.class);
-                startActivity(telaConclusao);
 
             }
         }));
@@ -68,6 +66,9 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         edtCetTSP = findViewById(R.id.edtCetTSP);
         edtDataTSP = findViewById(R.id.edtDataTSP);
         edtIofTSP = findViewById(R.id.edtIofTSP);
+        edtRendaTSP = findViewById(R.id.edtRendaTSP);
+        edtValorTotalTSP = findViewById(R.id.edtValorTotalTSP);
+        edtValorParcTSP = findViewById(R.id.edtValorParcTSP);
 
         spnFinanTSP = findViewById(R.id.spnFinanTSP);
         spnParcelasTSP = findViewById(R.id.spnParcelasTSP);
@@ -103,7 +104,10 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
     private void definirParcela() {
 
-        String auxTarifaPrint, auxCetPrint, auxIofPrint;
+        String auxTarifaPrint, auxCetPrint, auxIofPrint, auxValorInicial, auxValorParcela, auxValorFinal;
+
+        auxValorInicial = edtValorTSP.getText().toString();
+        valorInicial = Double.parseDouble(auxValorInicial);
 
         if (spnParcelasTSP.getSelectedItem().toString().equals("12 Parcelas")) {
 
@@ -117,13 +121,20 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             cet = iofFinal + tarifa;
             cetPrint = cet * 100;
 
+            valorFinal = valorInicial + (valorInicial * cet);
+            valorParcela = valorFinal / qtdParcelas;
+
             auxTarifaPrint = String.format("%.2f", tarifaPrint);
             auxIofPrint = String.format("%.2f", iofPrint);
             auxCetPrint = String.format("%.2f", cetPrint);
+            auxValorParcela = String.format("%,2f", valorParcela);
+            auxValorFinal = String.format("%,2f", valorFinal);
 
             edtTarifaTSP.setText(auxTarifaPrint + "%");
             edtIofTSP.setText(auxIofPrint + "%");
             edtCetTSP.setText(auxCetPrint + "%");
+            edtValorParcTSP.setText("R$" + auxValorParcela);
+            edtValorTotalTSP.setText("R$" + auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("24 Parcelas")) {
 
@@ -137,13 +148,20 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             cet = iofFinal + tarifa;
             cetPrint = cet * 100;
 
+            valorFinal = valorInicial + (valorInicial * cet);
+            valorParcela = valorFinal / qtdParcelas;
+
             auxTarifaPrint = String.format("%.2f", tarifaPrint);
             auxIofPrint = String.format("%.2f", iofPrint);
             auxCetPrint = String.format("%.2f", cetPrint);
+            auxValorParcela = String.format("%.2f", valorParcela);
+            auxValorFinal = String.format("%.2f", valorFinal);
 
             edtTarifaTSP.setText(auxTarifaPrint + "%");
             edtIofTSP.setText(auxIofPrint + "%");
             edtCetTSP.setText(auxCetPrint + "%");
+            edtValorParcTSP.setText("R$" + auxValorParcela);
+            edtValorTotalTSP.setText("R$" + auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("36 Parcelas")) {
 
@@ -157,13 +175,20 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             cet = iofFinal + tarifa;
             cetPrint = cet * 100;
 
+            valorFinal = valorInicial + (valorInicial * cet);
+            valorParcela = valorFinal / qtdParcelas;
+
             auxTarifaPrint = String.format("%.2f", tarifaPrint);
             auxIofPrint = String.format("%.2f", iofPrint);
             auxCetPrint = String.format("%.2f", cetPrint);
+            auxValorParcela = String.format("%.2f", valorParcela);
+            auxValorFinal = String.format("%.2f", valorFinal);
 
             edtTarifaTSP.setText(auxTarifaPrint + "%");
             edtIofTSP.setText(auxIofPrint + "%");
             edtCetTSP.setText(auxCetPrint + "%");
+            edtValorParcTSP.setText("R$" + auxValorParcela);
+            edtValorTotalTSP.setText("R$" + auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("48 Parcelas")) {
 
@@ -177,13 +202,20 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             cet = iofFinal + tarifa;
             cetPrint = cet * 100;
 
+            valorFinal = valorInicial + (valorInicial * cet);
+            valorParcela = valorFinal / qtdParcelas;
+
             auxTarifaPrint = String.format("%.2f", tarifaPrint);
             auxIofPrint = String.format("%.2f", iofPrint);
             auxCetPrint = String.format("%.2f", cetPrint);
+            auxValorParcela = String.format("%.2f", valorParcela);
+            auxValorFinal = String.format("%.2f", valorFinal);
 
             edtTarifaTSP.setText(auxTarifaPrint + "%");
             edtIofTSP.setText(auxIofPrint + "%");
             edtCetTSP.setText(auxCetPrint + "%");
+            edtValorParcTSP.setText("R$" + auxValorParcela);
+            edtValorTotalTSP.setText("R$" + auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("60 Parcelas")) {
 
@@ -197,17 +229,41 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             cet = iofFinal + tarifa;
             cetPrint = cet * 100;
 
+            valorFinal = valorInicial + (valorInicial * cet);
+            valorParcela = valorFinal / qtdParcelas;
+
             auxTarifaPrint = String.format("%.2f", tarifaPrint);
             auxIofPrint = String.format("%.2f", iofPrint);
             auxCetPrint = String.format("%.2f", cetPrint);
+            auxValorParcela = String.format("%.2f", valorParcela);
+            auxValorFinal = String.format("%.2f", valorFinal);
 
             edtTarifaTSP.setText(auxTarifaPrint + "%");
             edtIofTSP.setText(auxIofPrint + "%");
             edtCetTSP.setText(auxCetPrint + "%");
+            edtValorParcTSP.setText("R$" + auxValorParcela);
+            edtValorTotalTSP.setText("R$" + auxValorFinal);
 
         }
     }
 
+
+    private boolean validaCpfLocal() {
+
+        String cpfAux = edtCpfTSP.getText().toString();
+        boolean existemErros = autent.validaDocumento(cpfAux);
+
+        if (!existemErros) {
+
+            edtCpfTSP.setError("Campo Obrigatorio");
+            edtCpfTSP.requestFocus();
+            return false;
+
+        }
+
+        return true;
+
+    }
 
     private boolean validaDados() {
 

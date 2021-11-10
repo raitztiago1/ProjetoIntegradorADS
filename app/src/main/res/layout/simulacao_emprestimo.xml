@@ -54,9 +54,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:gravity="center"
                 android:minWidth="300dp"
                 android:minHeight="48dp"
-                android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
@@ -66,20 +66,22 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Celular"
+                android:hint="Insira seu Celular"
                 android:inputType="number"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
-            <TextView
-                android:id="@+id/txtValorTSP"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/edtRendaTSP"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="Insira o Valor Desejado"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Renda Mensal"
+                android:inputType="numberDecimal"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtValorTSP"
@@ -88,7 +90,7 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Valor"
+                android:hint="Insira o Valor do Emprestimo"
                 android:inputType="number"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
@@ -98,9 +100,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:gravity="center"
                 android:minWidth="300dp"
                 android:minHeight="48dp"
-                android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
@@ -136,6 +138,31 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/txtIofTSP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="I.O.F."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edtIofTSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/txtCetTSP"
@@ -185,17 +212,42 @@
                 android:minHeight="48dp" />
 
             <TextView
-                android:id="@+id/txtIofTSP"
+                android:id="@+id/txtValorParcTSP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="I.O.F."
+                android:text="Valor Parcela"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/edtIofTSP"
+                android:id="@+id/edtValorParcTSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/txtValorTotalTSP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Valor Final"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edtValorTotalTSP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

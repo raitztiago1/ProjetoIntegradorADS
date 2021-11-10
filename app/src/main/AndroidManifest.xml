@@ -31,9 +31,6 @@
             android:name=".CadastraUsuario"
             android:exported="false" />
         <activity
-            android:name=".ConclusaoEmprestimo"
-            android:exported="false" />
-        <activity
             android:name=".SimulacaoEmprestimo"
             android:exported="false" />
         <activity
