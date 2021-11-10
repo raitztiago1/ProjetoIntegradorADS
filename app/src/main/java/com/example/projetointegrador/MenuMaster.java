@@ -54,7 +54,10 @@ public class MenuMaster extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                finish();
+                Intent voltar = new Intent(getApplicationContext(), Login.class);
+                voltar.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                voltar.putExtra("EXIT", true);
+                startActivity(voltar);
 
             }
         });
