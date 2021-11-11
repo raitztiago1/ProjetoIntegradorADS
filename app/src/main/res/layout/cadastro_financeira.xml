@@ -55,8 +55,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:minWidth="300dp"
                 android:gravity="center"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <Spinner
@@ -64,8 +64,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:minWidth="300dp"
                 android:gravity="center"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -97,8 +97,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:minWidth="300dp"
                 android:gravity="center"
+                android:minWidth="300dp"
                 android:minHeight="48dp" />
 
             <EditText
@@ -136,7 +136,6 @@
                 android:inputType="text"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
-
 
 
             <LinearLayout
