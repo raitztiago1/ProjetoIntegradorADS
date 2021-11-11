@@ -2,6 +2,7 @@ package com.es21.projetointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,10 @@ public class ListarSimulacoes extends AppCompatActivity {
         btVoltarTLS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String cpf = getIntent().getStringExtra("cpf");
+                Intent menu = new Intent(ListarSimulacoes.this,Menu.class);
+                menu.putExtra("cpf", cpf);
+                startActivity(menu);
                 finish();
             }
         });

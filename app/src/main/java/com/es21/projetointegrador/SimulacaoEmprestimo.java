@@ -100,10 +100,10 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
                             .show();
                     limpaCampos();
                 } else {
-                    alerta.setMessage("Error ao enviar simulação, tente novamente").show();
+                    alerta.setMessage("Error ao enviar simulação, tente novamente").setNeutralButton("ok",null).show();
                 }
             } catch (Exception e) {
-                alerta.setMessage("Error ao enviar simulação").show();
+                alerta.setMessage("Error ao enviar simulação").setNeutralButton("ok",null).show();
             }
         }
     }
