@@ -1,18 +1,18 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.projetointegrador.http.HttpHelperLoja;
-import com.example.projetointegrador.http.JsonParse;
-import com.example.projetointegrador.model.Loja;
+import com.es21.projetointegrador.http.HttpHelperLoja;
+import com.es21.projetointegrador.http.JsonParse;
+import com.es21.projetointegrador.model.Loja;
+import com.example.projetointegrador.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,10 +10,11 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetointegrador.http.HttpHelper;
-import com.example.projetointegrador.http.HttpHelperUsuario;
-import com.example.projetointegrador.http.JsonParse;
-import com.example.projetointegrador.model.Usuario;
+import com.es21.projetointegrador.http.HttpHelper;
+import com.es21.projetointegrador.http.HttpHelperUsuario;
+import com.es21.projetointegrador.http.JsonParse;
+import com.es21.projetointegrador.model.Usuario;
+import com.example.projetointegrador.R;
 
 public class Login extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.projetointegrador.http;
+package com.es21.projetointegrador.http;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,4 +1,4 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,8 +12,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetointegrador.http.HttpHelperSimulacao;
-import com.example.projetointegrador.model.Simulacao;
+import com.es21.projetointegrador.http.HttpHelperSimulacao;
+import com.es21.projetointegrador.model.Simulacao;
+import com.example.projetointegrador.R;
 
 public class SimulacaoEmprestimo extends AppCompatActivity {
     final Double tarifa = 0.017;

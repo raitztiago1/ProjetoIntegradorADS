@@ -1,9 +1,9 @@
-package com.example.projetointegrador.http;
+package com.es21.projetointegrador.http;
 
-import com.example.projetointegrador.model.Cep;
-import com.example.projetointegrador.model.Loja;
-import com.example.projetointegrador.model.Simulacao;
-import com.example.projetointegrador.model.Usuario;
+import com.es21.projetointegrador.model.Cep;
+import com.es21.projetointegrador.model.Loja;
+import com.es21.projetointegrador.model.Simulacao;
+import com.es21.projetointegrador.model.Usuario;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

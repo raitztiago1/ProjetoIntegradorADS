@@ -1,8 +1,8 @@
-package com.example.projetointegrador.http;
+package com.es21.projetointegrador.http;
 
-import com.example.projetointegrador.model.Cep;
-import com.example.projetointegrador.model.LojaEndereco;
-import com.example.projetointegrador.model.UsuarioEndereco;
+import com.es21.projetointegrador.model.Cep;
+import com.es21.projetointegrador.model.LojaEndereco;
+import com.es21.projetointegrador.model.UsuarioEndereco;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package com.example.projetointegrador.model;
+package com.es21.projetointegrador.model;
 
 public class UsuarioEndereco {
     private String id_cpf;

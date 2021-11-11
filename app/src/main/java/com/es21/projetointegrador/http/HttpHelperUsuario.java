@@ -1,7 +1,6 @@
-package com.example.projetointegrador.http;
+package com.es21.projetointegrador.http;
 
-import com.example.projetointegrador.CadastroFinanceira;
-import com.example.projetointegrador.model.Loja;
+import com.es21.projetointegrador.model.Usuario;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -10,22 +9,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class HttpHelperLoja {
+public class HttpHelperUsuario {
+    private static final String urlApi = "https://rest-api-projeto-integrador.herokuapp.com/usuario";
 
-    private static final String urlApi = "https://rest-api-projeto-integrador.herokuapp.com/loja";
-    private static final String urlApiAll = "https://rest-api-projeto-integrador.herokuapp.com/loja/all";
-
-    public String getLoja(String loja) {
+    //busca tudo da tabela usuario e tranforma em uma List do tipo Usuario (Ajustar)
+    public String getUsuarioAll() {
         BufferedReader buffReader = null;
-
         try {
-            URL url = new URL(urlApi + loja + "/json");
+            URL url = new URL(urlApi + "/all");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
             buffReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             String linha;
             StringBuilder stringBuilder = new StringBuilder();
-
 
             while ((linha = buffReader.readLine()) != null) {
                 stringBuilder.append(linha).append("\n");
@@ -43,38 +38,49 @@ public class HttpHelperLoja {
                     e.printStackTrace();
                 }
             }
-
         }
     }
 
-    public String postLoja(Loja loja) {
-
+    //busca usuario e tranforma o retorno em um Objeto do tipo Usuario
+    public String getUsuario(String cpfLocal) {
         BufferedReader buffReader = null;
-
         try {
-            Loja store = new Loja(
-                    loja.getCnpj_loja(),
-                    loja.getStatus_loja(),
-                    loja.getTipo_loja(),
-                    loja.getInscricao_estadual(),
-                    loja.getInscricao_municipal(),
-                    loja.getRamo_negocio(),
-                    loja.getMotivo_aprovacao(),
-                    loja.getPercentual_clipse(),
-                    loja.getRazao_social(),
-                    loja.getSite()
-            );
+            URL url = new URL(urlApi + "?cpf_usuario=" + cpfLocal);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            buffReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            String linha;
+            StringBuilder stringBuilder = new StringBuilder();
 
+            while ((linha = buffReader.readLine()) != null) {
+                stringBuilder.append(linha).append("\n");
+            }
+            return stringBuilder.toString();
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (buffReader != null) {
+                try {
+                    buffReader.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    //Reliza post no usuario
+    public String postUsuario(Usuario user) {
+        BufferedReader buffReader = null;
+        try {
             Gson g = new Gson();
-            String json = g.toJson(store);
+            String json = g.toJson(user);
             URL url = new URL(urlApi);
-
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("POST");
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setDoOutput(true);
-
             DataOutputStream dados = new DataOutputStream(urlConnection.getOutputStream());
             dados.writeBytes(json);
             dados.flush();
@@ -103,37 +109,7 @@ public class HttpHelperLoja {
                     e.printStackTrace();
                 }
             }
-
-        }
-
-    }
-
-    public String getLojaAll() {
-        BufferedReader bufferedReader = null;
-        try {
-            URL url = new URL(urlApiAll);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-            String linha;
-            StringBuilder stringBuilder = new StringBuilder();
-
-            while ((linha = bufferedReader.readLine()) != null) {
-                stringBuilder.append(linha).append("\n");
-            }
-            return stringBuilder.toString();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
-
 }
+

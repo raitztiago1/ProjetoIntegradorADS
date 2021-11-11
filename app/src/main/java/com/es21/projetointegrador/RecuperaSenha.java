@@ -1,4 +1,4 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -10,7 +10,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetointegrador.http.HttpHelperAuth;
+import com.es21.projetointegrador.http.HttpHelperAuth;
+import com.example.projetointegrador.R;
 
 public class RecuperaSenha extends AppCompatActivity {
 

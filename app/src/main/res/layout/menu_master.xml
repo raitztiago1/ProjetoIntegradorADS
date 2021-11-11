@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MenuMaster">
+    tools:context="com.es21.projetointegrador.MenuMaster">
 
     <ScrollView
         android:id="@+id/ScrollView"

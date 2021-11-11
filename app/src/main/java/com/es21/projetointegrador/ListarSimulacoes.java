@@ -1,8 +1,7 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.projetointegrador.http.HttpHelperSimulacao;
-import com.example.projetointegrador.http.HttpHelperUsuario;
-import com.example.projetointegrador.http.JsonParse;
-import com.example.projetointegrador.model.Simulacao;
-import com.example.projetointegrador.model.Usuario;
+import com.es21.projetointegrador.http.HttpHelperSimulacao;
+import com.es21.projetointegrador.http.JsonParse;
+import com.es21.projetointegrador.model.Simulacao;
+import com.example.projetointegrador.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.example.projetointegrador.http;
+package com.es21.projetointegrador.http;
 
-import com.example.projetointegrador.model.Simulacao;
+import com.es21.projetointegrador.model.Simulacao;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;

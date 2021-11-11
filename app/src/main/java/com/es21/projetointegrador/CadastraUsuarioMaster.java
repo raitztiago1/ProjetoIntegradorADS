@@ -1,4 +1,4 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,8 +11,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetointegrador.http.HttpHelperUsuario;
-import com.example.projetointegrador.model.Usuario;
+import com.es21.projetointegrador.http.HttpHelperUsuario;
+import com.es21.projetointegrador.model.Usuario;
+import com.example.projetointegrador.R;
 
 public class CadastraUsuarioMaster extends AppCompatActivity {
 

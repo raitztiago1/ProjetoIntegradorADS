@@ -16,43 +16,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
-            android:name=".CadastraEndereco"
+            android:name="com.es21.projetointegrador.CadastraEndereco"
             android:exported="false" />
         <activity
-            android:name=".ListarEmpresas"
+            android:name="com.es21.projetointegrador.ListarEmpresas"
             android:exported="false" />
         <activity
-            android:name=".ListarSimulacoes"
+            android:name="com.es21.projetointegrador.ListarSimulacoes"
             android:exported="false" />
         <activity
-            android:name=".ListarUsuario"
+            android:name="com.es21.projetointegrador.ListarUsuario"
             android:exported="false" />
         <activity
-            android:name=".CadastraUsuario"
+            android:name="com.es21.projetointegrador.CadastraUsuario"
             android:exported="false" />
         <activity
-            android:name=".SimulacaoEmprestimo"
+            android:name="com.es21.projetointegrador.SimulacaoEmprestimo"
             android:exported="false" />
         <activity
-            android:name=".MenuMaster"
+            android:name="com.es21.projetointegrador.MenuMaster"
             android:exported="false" />
         <activity
-            android:name=".Menu"
+            android:name="com.es21.projetointegrador.Menu"
             android:exported="false" />
         <activity
-            android:name=".CadastraUsuarioMaster"
+            android:name="com.es21.projetointegrador.CadastraUsuarioMaster"
             android:exported="false" />
         <activity
-            android:name=".RecuperaSenha"
+            android:name="com.es21.projetointegrador.RecuperaSenha"
             android:exported="false" />
         <activity
-            android:name=".RecuperaCodigo"
+            android:name="com.es21.projetointegrador.RecuperaCodigo"
             android:exported="false" />
         <activity
-            android:name=".CadastroFinanceira"
+            android:name="com.es21.projetointegrador.CadastroFinanceira"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name="com.es21.projetointegrador.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

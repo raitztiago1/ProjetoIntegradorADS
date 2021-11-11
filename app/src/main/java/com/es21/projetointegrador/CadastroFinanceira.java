@@ -1,4 +1,4 @@
-package com.example.projetointegrador;
+package com.es21.projetointegrador;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,8 +13,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetointegrador.http.HttpHelperLoja;
-import com.example.projetointegrador.model.Loja;
+import com.es21.projetointegrador.http.HttpHelperLoja;
+import com.es21.projetointegrador.model.Loja;
+import com.example.projetointegrador.R;
 
 public class CadastroFinanceira extends AppCompatActivity {
 
