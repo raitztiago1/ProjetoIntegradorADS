@@ -99,12 +99,25 @@ public class Simulacao {
     public String toString() {
         return
                 "\nfinanceira: " + financeira +
-                "\nrenda_mensal: R$" + renda_mensal +
-                "\nvalor_emprestimo: R$" + valor_emprestimo +
-                "\ntarifa: " + tarifa+"%" +
-                "\nparcelas: " + parcelas+"x"+
-                "\ncet: " + cet+"%" +
-                "\niof: " + iof+"%" +
-                "\nvalor total: R$" + valor_total + "\n";
+                        "\nrenda mensal: R$" + renda_mensal +
+                        "\nvalor emprestimo: R$" + valor_emprestimo +
+                        "\ntarifa: " + tarifa + "%" +
+                        "\nparcelas: " + parcelas + "x" +
+                        "\ncet: " + cet + "%" +
+                        "\niof: " + iof + "%" +
+                        "\nvalor total: R$" + valor_total + "\n";
+    }
+
+    public String toStringMaster() {
+        return
+                "\ncpf do usuario: "+ cpf_usuario +
+                "\nfinanceira: " + financeira +
+                        "\nrenda mensal: R$" + renda_mensal +
+                        "\nvalor emprestimo: R$" + valor_emprestimo +
+                        "\ntarifa: " + tarifa + "%" +
+                        "\nparcelas: " + parcelas + "x" +
+                        "\ncet: " + cet + "%" +
+                        "\niof: " + iof + "%" +
+                        "\nvalor total: R$" + valor_total + "\n";
     }
 }

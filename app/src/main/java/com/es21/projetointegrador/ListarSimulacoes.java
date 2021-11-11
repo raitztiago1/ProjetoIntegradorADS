@@ -50,7 +50,13 @@ public class ListarSimulacoes extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             HttpHelperSimulacao simulacao = new HttpHelperSimulacao();
-            return simulacao.getSimulacao(getIntent().getStringExtra("cpf"));
+            String acesso = getIntent().getStringExtra("acesso");
+            System.out.println(acesso);
+            if(acesso != null){
+                return simulacao.getSimulcaoAll();
+            }else{
+                return simulacao.getSimulacao(getIntent().getStringExtra("cpf"));
+            }
         }
 
         @Override
@@ -64,14 +70,22 @@ public class ListarSimulacoes extends AppCompatActivity {
         }
     }
 
-    private static ArrayList<String> preencherDados(String s) {
+    private ArrayList<String> preencherDados(String s) {
         ArrayList<String> teste = new ArrayList<>();
 
         List<Simulacao> listaSimulacao;
         listaSimulacao = JsonParse.JsonToListSimulacao(s);
-        for (int x = 0; x < listaSimulacao.size(); x++) {
-            teste.add(listaSimulacao.get(x).toString());
+        String acesso = getIntent().getStringExtra("acesso");
+        if(acesso != null){
+            for (int x = 0; x < listaSimulacao.size(); x++) {
+                teste.add(listaSimulacao.get(x).toStringMaster());
+            }
+        }else{
+            for (int x = 0; x < listaSimulacao.size(); x++) {
+                teste.add(listaSimulacao.get(x).toString());
+            }
         }
+
         return teste;
     }
 }

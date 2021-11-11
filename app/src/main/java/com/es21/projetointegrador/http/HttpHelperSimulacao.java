@@ -83,4 +83,32 @@ public class HttpHelperSimulacao {
         }
     }
 
+    public String getSimulcaoAll (){
+        BufferedReader buffReader = null;
+        try {
+            URL url = new URL(urlApi + "/allUsers");
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            buffReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            String linha;
+            StringBuilder stringBuilder = new StringBuilder();
+
+            while ((linha = buffReader.readLine()) != null) {
+                stringBuilder.append(linha).append("\n");
+            }
+            return stringBuilder.toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (buffReader != null) {
+                try {
+                    buffReader.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }

@@ -66,8 +66,8 @@ public class MenuMaster extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent telaListarSimulacoes = new Intent(getApplicationContext(), ListarSimulacoes.class);
+                telaListarSimulacoes.putExtra("acesso", "Administrador");
                 startActivity(telaListarSimulacoes);
-
             }
         });
 
