@@ -1,5 +1,8 @@
 package com.example.projetointegrador;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -7,48 +10,28 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projetointegrador.http.HttpHelperCep;
+import com.example.projetointegrador.http.HttpHelperLoja;
+import com.example.projetointegrador.http.JsonParse;
+import com.example.projetointegrador.model.Cep;
+import com.example.projetointegrador.model.Loja;
 
 public class CadastroFinanceira extends AppCompatActivity {
 
-    Button btVoltarTCF, btConfirmaTCF;
-    TextView edtCnpjTCF, edtRazSocTCF, edtAgenciaTCF, edtCcTCF, edtCepTCF;
-    Spinner spnBancoTCF, spnCttTCF;
+    Autenticacoes autent = new Autenticacoes();
 
-    String[] banco = new String[]{"Selecione uma Opção",
-            "001 - Banco do Brasil S.A.",
-            "004 – Banco do Nordeste do Brasil S.A.",
-            "007 – Banco Nacional de Desenvolvimento Econômico e Social – BNDES",
-            "033 – Banco Santander (Brasil) S.A.",
-            "037 – Banco do Estado do Pará S.A.",
-            "041 – Banco do Estado do Rio Grande do Sul S.A.",
-            "044 – Banco BVA S.A.",
-            "047 – Banco do Estado de Sergipe S.A.",
-            "077 – Banco Inter S.A.",
-            "062 – Hipercard Banco Múltiplo S.A.",
-            "102 – Xp Investimentos S.A",
-            "104 – Caixa Econômica Federal",
-            "197 – Stone Pagamentos S.A",
-            "208 – Banco BTG Pactual S.A.",
-            "212 – Banco Original S.A.",
-            "237 – Banco Bradesco S.A.",
-            "260 – Nu Pagamentos S.A.(NuBank)",
-            "290 – Pagseguro Internet S.A",
-            "318 – Banco BMG S.A.",
-            "336 – Banco C6 S.A. – C6 Bank",
-            "341 – Itaú Unibanco S.A.",
-            "399 – HSBC Bank Brasil S.A. – Banco Múltiplo",
-            "422 – Banco Safra S.A.",
-            "453 – Banco Rural S.A.",
-            "477 – Citibank N.A.",
-            "623 – Banco Panamericano S.A.",
-            "633 – Banco Rendimento S.A.",
-            "634 – Banco Triângulo S.A.",
-            "745 – Banco Citibank S.A.",
-            "746 – Banco Modal S.A.",
-            "748 – Banco Cooperativo Sicredi S.A.",
-            "756 – Banco Cooperativo do Brasil S.A. – BANCOOB"};
-    String[] contatoMaster = new String[]{"Selecione uma Opção", "Administrador", "Usuário"};
+    Button btVoltarTCF, btConfirmaTCF;
+    TextView edtCnpjTCF, edtRazaoSocialTCF, edtInscricaoEstadualTCF, edtInscricaoMunicipalTCF, edtMotivoAprovacaoTCF, edtSiteTCF;
+    Spinner spnStatusTCF, spnTipoLojaTCF, spnRamoTCF;
+    int auxStauts;
+    private String loja = null;
+
+    String[] status = new String[]{"Selecione o Status", "Ativo", "Inativo"};
+    String[] tipoLoja = new String[]{"Selecione o Tipo da Loja", "Administrador", "Usuario"};
+    String[] ramoNegocio = new String[]{"Selecione o Ramo", "Financeira", "Banco", "Outros"};
 
 
     @Override
@@ -58,26 +41,29 @@ public class CadastroFinanceira extends AppCompatActivity {
         setTitle("Cadastro Financeira");
 
         inicializarComponentes();
-        escolhaTipoUser();
-        escolhaContato();
+        escolhaRamo();
+        escolhaStatus();
+        escolhaTipoLoja();
 
         btConfirmaTCF.setOnClickListener((view -> {
 
-            if (!validaDados()) {
+            if (!validaCpfLocal()) {
 
-                String auxBanco = spnBancoTCF.getSelectedItem().toString();
-                String auxContato = spnCttTCF.getSelectedItem().toString();
-                System.out.println(auxBanco + " " + auxContato);
+                TarefaCadastraFinan tarefa = new TarefaCadastraFinan();
+                tarefa.execute();
+                validaCampos();
                 limpaCampos();
 
-            } else {
-
             }
+
         }));
 
         btVoltarTCF.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {finish();}});
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 
@@ -87,89 +73,184 @@ public class CadastroFinanceira extends AppCompatActivity {
         btConfirmaTCF = findViewById(R.id.btConfirmaTCF);
 
         edtCnpjTCF = findViewById(R.id.edtCnpjTCF);
-        edtRazSocTCF = findViewById(R.id.edtRazSocTCF);
-        edtAgenciaTCF = findViewById(R.id.edtAgenciaTCF);
-        edtCcTCF = findViewById(R.id.edtCcTCF);
+        edtRazaoSocialTCF = findViewById(R.id.edtRazaoSocialTCF);
+        edtInscricaoEstadualTCF = findViewById(R.id.edtInscricaoEstadualTCF);
+        edtInscricaoMunicipalTCF = findViewById(R.id.edtInscricaoMunicipalTCF);
+        edtMotivoAprovacaoTCF = findViewById(R.id.edtMotivoAprovacaoTCF);
+        edtSiteTCF = findViewById(R.id.edtSiteTCF);
 
-        spnBancoTCF = findViewById(R.id.spnBancoTCF);
-        spnCttTCF = findViewById(R.id.spnCttTCF);
-
-    }
-
-    private void escolhaTipoUser() {
-
-        spnBancoTCF.setAdapter(new ArrayAdapter<String>(
-                getApplicationContext(), R.layout.textview_spinner, banco));
+        spnStatusTCF = findViewById(R.id.spnStatusTCF);
+        spnTipoLojaTCF = findViewById(R.id.spnTipoLojaTCF);
+        spnRamoTCF = findViewById(R.id.spnRamoTCF);
 
     }
 
-    private void escolhaContato() {
+    private void escolhaStatus() {
 
-        spnCttTCF.setAdapter(new ArrayAdapter<String>(
-                getApplicationContext(), R.layout.textview_spinner, contatoMaster));
+        spnStatusTCF.setAdapter(new ArrayAdapter<String>(
+                getApplicationContext(), R.layout.textview_spinner, status));
+
+    }
+
+    private void statusParaNumero() {
+        if (spnStatusTCF.getSelectedItem().toString().equals("Ativo")) {
+
+            auxStauts = 1;
+
+        } else if (spnStatusTCF.getSelectedItem().toString().equals("Inativo")) {
+
+            auxStauts = 2;
+
+        }
+    }
+
+    private void escolhaTipoLoja() {
+
+        spnTipoLojaTCF.setAdapter(new ArrayAdapter<String>(
+                getApplicationContext(), R.layout.textview_spinner, tipoLoja));
+
+    }
+
+    private void escolhaRamo() {
+
+        spnRamoTCF.setAdapter(new ArrayAdapter<String>(
+                getApplicationContext(), R.layout.textview_spinner, ramoNegocio));
 
     }
 
     private void limpaCampos() {
 
         edtCnpjTCF.setText("");
-        edtRazSocTCF.setText("");
-        edtAgenciaTCF.setText("");
-        edtCcTCF.setText("");
-        edtCepTCF.setText("");
+        edtRazaoSocialTCF.setText("");
+        edtInscricaoEstadualTCF.setText("");
+        edtInscricaoMunicipalTCF.setText("");
+        edtMotivoAprovacaoTCF.setText("");
+        edtSiteTCF.setText("");
 
-        spnBancoTCF.setSelection(0);
-        spnCttTCF.setSelection(0);
+        spnStatusTCF.setSelection(0);
+        spnTipoLojaTCF.setSelection(0);
+        spnRamoTCF.setSelection(0);
 
     }
 
-    private boolean validaDados() {
+    private boolean validaCampos() {
 
         Boolean existeErros = false;
 
-        if (edtCnpjTCF.getText().toString().isEmpty()) {
+        if (spnStatusTCF.getSelectedItem().toString().equals("Selecione uma Opção")) {
 
-            edtCnpjTCF.setError("Campo Obrigatório");
-            edtCnpjTCF.requestFocus();
+            ((TextView) spnStatusTCF.getSelectedView()).setError("Campo Obrigatório");
             existeErros = true;
 
-        } else if (edtRazSocTCF.getText().toString().isEmpty()) {
+        } else if (spnTipoLojaTCF.getSelectedItem().toString().equals("Selecione uma Opção")) {
 
-            edtRazSocTCF.setError("Campo Obrigatório");
-            edtRazSocTCF.requestFocus();
+            ((TextView) spnTipoLojaTCF.getSelectedView()).setError("Campo Obrigatório");
             existeErros = true;
 
-        } else if (spnBancoTCF.getSelectedItem().toString().equals("Selecione uma Opção")) {
+        } else if (edtInscricaoEstadualTCF.getText().toString().isEmpty()) {
 
-            ((TextView) spnBancoTCF.getSelectedView()).setError("Campo Obrigatório");
+            edtInscricaoEstadualTCF.setError("Campo Obrigatório");
+            edtInscricaoEstadualTCF.requestFocus();
             existeErros = true;
 
-        } else if (edtAgenciaTCF.getText().toString().isEmpty()) {
+        } else if (edtInscricaoMunicipalTCF.getText().toString().isEmpty()) {
 
-            edtAgenciaTCF.setError("Campo Obrigatório");
-            edtAgenciaTCF.requestFocus();
+            edtInscricaoMunicipalTCF.setError("Campo Obrigatório");
+            edtInscricaoMunicipalTCF.requestFocus();
             existeErros = true;
 
-        } else if (edtCcTCF.getText().toString().isEmpty()) {
+        } else if (spnRamoTCF.getSelectedItem().toString().equals("Selecione uma Opção")) {
 
-            edtCcTCF.setError("Campo Obrigatório");
-            edtCcTCF.requestFocus();
+            ((TextView) spnRamoTCF.getSelectedView()).setError("Campo Obrigatório");
             existeErros = true;
 
-        } else if (edtCepTCF.getText().toString().isEmpty()) {
+        } else if (edtMotivoAprovacaoTCF.getText().toString().isEmpty()) {
 
-            edtCepTCF.setError("Campo Obrigatório");
-            edtCepTCF.requestFocus();
+            edtMotivoAprovacaoTCF.setError("Campo Obrigatório");
+            edtMotivoAprovacaoTCF.requestFocus();
             existeErros = true;
 
-        } else if (spnCttTCF.getSelectedItem().toString().equals("Selecione uma Opção")) {
+        } else if (edtRazaoSocialTCF.getText().toString().isEmpty()) {
 
-            ((TextView) spnCttTCF.getSelectedView()).setError("Campo Obrigatório");
+            edtRazaoSocialTCF.setError("Campo Obrigatório");
+            edtRazaoSocialTCF.requestFocus();
+            existeErros = true;
+
+        } else if (edtSiteTCF.getText().toString().isEmpty()) {
+
+            edtSiteTCF.setError("Campo Obrigatório");
+            edtSiteTCF.requestFocus();
             existeErros = true;
 
         }
 
         return existeErros;
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private class TarefaCadastraFinan extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+
+            statusParaNumero();
+
+            HttpHelperLoja helperLoja = new HttpHelperLoja();
+            return helperLoja.postLoja(
+                    new Loja(
+                            edtCnpjTCF.getText().toString(),
+                            spnStatusTCF.getSelectedItem().toString(),
+                            auxStauts,
+                            edtInscricaoEstadualTCF.getText().toString(),
+                            edtInscricaoMunicipalTCF.getText().toString(),
+                            spnRamoTCF.getSelectedItem().toString(),
+                            edtMotivoAprovacaoTCF.getText().toString(),
+                            null,
+                            edtRazaoSocialTCF.getText().toString(),
+                            edtSiteTCF.getText().toString()
+                    ));
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+            Intent chamaTelaMenu = new Intent(CadastroFinanceira.this, MenuMaster.class);
+            chamaTelaMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            chamaTelaMenu.putExtra("EXIT", true);
+
+            AlertDialog.Builder alerta = new AlertDialog.Builder(CadastroFinanceira.this);
+
+            if (s == null) {
+
+                alerta.setTitle("Erro");
+                alerta.setNegativeButton("ok", null);
+
+            } else {
+                alerta.setTitle("Cadastro Concluido!")
+                        .setMessage("Financeira Cadastrada com Sucesso!!")
+                        .setCancelable(false)
+                        .setPositiveButton("ok", (dialogInterface, i) -> startActivity(chamaTelaMenu)).create().show();
+            }
+
+        }
+    }
+
+    private boolean validaCpfLocal() {
+
+        String cpfAux = edtCnpjTCF.getText().toString();
+        boolean existemErros = autent.validaDocumento(cpfAux);
+
+        if (!existemErros) {
+
+            edtCnpjTCF.setError("CNPJ Errado!");
+            edtCnpjTCF.requestFocus();
+            return true;
+
+        } else {
+
+            return false;
+
+        }
     }
 
 }

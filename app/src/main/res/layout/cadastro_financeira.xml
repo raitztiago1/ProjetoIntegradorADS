@@ -50,8 +50,71 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
+            <Spinner
+                android:id="@+id/spnStatusTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minWidth="300dp"
+                android:gravity="center"
+                android:minHeight="48dp" />
+
+            <Spinner
+                android:id="@+id/spnTipoLojaTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minWidth="300dp"
+                android:gravity="center"
+                android:minHeight="48dp" />
+
             <EditText
-                android:id="@+id/edtRazSocTCF"
+                android:id="@+id/edtInscricaoEstadualTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Inscrição Estadual"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtInscricaoMunicipalTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira a Inscrição Municipal"
+                android:inputType="number"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <Spinner
+                android:id="@+id/spnRamoTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minWidth="300dp"
+                android:gravity="center"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtMotivoAprovacaoTCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Insira o Motivo da Aprovação"
+                android:inputType="text"
+                android:minWidth="300dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtRazaoSocialTCF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -62,46 +125,16 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
-            <Spinner
-                android:id="@+id/spnBancoTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:minWidth="300dp"
-                android:gravity="center"
-                android:minHeight="48dp" />
-
             <EditText
-                android:id="@+id/edtAgenciaTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:hint="Insira a Agência"
-                android:gravity="center"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/edtCcTCF"
+                android:id="@+id/edtSiteTCF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a Conta Corrente"
-                android:inputType="number"
+                android:hint="Insira o Site"
+                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <Spinner
-                android:id="@+id/spnCttTCF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:minWidth="300dp"
-                android:gravity="center"
                 android:minHeight="48dp" />
 
             <LinearLayout
