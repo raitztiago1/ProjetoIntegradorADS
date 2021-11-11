@@ -55,7 +55,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Insira a Renda Mensal"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
@@ -217,6 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:inputType="number"
                 android:text="Valor Final"
                 android:textAlignment="center"
                 android:textColor="@color/black"
