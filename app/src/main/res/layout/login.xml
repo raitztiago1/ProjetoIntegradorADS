@@ -122,7 +122,7 @@
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="120dp"
                 android:fontFamily="sans-serif-light"
                 android:text="Equipe STW™ 2021 Copyright®"
                 android:textAlignment="center"
