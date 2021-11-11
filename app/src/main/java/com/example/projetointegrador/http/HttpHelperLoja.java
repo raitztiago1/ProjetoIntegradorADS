@@ -13,6 +13,7 @@ import java.net.URL;
 public class HttpHelperLoja {
 
     private static final String urlApi = "https://rest-api-projeto-integrador.herokuapp.com/loja";
+    private static final String urlApiAll = "https://rest-api-projeto-integrador.herokuapp.com/loja/all";
 
     public String getLoja(String loja) {
         BufferedReader buffReader = null;
@@ -106,4 +107,33 @@ public class HttpHelperLoja {
         }
 
     }
+
+    public String getLojaAll() {
+        BufferedReader bufferedReader = null;
+        try {
+            URL url = new URL(urlApiAll);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            String linha;
+            StringBuilder stringBuilder = new StringBuilder();
+
+            while ((linha = bufferedReader.readLine()) != null) {
+                stringBuilder.append(linha).append("\n");
+            }
+            return stringBuilder.toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }

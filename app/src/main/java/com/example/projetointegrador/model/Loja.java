@@ -108,17 +108,16 @@ public class Loja {
 
     @Override
     public String toString() {
-        return "Loja{" +
-                "cnpj_loja='" + cnpj_loja + '\'' +
-                ", status_loja='" + status_loja + '\'' +
-                ", tipo_loja=" + tipo_loja +
-                ", inscricao_estadual='" + inscricao_estadual + '\'' +
-                ", inscricao_municipal='" + inscricao_municipal + '\'' +
-                ", ramo_negocio='" + ramo_negocio + '\'' +
-                ", motivo_aprovacao='" + motivo_aprovacao + '\'' +
-                ", percentual_clipse='" + percentual_clipse + '\'' +
-                ", razao_social='" + razao_social + '\'' +
-                ", site='" + site + '\'' +
-                '}';
+        return "\nLoja\n" +
+                "CNPJ Loja: " + cnpj_loja + "\n" +
+                "Status Loja: " + status_loja + "\n" +
+                "Tipo Loja: " + tipo_loja + "\n" +
+                "Inscricao Estadual: " + inscricao_estadual + "\n" +
+                "Inscricao Municipal: " + inscricao_municipal + "\n" +
+                "Ramo do Negocio: " + ramo_negocio + "\n" +
+                "Motivo da Aprovacao: " + motivo_aprovacao + "\n" +
+                "Percentual Clipse: " + percentual_clipse + "\n" +
+                "Razao Social: " + razao_social + "\n" +
+                "Site: " + site + "\n";
     }
 }

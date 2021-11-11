@@ -1,6 +1,7 @@
 package com.example.projetointegrador.http;
 
 import com.example.projetointegrador.model.Cep;
+import com.example.projetointegrador.model.Loja;
 import com.example.projetointegrador.model.Simulacao;
 import com.example.projetointegrador.model.Usuario;
 
@@ -94,15 +95,15 @@ public class JsonParse {
         }
     }
 
-    public static List<Simulacao> JsonToListSimulacao(String conteudo){
-        try{
+    public static List<Simulacao> JsonToListSimulacao(String conteudo) {
+        try {
             List<Simulacao> simulacaoList = new ArrayList<>();
             JSONArray jsonArray;
             JSONObject jsonObject;
 
             jsonArray = new JSONArray(conteudo);
 
-            for(int x=0; x< jsonArray.length(); x++){
+            for (int x = 0; x < jsonArray.length(); x++) {
                 jsonObject = jsonArray.getJSONObject(x);
                 Simulacao simulacao = new Simulacao(
                         jsonObject.getString("cpf_usuario"),
@@ -119,7 +120,36 @@ public class JsonParse {
                 simulacaoList.add(simulacao);
             }
             return simulacaoList;
-        }catch (Exception e){
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static List<Loja> JsonToListLoja(String conteudo) {
+        try {
+            List<Loja> listaLoja = new ArrayList<>();
+            JSONArray jsonArray;
+            JSONObject jsonObject;
+            jsonArray = new JSONArray(conteudo);
+
+            for (int x = 0; x < jsonArray.length(); x++) {
+                jsonObject = jsonArray.getJSONObject(x);
+                Loja loja = new Loja(
+                        jsonObject.getString("cnpj_loja"),
+                        jsonObject.getString("status_loja"),
+                        Integer.parseInt(jsonObject.getString("tipo_loja")),
+                        jsonObject.getString("inscricao_estadual"),
+                        jsonObject.getString("inscricao_municipal"),
+                        jsonObject.getString("ramo_negocio"),
+                        jsonObject.getString("motivo_aprovacao"),
+                        jsonObject.getString("percentual_clipse"),
+                        jsonObject.getString("razao_social"),
+                        jsonObject.getString("site")
+                );
+                listaLoja.add(loja);
+            }
+            return listaLoja;
+        } catch (Exception e) {
             return null;
         }
     }
