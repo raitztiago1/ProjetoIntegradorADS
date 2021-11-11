@@ -99,12 +99,12 @@ public class Simulacao {
     public String toString() {
         return
                 "\nfinanceira: " + financeira +
-                "\nrenda_mensal: " + renda_mensal +
-                "\nvalor_emprestimo: " + valor_emprestimo +
+                "\nrenda_mensal: R$" + renda_mensal +
+                "\nvalor_emprestimo: R$" + valor_emprestimo +
                 "\ntarifa: " + tarifa+"%" +
-                "\nparcelas: " + parcelas +
+                "\nparcelas: " + parcelas+"x"+
                 "\ncet: " + cet+"%" +
                 "\niof: " + iof+"%" +
-                "\nvalor total: " + valor_total + "\n";
+                "\nvalor total: R$" + valor_total + "\n";
     }
 }
