@@ -73,7 +73,7 @@ public class RecuperaSenha extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             try {
                 Autenticacoes validar = new Autenticacoes();
-                if (validar.validaDocumento(edtCpfTRS.getText().toString())) {
+                if (validar.validaCpfGlobal(edtCpfTRS.getText().toString())) {
                     String cpf = edtCpfTRS.getText().toString();
                     String email = edtEmailTRS.getText().toString();
                     return auth.gerarToken(cpf, email);

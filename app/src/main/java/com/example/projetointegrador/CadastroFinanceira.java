@@ -13,10 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetointegrador.http.HttpHelperCep;
 import com.example.projetointegrador.http.HttpHelperLoja;
-import com.example.projetointegrador.http.JsonParse;
-import com.example.projetointegrador.model.Cep;
 import com.example.projetointegrador.model.Loja;
 
 public class CadastroFinanceira extends AppCompatActivity {
@@ -239,8 +236,8 @@ public class CadastroFinanceira extends AppCompatActivity {
 
     private boolean validaCpfLocal() {
 
-        String cpfAux = edtCnpjTCF.getText().toString();
-        boolean existemErros = autent.validaDocumento(cpfAux);
+        String cnpjAux = edtCnpjTCF.getText().toString();
+        boolean existemErros = autent.validaCNPJ(cnpjAux);
 
         if (!existemErros) {
 

@@ -88,7 +88,7 @@ public class CadastraUsuarioMaster extends AppCompatActivity {
     //verifica os dados gerados para autenticacoes do objeto
     private Boolean verificacoes(String senha, String senhaRepetida, String cpf) {
         Autenticacoes aut = new Autenticacoes();
-        if (aut.validaDocumento(cpf)) {
+        if (aut.validaCpfGlobal(cpf)) {
             if (senha.equals(senhaRepetida)) {
                 return true;
             } else {

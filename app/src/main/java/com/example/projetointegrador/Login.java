@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
     //chama validacao de cpf
     private boolean validaCpfLocal() {
         String cpfAux = edtCpfTL.getText().toString();
-        boolean existemErros = autent.validaDocumento(cpfAux);
+        boolean existemErros = autent.validaCpfGlobal(cpfAux);
 
         if (!existemErros) {
             edtCpfTL.setError("Campo Obrigatorio");
