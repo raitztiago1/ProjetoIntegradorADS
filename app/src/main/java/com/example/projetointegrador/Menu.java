@@ -17,14 +17,25 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
         inicializaComponentes();
+        String cpf = getIntent().getStringExtra("cpf");
 
         btRealizaSimTMU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent simulacao = new Intent(getApplicationContext(), SimulacaoEmprestimo.class);
+                simulacao.putExtra("cpf", cpf);
                 startActivity(simulacao);
 
+            }
+        });
+
+        btConsultaSimTMU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent simulacao = new Intent(Menu.this, ListarSimulacoes.class);
+                simulacao.putExtra("cpf", cpf);
+                startActivity(simulacao);
             }
         });
 

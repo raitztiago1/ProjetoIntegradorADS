@@ -1,6 +1,7 @@
 package com.example.projetointegrador.http;
 
 import com.example.projetointegrador.model.Cep;
+import com.example.projetointegrador.model.Simulacao;
 import com.example.projetointegrador.model.Usuario;
 
 import org.json.JSONArray;
@@ -89,6 +90,36 @@ public class JsonParse {
             );
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Simulacao> JsonToListSimulacao(String conteudo){
+        try{
+            List<Simulacao> simulacaoList = new ArrayList<>();
+            JSONArray jsonArray;
+            JSONObject jsonObject;
+
+            jsonArray = new JSONArray(conteudo);
+
+            for(int x=0; x< jsonArray.length(); x++){
+                jsonObject = jsonArray.getJSONObject(x);
+                Simulacao simulacao = new Simulacao(
+                        jsonObject.getString("cpf_usuario"),
+                        jsonObject.getString("financeira"),
+                        Double.parseDouble(jsonObject.getString("renda_mensal")),
+                        Double.parseDouble(jsonObject.getString("valor_emprestimo")),
+                        Double.parseDouble(jsonObject.getString("tarifa")),
+                        Integer.parseInt(jsonObject.getString("parcelas")),
+                        Double.parseDouble(jsonObject.getString("cet")),
+                        Double.parseDouble(jsonObject.getString("iof")),
+                        Double.parseDouble(jsonObject.getString("valor_total"))
+
+                );
+                simulacaoList.add(simulacao);
+            }
+            return simulacaoList;
+        }catch (Exception e){
             return null;
         }
     }

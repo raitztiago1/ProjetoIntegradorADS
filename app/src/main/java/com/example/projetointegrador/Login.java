@@ -101,16 +101,20 @@ public class Login extends AppCompatActivity {
             alerta.setTitle("Login error");
 
             Usuario user = JsonParse.JsonToObject(s);
-
             if (user != null) {
+                Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
+                Intent telaMenu = new Intent(Login.this, Menu.class);
+                String cpf = edtCpfTL.getText().toString();
+                telaMaster.putExtra("cpf", cpf);
+                telaMenu.putExtra("cpf", cpf);
+
                 if (user.getSenha().equals(edSenha)) {
                     if (user.getCargo().equals("Administrador")) {
-                        limpaCampos();
-                        Intent telaMaster = new Intent(getApplicationContext(), MenuMaster.class);
                         startActivity(telaMaster);
-                    } else {
                         limpaCampos();
-                        startActivity(new Intent(Login.this, Menu.class));
+                    } else {
+                        startActivity(telaMenu);
+                        limpaCampos();
                     }
                 } else {
                     alerta.setMessage("Senha ou usuario invalido verifique e tente novamente");

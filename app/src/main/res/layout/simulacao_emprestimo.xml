@@ -37,18 +37,6 @@
                 android:textColor="@color/white"
                 android:textSize="34sp" />
 
-            <EditText
-                android:id="@+id/edtCpfTSP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira o CPF"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
             <Spinner
                 android:id="@+id/spnFinanTSP"
                 android:layout_width="wrap_content"
@@ -58,18 +46,6 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
-
-            <EditText
-                android:id="@+id/edtCelTSP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira seu Celular"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/edtRendaTSP"
