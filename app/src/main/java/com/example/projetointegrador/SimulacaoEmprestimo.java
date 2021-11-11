@@ -40,7 +40,11 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         escolhaFinan();
         escolhaPar();
 
-        btSimulTSP.setOnClickListener((view -> definirParcela()));
+        btSimulTSP.setOnClickListener((view -> {
+            if (!validaSimula()) {
+                definirParcela();
+            }
+        }));
 
         btConfirmaTSP.setOnClickListener((view -> {
 
@@ -54,23 +58,28 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
     }
 
-    private class TarefaPostSimulacao extends AsyncTask<String, String, String>{
+    private class TarefaPostSimulacao extends AsyncTask<String, String, String> {
         String cpf = getIntent().getStringExtra("cpf");
+
         @Override
         protected String doInBackground(String... strings) {
+            try {
+                HttpHelperSimulacao helperSimulacao = new HttpHelperSimulacao();
+                return helperSimulacao.postSimulacao(new Simulacao(
+                        cpf,
+                        spnFinanTSP.getSelectedItem().toString(),
+                        Double.parseDouble(edtRendaTSP.getText().toString()),
+                        Double.parseDouble(auxValorInicial),
+                        Double.parseDouble(auxTarifaPrint),
+                        qtdParcelas,
+                        Double.parseDouble(auxCetPrint),
+                        Double.parseDouble(auxIofPrint),
+                        Double.parseDouble(auxValorFinal)
+                ));
+            } catch (Exception e) {
+                return null;
+            }
 
-            HttpHelperSimulacao helperSimulacao = new HttpHelperSimulacao();
-            return helperSimulacao.postSimulacao(new Simulacao(
-                    cpf,
-                    spnFinanTSP.getSelectedItem().toString(),
-                    Double.parseDouble(edtRendaTSP.getText().toString()),
-                    Double.parseDouble(auxValorInicial),
-                    Double.parseDouble(auxTarifaPrint),
-                    qtdParcelas,
-                    Double.parseDouble(auxCetPrint),
-                    Double.parseDouble(auxIofPrint),
-                    Double.parseDouble(auxValorFinal)
-            ));
         }
 
         @Override
@@ -80,19 +89,19 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             alerta.setCancelable(false);
 
             Intent menu = new Intent(SimulacaoEmprestimo.this, Menu.class);
-            menu.putExtra("cpf",cpf);
+            menu.putExtra("cpf", cpf);
 
-            try{
-               if(s != null){
-                   alerta.setMessage("Simulação enviada com sucesso!")
-                           .setPositiveButton("ok", (dialogInterface, i) -> startActivity(menu))
-                           .create()
-                           .show();
-                   limpaCampos();
-               }else{
-                   alerta.setMessage("Error ao enviar simulação, tente novamente").show();
-               }
-            }catch (Exception e){
+            try {
+                if (s != null) {
+                    alerta.setMessage("Simulação enviada com sucesso!")
+                            .setPositiveButton("ok", (dialogInterface, i) -> startActivity(menu))
+                            .create()
+                            .show();
+                    limpaCampos();
+                } else {
+                    alerta.setMessage("Error ao enviar simulação, tente novamente").show();
+                }
+            } catch (Exception e) {
                 alerta.setMessage("Error ao enviar simulação").show();
             }
         }
@@ -289,16 +298,38 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
         boolean existeErros = false;
 
-         if (edtValorTSP.getText().toString().isEmpty()) {
+        if (spnFinanTSP.getSelectedItem().toString().equals(financeira[0])) {
+
+            ((TextView) spnFinanTSP.getSelectedView()).setError("Campo Obrigatório");
+            existeErros = true;
+
+        } else if (edtRendaTSP.getText().toString().isEmpty()) {
+
+            edtRendaTSP.setError("Campo Obrigatório");
+            edtRendaTSP.requestFocus();
+            existeErros = true;
+
+        } else if (edtValorTSP.getText().toString().isEmpty()) {
 
             edtValorTSP.setError("Campo Obrigatório");
             edtValorTSP.requestFocus();
+            existeErros = true;
+
+        } else if (spnParcelasTSP.getSelectedItem().toString().equals(parcelas[0])) {
+
+            ((TextView) spnParcelasTSP.getSelectedView()).setError("Campo Obrigatório");
             existeErros = true;
 
         } else if (edtTarifaTSP.getText().toString().isEmpty()) {
 
             edtTarifaTSP.setError("Campo Obrigatório");
             edtTarifaTSP.requestFocus();
+            existeErros = true;
+
+        } else if (edtIofTSP.getText().toString().isEmpty()) {
+
+            edtIofTSP.setError("Campo Obrigatório");
+            edtIofTSP.requestFocus();
             existeErros = true;
 
         } else if (edtCetTSP.getText().toString().isEmpty()) {
@@ -313,20 +344,52 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             edtDataTSP.requestFocus();
             existeErros = true;
 
-        } else if (edtIofTSP.getText().toString().isEmpty()) {
+        } else if (edtValorParcTSP.getText().toString().isEmpty()) {
 
-            edtIofTSP.setError("Campo Obrigatório");
-            edtIofTSP.requestFocus();
+            edtValorParcTSP.setError("Campo Obrigatório");
+            edtValorParcTSP.requestFocus();
             existeErros = true;
 
-        } else if (spnFinanTSP.getSelectedItem().toString().equals("Selecione uma Opção")) {
+        } else if (edtValorTotalTSP.getText().toString().isEmpty()) {
 
-            ((TextView) spnFinanTSP.getSelectedView()).setError("Campo Obrigatório");
+            edtValorTotalTSP.setError("Campo Obrigatório");
+            edtValorTotalTSP.requestFocus();
             existeErros = true;
 
         }
 
         return existeErros;
+    }
+
+    private boolean validaSimula() {
+        boolean existeErros = false;
+
+        if (spnFinanTSP.getSelectedItem().toString().equals(financeira[0])) {
+
+            ((TextView) spnFinanTSP.getSelectedView()).setError("Campo Obrigatório");
+            existeErros = true;
+
+        } else if (edtRendaTSP.getText().toString().isEmpty()) {
+
+            edtRendaTSP.setError("Campo Obrigatório");
+            edtRendaTSP.requestFocus();
+            existeErros = true;
+
+        } else if (edtValorTSP.getText().toString().isEmpty()) {
+
+            edtValorTSP.setError("Campo Obrigatório");
+            edtValorTSP.requestFocus();
+            existeErros = true;
+
+        } else if (spnParcelasTSP.getSelectedItem().toString().equals(parcelas[0])) {
+
+            ((TextView) spnParcelasTSP.getSelectedView()).setError("Campo Obrigatório");
+            existeErros = true;
+
+        }
+
+        return existeErros;
+
     }
 
 
