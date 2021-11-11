@@ -120,7 +120,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
     private void escolhaFinan() {
 
-        spnFinanTSP.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.textview_spinner, financeira));
+        spnFinanTSP.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.textview_spinner, financeira));
 
     }
 
