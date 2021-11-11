@@ -1,11 +1,15 @@
 package com.es21.projetointegrador;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -16,15 +20,19 @@ import com.es21.projetointegrador.http.HttpHelperSimulacao;
 import com.es21.projetointegrador.model.Simulacao;
 import com.example.projetointegrador.R;
 
+import java.util.Calendar;
+
 public class SimulacaoEmprestimo extends AppCompatActivity {
     final Double tarifa = 0.017;
     final Double iofFixo = 0.0038;
     final Double iofRotativo = 0.0025;
     Button btSimulTSP, btVoltarTSP, btConfirmaTSP;
+    ImageButton btDataTSE;
     EditText edtValorTSP, edtTarifaTSP, edtCetTSP, edtDataTSP, edtIofTSP, edtRendaTSP, edtValorTotalTSP, edtValorParcTSP;
     Spinner spnFinanTSP, spnParcelasTSP;
     Double cet, cetPrint, iofFinal, iofPrint, tarifaPrint, valorParcela, valorFinal, valorInicial;
     int qtdParcelas;
+
 
     String[] financeira = new String[]{"Selecione uma opção", "Financeira 1", "Financeira 2", "Financeira 3"};
     String[] parcelas = new String[]{"Selecione as Parcelas", "12", "24", "36", "48", "60"};
@@ -36,6 +44,9 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.simulacao_emprestimo);
         setTitle("Simulação Emprestimo");
+
+        final Calendar[] calendar = new Calendar[1];
+        final DatePickerDialog[] dpd = new DatePickerDialog[1];
 
         inicializaComponentes();
         escolhaFinan();
@@ -56,6 +67,24 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         }));
 
         btVoltarTSP.setOnClickListener(view -> finish());
+
+        btDataTSE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar[0] = Calendar.getInstance();
+                int dia = calendar[0].get(Calendar.DAY_OF_MONTH);
+                int mes = calendar[0].get(Calendar.MONTH);
+                int ano = calendar[0].get(Calendar.YEAR);
+
+                dpd[0] = new DatePickerDialog(SimulacaoEmprestimo.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker dtp, int year, int month, int dayOfMonth) {
+                        edtDataTSP.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                    }
+                }, dia, mes, ano);
+                dpd[0].show();
+            }
+        });
 
     }
 
@@ -113,6 +142,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         btSimulTSP = findViewById(R.id.btSimulTSP);
         btVoltarTSP = findViewById(R.id.btVoltarTSP);
         btConfirmaTSP = findViewById(R.id.btConfirmaTSP);
+        btDataTSE = findViewById(R.id.btDataTSE);
 
         edtValorTSP = findViewById(R.id.edtValorTSP);
         edtTarifaTSP = findViewById(R.id.edtTarifaTSP);
@@ -127,6 +157,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         spnParcelasTSP = findViewById(R.id.spnParcelasTSP);
 
     }
+
 
     private void escolhaFinan() {
 
