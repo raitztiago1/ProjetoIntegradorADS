@@ -100,13 +100,14 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
                         spnFinanTSP.getSelectedItem().toString(),
                         Double.parseDouble(edtRendaTSP.getText().toString()),
                         Double.parseDouble(auxValorInicial),
-                        Double.parseDouble(auxTarifaPrint),
+                        tarifaPrint,
                         qtdParcelas,
-                        Double.parseDouble(auxCetPrint),
-                        Double.parseDouble(auxIofPrint),
-                        Double.parseDouble(auxValorFinal)
+                        cetPrint,
+                        iofPrint,
+                        valorFinal
                 ));
             } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
 
@@ -187,7 +188,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
     private void definirParcela() {
         auxValorInicial = edtValorTSP.getText().toString();
         valorInicial = Double.parseDouble(auxValorInicial);
-
         if (spnParcelasTSP.getSelectedItem().toString().equals("12")) {
 
             qtdParcelas = 12;
