@@ -50,6 +50,25 @@ public class MenuMaster extends AppCompatActivity {
             }
         });
 
+        btListaEmpresasTMM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent telaListarEmpresas = new Intent(getApplicationContext(), ListarEmpresas.class);
+                startActivity(telaListarEmpresas);
+
+            }
+        });
+
+        btListaSimulaTMM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent telaListarSimulacoes = new Intent(getApplicationContext(), ListarSimulacoes.class);
+                startActivity(telaListarSimulacoes);
+
+            }
+        });
+
         btSairTMM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

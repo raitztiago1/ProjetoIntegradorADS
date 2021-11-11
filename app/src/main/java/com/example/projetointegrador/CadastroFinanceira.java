@@ -85,12 +85,14 @@ public class CadastroFinanceira extends AppCompatActivity {
 
     }
 
+
     private void escolhaStatus() {
 
         spnStatusTCF.setAdapter(new ArrayAdapter<String>(
                 getApplicationContext(), R.layout.textview_spinner, status));
 
     }
+
 
     private void statusParaNumero() {
         if (spnStatusTCF.getSelectedItem().toString().equals("Ativo")) {

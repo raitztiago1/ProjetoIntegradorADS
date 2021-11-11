@@ -64,6 +64,8 @@ public class HttpHelperLoja {
                     loja.getSite()
             );
 
+
+
             Gson g = new Gson();
             String json = g.toJson(store);
             URL url = new URL(urlApi);

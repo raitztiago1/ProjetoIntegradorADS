@@ -12,6 +12,8 @@ public class Loja {
     private String razao_social;
     private String site;
 
+
+
     public Loja(String cnpj_loja, String status_loja, int tipo_loja, String inscricao_estadual, String inscricao_municipal, String ramo_negocio, String motivo_aprovacao, String percentual_clipse, String razao_social, String site) {
         this.cnpj_loja = cnpj_loja;
         this.status_loja = status_loja;
