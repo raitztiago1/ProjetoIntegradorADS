@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.es21.projetointegrador.http.HttpHelperUsuario;
 import com.es21.projetointegrador.model.Usuario;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastraUsuario extends AppCompatActivity {
 
     Button btConfirmaTCU, btVoltarTCU;
-    EditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU, edtOrgaoEmissorTCU, edtNaturalCidadeTCU;
+    TextInputEditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU, edtOrgaoEmissorTCU, edtNaturalCidadeTCU;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

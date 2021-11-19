@@ -37,17 +37,29 @@
                 android:textColor="@color/white"
                 android:textSize="34sp" />
 
-            <EditText
-                android:id="@+id/edtCepTCEn"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Insira o CEP"
-                android:inputType="number"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="8"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCepTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="8" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btCepTCEn"
@@ -58,78 +70,126 @@
                 android:backgroundTint="@color/button"
                 android:text="PESQUISA CEP" />
 
-            <EditText
-                android:id="@+id/edtLogradouroTCEn"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Logradouro"
-                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtNumeroCasaTCEn"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtLogradouroTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Número da Residência"
-                android:inputType="number"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtComplementoLogradouroTCEn"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNumeroCasaTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Complemento"
-                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtBairroTCEn"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtComplementoLogradouroTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Bairro"
-                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtLocalidadeTCEn"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtBairroTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Cidade"
-                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtUfTCEn"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtLocalidadeTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="UF"
-                android:inputType="text"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUfTCEn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

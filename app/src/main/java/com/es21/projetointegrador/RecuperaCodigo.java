@@ -11,11 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.es21.projetointegrador.http.HttpHelperAuth;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class RecuperaCodigo extends AppCompatActivity {
 
     Button btVoltarTRC, btConfirmaTRC;
-    EditText edtCodigoLiberacaoTRC, edtSenhaTRC, edtSenhaRptTRC;
+    TextInputEditText edtCodigoLiberacaoTRC, edtSenhaTRC, edtSenhaRptTRC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

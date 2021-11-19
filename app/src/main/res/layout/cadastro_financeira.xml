@@ -38,17 +38,29 @@
                 android:textColor="@color/white"
                 android:textSize="34sp" />
 
-            <EditText
-                android:id="@+id/edtCnpjTCF"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o CNPJ"
-                android:inputType="number"
+                android:hint="CNPJ"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="14"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCnpjTCF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="14"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/spnStatusTCF"
@@ -68,29 +80,53 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/edtInscricaoEstadualTCF"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a Inscrição Estadual"
-                android:inputType="number"
+                android:hint="Inscrição Estadual"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtInscricaoMunicipalTCF"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtInscricaoEstadualTCF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a Inscrição Municipal"
-                android:inputType="number"
+                android:hint="Inscrição Municipal"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtInscricaoMunicipalTCF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/spnRamoTCF"
@@ -101,42 +137,65 @@
                 android:minWidth="300dp"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/edtMotivoAprovacaoTCF"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Motivo da Aprovação"
-                android:inputType="text"
+                android:hint="Motivo da Aprovação"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtRazaoSocialTCF"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtMotivoAprovacaoTCF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a Razão Social"
-                android:inputType="text"
+                android:hint="Razão Social"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtSiteTCF"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRazaoSocialTCF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Site"
-                android:inputType="text"
+                android:hint="Site"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSiteTCF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

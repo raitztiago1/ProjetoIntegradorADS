@@ -38,103 +38,176 @@
                 android:textColor="@color/white"
                 android:textSize="34sp" />
 
-            <EditText
-                android:id="@+id/edtCpfTCU"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira seu CPF"
-                android:inputType="number"
+                android:hint="CPF"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtOrgaoEmissorTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCpfTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Orgão Emissor do Documento"
-                android:textSize="17dp"
-                android:inputType="text"
+                android:hint="Orgão Emissor"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtUserTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtOrgaoEmissorTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira seu Nome"
-                android:inputType="text"
+                android:hint="Nome Completo"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtEmailTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUserTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira seu E-Mail"
-                android:inputType="text"
+                android:hint="E-Mail"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtCelTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmailTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira seu Celular"
-                android:inputType="number"
+                android:hint="Celular"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                app:prefixText="+55"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtNaturalCidadeTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCelTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira sua Cidade Natal"
-                android:inputType="text"
+                android:hint="Cidade Natal"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtSenhaTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNaturalCidadeTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira sua Senha"
-                android:inputType="textPassword"
+                android:hint="Senha"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtRptSenhaTCU"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSenhaTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Repita sua Senha"
-                android:inputType="textPassword"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRptSenhaTCU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

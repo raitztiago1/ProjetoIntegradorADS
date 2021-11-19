@@ -15,14 +15,15 @@ import com.es21.projetointegrador.http.HttpHelperUsuario;
 import com.es21.projetointegrador.http.JsonParse;
 import com.es21.projetointegrador.model.Usuario;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class Login extends AppCompatActivity {
 
     private final HttpHelper httpHelper = new HttpHelper();
     Autenticacoes autent = new Autenticacoes();
     Button btLoginTL, btRecSenhaTL, btCadTL;
-    EditText edtCpfTL, edtSenhaTL;
     private String edCpf;
+    TextInputEditText edtCpfTL, edtSenhaTL;
     private String edSenha;
 
     @Override

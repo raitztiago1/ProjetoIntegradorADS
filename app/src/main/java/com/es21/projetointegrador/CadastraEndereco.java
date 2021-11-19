@@ -14,12 +14,13 @@ import com.es21.projetointegrador.http.HttpHelperCep;
 import com.es21.projetointegrador.http.JsonParse;
 import com.es21.projetointegrador.model.Cep;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastraEndereco extends AppCompatActivity {
 
-    EditText edtCepTCEn, edtLogradouroTCEn, edtNumeroCasaTCEn, edtComplementoLogradouroTCEn, edtBairroTCEn, edtLocalidadeTCEn, edtUfTCEn;
     Button btCepTCEn, btVoltaTCEn, btConfirmaTCEn;
     private String cep = null;
+    TextInputEditText edtCepTCEn, edtLogradouroTCEn, edtNumeroCasaTCEn, edtComplementoLogradouroTCEn, edtBairroTCEn, edtLocalidadeTCEn, edtUfTCEn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +32,13 @@ public class CadastraEndereco extends AppCompatActivity {
 
         btCepTCEn.setOnClickListener((view -> {
             cep = edtCepTCEn.getText().toString();
-            if (cep.isEmpty()){
+            if (cep.isEmpty()) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(this);
                 alerta.setNeutralButton("ok", null);
                 alerta.setTitle("Error");
                 alerta.setMessage("Preencha o cep");
                 alerta.show();
-            }else{
+            } else {
                 TarefaBuscaCep tarefaBuscaCep = new TarefaBuscaCep();
                 tarefaBuscaCep.execute();
             }
@@ -76,9 +77,9 @@ public class CadastraEndereco extends AppCompatActivity {
             alerta.setTitle("Error");
             alerta.setMessage("CEP INVALIDO!");
             try {
-                if(s == null) {
+                if (s == null) {
                     alerta.show();
-                }else{
+                } else {
                     Cep cepObj = JsonParse.JsonToObjectCep(s);
                     edtLogradouroTCEn.setText(cepObj.getLogradouro());
                     edtComplementoLogradouroTCEn.setText(cepObj.getComplemento());
@@ -92,7 +93,7 @@ public class CadastraEndereco extends AppCompatActivity {
                         tarefaEndereco.execute();
                     });
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 alerta.show();
             }
 
@@ -100,7 +101,7 @@ public class CadastraEndereco extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    private class TarefaCadastraEnderecoUsuario extends AsyncTask <String, String, String>{
+    private class TarefaCadastraEnderecoUsuario extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -116,10 +117,10 @@ public class CadastraEndereco extends AppCompatActivity {
             );
             String cpf = getIntent().getStringExtra("cpf");
             HttpHelperCep helperCep = new HttpHelperCep();
-            String resposta = helperCep.postEnderecoUsuario(cepObj,cpf);
-            if(resposta != null){
+            String resposta = helperCep.postEnderecoUsuario(cepObj, cpf);
+            if (resposta != null) {
                 return "Conta criado com sucesso!";
-            }else{
+            } else {
                 return "Error na criação de conta, verifique e tente novamente!";
             }
         }
@@ -133,11 +134,11 @@ public class CadastraEndereco extends AppCompatActivity {
             AlertDialog.Builder alerta = new AlertDialog.Builder(CadastraEndereco.this);
             alerta.setTitle("Criação de conta");
 
-            if(s.equals("Conta criado com sucesso!")){
+            if (s.equals("Conta criado com sucesso!")) {
                 alerta.setMessage(s)
                         .setCancelable(false)
                         .setPositiveButton("ok", (dialogInterface, i) -> startActivity(chamaTelaInicio)).create().show();
-            }else{
+            } else {
                 alerta.setMessage(s).setNeutralButton("ok", null).show();
             }
         }

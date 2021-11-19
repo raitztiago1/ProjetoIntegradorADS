@@ -38,32 +38,49 @@
                 android:textColor="@color/white"
                 android:textSize="34sp" />
 
-
-            <EditText
-                android:id="@+id/edtCpfTRS"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira seu CPF"
-                android:inputType="number"
+                android:hint="CPF"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtEmailTRS"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCpfTRS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira seu Email"
-                android:inputType="text"
+                android:hint="Email"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmailTRS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

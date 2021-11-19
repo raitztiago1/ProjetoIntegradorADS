@@ -11,28 +11,30 @@
         android:id="@+id/svTL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/also_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/also_white"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:background="@color/also_white"
+            android:gravity="center"
             android:orientation="vertical">
 
 
             <ImageView
                 android:id="@+id/imgLogo"
-                android:padding="10dp"
-                android:background="@color/also_white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/also_white"
+                android:padding="10dp"
                 app:srcCompat="@drawable/logo" />
 
             <TextView
@@ -57,30 +59,45 @@
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="CPF"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtCpfTL"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCpfTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira seu CPF"
-                android:inputType="number"
+                android:hint="Senha"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtSenhaTL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira sua Senha"
-                android:inputType="textPassword"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSenhaTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -90,24 +107,24 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btCadTL"
+                    android:id="@+id/btLoginTL"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_gravity="left"
                     android:layout_marginLeft="5dp"
                     android:layout_marginEnd="5dp"
                     android:backgroundTint="@color/button"
-                    android:text="CADASTRAR" />
+                    android:text="LOGIN" />
 
                 <Button
-                    android:id="@+id/btLoginTL"
+                    android:id="@+id/btCadTL"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_gravity="right"
                     android:layout_marginStart="5dp"
                     android:layout_marginRight="5dp"
                     android:backgroundTint="@color/button"
-                    android:text="LOGIN" />
+                    android:text="CADASTRAR" />
 
             </LinearLayout>
 
@@ -122,7 +139,7 @@
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="100dp"
                 android:fontFamily="sans-serif-light"
                 android:text="Equipe STW™ 2021 Copyright®"
                 android:textAlignment="center"

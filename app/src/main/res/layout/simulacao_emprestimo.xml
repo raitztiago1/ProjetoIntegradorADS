@@ -47,29 +47,45 @@
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <EditText
-                android:id="@+id/edtRendaTSP"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira a Renda Mensal"
-                android:inputType="number"
+                android:hint="Renda Mensal"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:prefixText="R$ "
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtValorTSP"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRendaTSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira o Valor do Emprestimo"
-                android:inputType="number"
+                android:hint="Valor do Emprestimo"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:prefixText="R$ "
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtValorTSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/spnParcelasTSP"
@@ -89,172 +105,164 @@
                 android:backgroundTint="@color/button"
                 android:text="SIMULAR" />
 
-            <TextView
-                android:id="@+id/txtTarifaTSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Tarifa"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edtTarifaTSP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:gravity="center"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/txtIofTSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="I.O.F."
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edtIofTSP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:gravity="center"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
-
-            <TextView
-                android:id="@+id/txtCetTSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="C.E.T."
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edtCetTSP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:gravity="center"
-                android:inputType="number"
-                android:minWidth="300dp"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/txtDataTSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Data da Primeira Parcela"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edtDataTSP"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:inputType="date"
-                    android:minWidth="220dp"
-                    android:minHeight="48dp" />
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:hint="Tarifa"
+                    android:minWidth="93dp"
+                    android:minHeight="48dp"
+                    app:suffixText=" %"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtTarifaTSP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:hint="I.O.F."
+                    android:minWidth="95dp"
+                    android:minHeight="48dp"
+                    app:suffixText=" %"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtIofTSP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:hint="C.E.T."
+                    android:minWidth="93dp"
+                    android:minHeight="48dp"
+                    app:suffixText=" %"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCetTSP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:id="@+id/btDataTSE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginStart="30dp"
-                    android:backgroundTint="@color/button"
-                    android:minWidth="50dp"
-                    android:minHeight="50dp"
-                    android:src="@drawable/ic_baseline_date_range_24" />
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/ic_date"
+                    android:layout_margin="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtDataTSP"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Data"
+                    android:minWidth="235dp"
+                    android:minHeight="48dp"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtDataTSPAux"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtValorParcTSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Valor Parcela"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edtValorParcTSP"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:gravity="center"
-                android:inputType="number"
+                android:hint="Valor Parcela"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:prefixText="R$ "
+                tools:ignore="HardcodedText">
 
-            <TextView
-                android:id="@+id/txtValorTotalTSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:inputType="number"
-                android:text="Valor Final"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtValorParcTSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edtValorTotalTSP"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:gravity="center"
-                android:inputType="number"
+                android:hint="Valor Final"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:prefixText="R$ "
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtValorTotalTSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

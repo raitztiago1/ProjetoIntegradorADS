@@ -12,12 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.es21.projetointegrador.http.HttpHelperAuth;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class RecuperaSenha extends AppCompatActivity {
 
     private final HttpHelperAuth auth = new HttpHelperAuth();
     Button btVoltarTRS, btConfirmarTRS;
-    EditText edtEmailTRS, edtCpfTRS;
+    TextInputEditText edtEmailTRS, edtCpfTRS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

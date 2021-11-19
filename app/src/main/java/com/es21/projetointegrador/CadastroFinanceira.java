@@ -16,13 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.es21.projetointegrador.http.HttpHelperLoja;
 import com.es21.projetointegrador.model.Loja;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastroFinanceira extends AppCompatActivity {
 
     Autenticacoes autent = new Autenticacoes();
 
     Button btVoltarTCF, btConfirmaTCF;
-    TextView edtCnpjTCF, edtRazaoSocialTCF, edtInscricaoEstadualTCF, edtInscricaoMunicipalTCF, edtMotivoAprovacaoTCF, edtSiteTCF;
+    TextInputEditText edtCnpjTCF, edtRazaoSocialTCF, edtInscricaoEstadualTCF, edtInscricaoMunicipalTCF, edtMotivoAprovacaoTCF, edtSiteTCF;
     Spinner spnStatusTCF, spnTipoLojaTCF, spnRamoTCF;
     int auxStauts;
     private String loja = null;

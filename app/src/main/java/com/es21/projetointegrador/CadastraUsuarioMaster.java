@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,13 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.es21.projetointegrador.http.HttpHelperUsuario;
 import com.es21.projetointegrador.model.Usuario;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastraUsuarioMaster extends AppCompatActivity {
 
     private final HttpHelperUsuario controleUsuario = new HttpHelperUsuario();
     Button btConfirmaTCUM, btVoltarTCUM;
     Spinner spnEstadoUserTCUM, spnCargoTCUM;
-    EditText edtCpfTCUM, edtOrgaoEmissorTCUM, edtCidadeTCUM, edtNomeTCUM, edtCelTCUM, edtTelComTCUM, edtEmailTCUM, edtSenhaTCUM, edtRptSenhaTCUM;
+    TextInputEditText edtCpfTCUM, edtOrgaoEmissorTCUM, edtCidadeTCUM, edtNomeTCUM, edtCelTCUM, edtTelComTCUM, edtEmailTCUM, edtSenhaTCUM, edtRptSenhaTCUM;
     String[] estadoUsuario = new String[]{"Estado de Usuário", "Ativo", "Inativo"};
     String[] cargoUsusario = new String[]{"Cargo de usuário", "Administrador", "Usuario"};
 

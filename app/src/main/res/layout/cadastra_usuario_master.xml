@@ -39,53 +39,89 @@
                 android:textColor="@color/white"
                 android:textSize="34sp" />
 
-            <EditText
-                android:id="@+id/edtCpfTCUM"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o CPF"
-                android:inputType="number"
+                android:hint="CPF"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtOrgaoEmissorTCUM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Insira o Órgão Emissor"
-                android:inputType="text"
-                android:minWidth="300dp"
-                android:minHeight="48dp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCpfTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edtCidadeTCUM"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a Cidade Natal"
-                android:inputType="text"
+                android:hint="Órgão Emissor"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtNomeTCUM"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtOrgaoEmissorTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Nome Completo"
-                android:inputType="text"
+                android:hint="Cidade Natal"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCidadeTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:hint="Nome Completo"
+                android:minWidth="300dp"
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNomeTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/spnEstadoUserTCUM"
@@ -97,65 +133,117 @@
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <EditText
-                android:id="@+id/edtCelTCUM"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Celular"
-                android:inputType="number"
+                android:hint="Celular"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                app:prefixText="+55"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtTelComTCUM"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCelTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o Telefone Comercial"
-                android:inputType="number"
+                android:hint="Telefone Comercial"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                app:prefixText="+55"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtEmailTCUM"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTelComTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira o E-Mail"
-                android:inputType="text"
+                android:hint="E-Mail"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtSenhaTCUM"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmailTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
-                android:hint="Insira a senha"
-                android:inputType="textPassword"
+                android:hint="Senha"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
 
-            <EditText
-                android:id="@+id/edtRptSenhaTCUM"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSenhaTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:ems="10"
                 android:gravity="center"
                 android:hint="Repita a senha"
-                android:inputType="textPassword"
                 android:minWidth="300dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRptSenhaTCUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/spnCargoTCUM"

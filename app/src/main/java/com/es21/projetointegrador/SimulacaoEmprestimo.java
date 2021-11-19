@@ -1,24 +1,29 @@
 package com.es21.projetointegrador;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.es21.projetointegrador.http.HttpHelperSimulacao;
 import com.es21.projetointegrador.model.Simulacao;
 import com.example.projetointegrador.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
 
@@ -28,11 +33,12 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
     final Double iofRotativo = 0.0025;
     Button btSimulTSP, btVoltarTSP, btConfirmaTSP;
     ImageButton btDataTSE;
-    EditText edtValorTSP, edtTarifaTSP, edtCetTSP, edtDataTSP, edtIofTSP, edtRendaTSP, edtValorTotalTSP, edtValorParcTSP;
+    TextInputEditText edtValorTSP, edtTarifaTSP, edtCetTSP, edtIofTSP, edtRendaTSP, edtValorTotalTSP, edtValorParcTSP;
+    static TextInputLayout edtDataTSP;
+    static String edtDataTSPAux = "";
     Spinner spnFinanTSP, spnParcelasTSP;
     Double cet, cetPrint, iofFinal, iofPrint, tarifaPrint, valorParcela, valorFinal, valorInicial;
     int qtdParcelas;
-
 
     String[] financeira = new String[]{"Selecione uma opção", "Financeira 1", "Financeira 2", "Financeira 3"};
     String[] parcelas = new String[]{"Selecione as Parcelas", "12", "24", "36", "48", "60"};
@@ -45,9 +51,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         setContentView(R.layout.simulacao_emprestimo);
         setTitle("Simulação Emprestimo");
 
-        final Calendar[] calendar = new Calendar[1];
-        final DatePickerDialog[] dpd = new DatePickerDialog[1];
-
         inicializaComponentes();
         escolhaFinan();
         escolhaPar();
@@ -58,8 +61,15 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             }
         }));
 
-        btConfirmaTSP.setOnClickListener((view -> {
+        btDataTSE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new DatePicker();
+                dialogFragment.show(getSupportFragmentManager(), "DataInicial");
+            }
+        });
 
+        btConfirmaTSP.setOnClickListener((view -> {
             if (!validaDados()) {
                 TarefaPostSimulacao tarefa = new TarefaPostSimulacao();
                 tarefa.execute();
@@ -67,24 +77,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         }));
 
         btVoltarTSP.setOnClickListener(view -> finish());
-
-        btDataTSE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calendar[0] = Calendar.getInstance();
-                int dia = calendar[0].get(Calendar.DAY_OF_MONTH);
-                int mes = calendar[0].get(Calendar.MONTH);
-                int ano = calendar[0].get(Calendar.YEAR);
-
-                dpd[0] = new DatePickerDialog(SimulacaoEmprestimo.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker dtp, int year, int month, int dayOfMonth) {
-                        edtDataTSP.setText(dayOfMonth + "/" + (month+1) + "/" + year);
-                    }
-                }, dia, mes, ano);
-                dpd[0].show();
-            }
-        });
 
     }
 
@@ -122,6 +114,8 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             Intent menu = new Intent(SimulacaoEmprestimo.this, Menu.class);
             menu.putExtra("cpf", cpf);
 
+            System.out.println(edtDataTSP);
+
             try {
                 if (s != null) {
                     alerta.setMessage("Simulação enviada com sucesso!")
@@ -130,10 +124,10 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
                             .show();
                     limpaCampos();
                 } else {
-                    alerta.setMessage("Error ao enviar simulação, tente novamente").setNeutralButton("ok",null).show();
+                    alerta.setMessage("Error ao enviar simulação, tente novamente").setNeutralButton("ok", null).show();
                 }
             } catch (Exception e) {
-                alerta.setMessage("Error ao enviar simulação").setNeutralButton("ok",null).show();
+                alerta.setMessage("Error ao enviar simulação").setNeutralButton("ok", null).show();
             }
         }
     }
@@ -159,7 +153,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
     }
 
-
     private void escolhaFinan() {
 
         spnFinanTSP.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.textview_spinner, financeira));
@@ -177,7 +170,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         edtValorTSP.setText("");
         edtTarifaTSP.setText("");
         edtCetTSP.setText("");
-        edtDataTSP.setText("");
         edtIofTSP.setText("");
 
         spnFinanTSP.setSelection(0);
@@ -236,11 +228,11 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             auxValorParcela = String.format("%.2f", valorParcela);
             auxValorFinal = String.format("%.2f", valorFinal);
 
-            edtTarifaTSP.setText(auxTarifaPrint + "%");
-            edtIofTSP.setText(auxIofPrint + "%");
-            edtCetTSP.setText(auxCetPrint + "%");
-            edtValorParcTSP.setText("R$" + auxValorParcela);
-            edtValorTotalTSP.setText("R$" + auxValorFinal);
+            edtTarifaTSP.setText(auxTarifaPrint);
+            edtIofTSP.setText(auxIofPrint);
+            edtCetTSP.setText(auxCetPrint);
+            edtValorParcTSP.setText(auxValorParcela);
+            edtValorTotalTSP.setText(auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("36")) {
 
@@ -263,11 +255,11 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             auxValorParcela = String.format("%.2f", valorParcela);
             auxValorFinal = String.format("%.2f", valorFinal);
 
-            edtTarifaTSP.setText(auxTarifaPrint + "%");
-            edtIofTSP.setText(auxIofPrint + "%");
-            edtCetTSP.setText(auxCetPrint + "%");
-            edtValorParcTSP.setText("R$" + auxValorParcela);
-            edtValorTotalTSP.setText("R$" + auxValorFinal);
+            edtTarifaTSP.setText(auxTarifaPrint);
+            edtIofTSP.setText(auxIofPrint);
+            edtCetTSP.setText(auxCetPrint);
+            edtValorParcTSP.setText(auxValorParcela);
+            edtValorTotalTSP.setText(auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("48")) {
 
@@ -290,11 +282,11 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             auxValorParcela = String.format("%.2f", valorParcela);
             auxValorFinal = String.format("%.2f", valorFinal);
 
-            edtTarifaTSP.setText(auxTarifaPrint + "%");
-            edtIofTSP.setText(auxIofPrint + "%");
-            edtCetTSP.setText(auxCetPrint + "%");
-            edtValorParcTSP.setText("R$" + auxValorParcela);
-            edtValorTotalTSP.setText("R$" + auxValorFinal);
+            edtTarifaTSP.setText(auxTarifaPrint);
+            edtIofTSP.setText(auxIofPrint);
+            edtCetTSP.setText(auxCetPrint);
+            edtValorParcTSP.setText(auxValorParcela);
+            edtValorTotalTSP.setText(auxValorFinal);
 
         } else if (spnParcelasTSP.getSelectedItem().toString().equals("60")) {
 
@@ -317,11 +309,11 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             auxValorParcela = String.format("%.2f", valorParcela);
             auxValorFinal = String.format("%.2f", valorFinal);
 
-            edtTarifaTSP.setText(auxTarifaPrint + "%");
-            edtIofTSP.setText(auxIofPrint + "%");
-            edtCetTSP.setText(auxCetPrint + "%");
-            edtValorParcTSP.setText("R$" + auxValorParcela);
-            edtValorTotalTSP.setText("R$" + auxValorFinal);
+            edtTarifaTSP.setText(auxTarifaPrint);
+            edtIofTSP.setText(auxIofPrint);
+            edtCetTSP.setText(auxCetPrint);
+            edtValorParcTSP.setText(auxValorParcela);
+            edtValorTotalTSP.setText(auxValorFinal);
 
         }
     }
@@ -370,8 +362,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             edtCetTSP.requestFocus();
             existeErros = true;
 
-        } else if (edtDataTSP.getText().toString().isEmpty()) {
-
+        } else if (edtDataTSPAux == "") {
             edtDataTSP.setError("Campo Obrigatório");
             edtDataTSP.requestFocus();
             existeErros = true;
@@ -424,5 +415,43 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
     }
 
+    public static class DatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Calendar calendar = Calendar.getInstance();
+            Integer dia = calendar.get(Calendar.DAY_OF_MONTH);
+            Integer mes = calendar.get(Calendar.MONTH);
+            Integer ano = calendar.get(Calendar.YEAR);
+
+            DatePickerDialog dtp = new DatePickerDialog(getActivity(), android.app.AlertDialog.THEME_DEVICE_DEFAULT_DARK, this, ano, mes, dia);
+            return dtp;
+        }
+
+        @Override
+        public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
+            String dayCorrect = String.valueOf(dayOfMonth);
+            String monthCorrect;
+            if (dayOfMonth < 10) {
+                dayCorrect = "0" + dayOfMonth;
+            }
+            if (month < 10) {
+                monthCorrect = "0" + (month + 1);
+            } else {
+                monthCorrect = String.valueOf(month + 1);
+            }
+
+            String tagSelect = getTag();
+            if (tagSelect.equals("DataInicial")) {
+
+                edtDataTSP.getEditText().setText(dayCorrect + "/" + monthCorrect + "/" + year);
+                edtDataTSPAux = dayCorrect + "/" + monthCorrect + "/" + year;
+
+            } else {
+                Toast.makeText(getActivity(), "ERRO", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
 }
