@@ -114,8 +114,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             Intent menu = new Intent(SimulacaoEmprestimo.this, Menu.class);
             menu.putExtra("cpf", cpf);
 
-            System.out.println(edtDataTSP);
-
             try {
                 if (s != null) {
                     alerta.setMessage("Simulação enviada com sucesso!")
@@ -445,8 +443,8 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             String tagSelect = getTag();
             if (tagSelect.equals("DataInicial")) {
 
-                edtDataTSP.getEditText().setText(dayCorrect + "/" + monthCorrect + "/" + year);
                 edtDataTSPAux = dayCorrect + "/" + monthCorrect + "/" + year;
+                edtDataTSP.getEditText().setText(edtDataTSPAux);
 
             } else {
                 Toast.makeText(getActivity(), "ERRO", Toast.LENGTH_SHORT).show();
