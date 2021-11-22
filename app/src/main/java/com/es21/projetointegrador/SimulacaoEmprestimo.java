@@ -96,7 +96,8 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
                         qtdParcelas,
                         cetPrint,
                         iofPrint,
-                        valorFinal
+                        valorFinal,
+                        edtDataTSPAux
                 ));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -445,6 +446,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
                 edtDataTSPAux = dayCorrect + "/" + monthCorrect + "/" + year;
                 edtDataTSP.getEditText().setText(edtDataTSPAux);
+                edtDataTSPAux = year+"-"+monthCorrect+"-"+dayCorrect+":00:00";
 
             } else {
                 Toast.makeText(getActivity(), "ERRO", Toast.LENGTH_SHORT).show();

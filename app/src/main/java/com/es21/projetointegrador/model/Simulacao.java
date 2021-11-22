@@ -10,8 +10,18 @@ public class Simulacao {
     private double cet;
     private double iof;
     private double valor_total;
+    private String data_parcela;
 
-    public Simulacao(String cpf_usuario, String financeira, double renda_mensal, double valor_emprestimo, double tarifa, int parcelas, double cet, double iof, double valor_total) {
+    public String getData_parcela() {
+        return data_parcela;
+    }
+
+    public void setData_parcela(String data_parcela) {
+        this.data_parcela = data_parcela;
+    }
+
+
+    public Simulacao(String cpf_usuario, String financeira, double renda_mensal, double valor_emprestimo, double tarifa, int parcelas, double cet, double iof, double valor_total, String data_parcela) {
         this.cpf_usuario = cpf_usuario;
         this.financeira = financeira;
         this.renda_mensal = renda_mensal;
@@ -21,6 +31,7 @@ public class Simulacao {
         this.cet = cet;
         this.iof = iof;
         this.valor_total = valor_total;
+        this.data_parcela = data_parcela;
     }
 
     public String getCpf_usuario() {
@@ -105,7 +116,8 @@ public class Simulacao {
                         "\nparcelas: " + parcelas + "x" +
                         "\ncet: " + cet + "%" +
                         "\niof: " + iof + "%" +
-                        "\nvalor total: R$" + valor_total + "\n";
+                        "\nvalor total: R$" + valor_total +
+                        "\ndata da primeira parcela: "+ data_parcela + "\n";
     }
 
     public String toStringMaster() {

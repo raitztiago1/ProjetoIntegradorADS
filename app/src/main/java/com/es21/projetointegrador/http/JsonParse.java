@@ -114,8 +114,8 @@ public class JsonParse {
                         Integer.parseInt(jsonObject.getString("parcelas")),
                         Double.parseDouble(jsonObject.getString("cet")),
                         Double.parseDouble(jsonObject.getString("iof")),
-                        Double.parseDouble(jsonObject.getString("valor_total"))
-
+                        Double.parseDouble(jsonObject.getString("valor_total")),
+                        jsonObject.getString("data_parcela")
                 );
                 simulacaoList.add(simulacao);
             }
