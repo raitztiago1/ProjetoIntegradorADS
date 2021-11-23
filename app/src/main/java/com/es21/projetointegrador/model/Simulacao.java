@@ -109,27 +109,27 @@ public class Simulacao {
     @Override
     public String toString() {
         return
-                "\nfinanceira: " + financeira +
-                        "\nrenda mensal: R$" + renda_mensal +
-                        "\nvalor emprestimo: R$" + valor_emprestimo +
-                        "\ntarifa: " + tarifa + "%" +
-                        "\nparcelas: " + parcelas + "x" +
-                        "\ncet: " + cet + "%" +
-                        "\niof: " + iof + "%" +
-                        "\nvalor total: R$" + valor_total +
-                        "\ndata da primeira parcela: "+ data_parcela + "\n";
+                "\n- Financeira: " + financeira +
+                        "\n- Renda Mensal: R$" + renda_mensal +
+                        "\n- Valor Emprestimo: R$" + valor_emprestimo +
+                        "\n- Tarifa: " + tarifa + "%" +
+                        "\n- Parcelas: " + parcelas + "x" +
+                        "\n- C.E.T.: " + cet + "%" +
+                        "\n- I.O.F.: " + iof + "%" +
+                        "\n- Valor total: R$" + valor_total +
+                        "\n- Data da Primeira Parcela: " + data_parcela + "\n";
     }
 
     public String toStringMaster() {
         return
-                "\ncpf do usuario: "+ cpf_usuario +
-                "\nfinanceira: " + financeira +
-                        "\nrenda mensal: R$" + renda_mensal +
-                        "\nvalor emprestimo: R$" + valor_emprestimo +
-                        "\ntarifa: " + tarifa + "%" +
-                        "\nparcelas: " + parcelas + "x" +
-                        "\ncet: " + cet + "%" +
-                        "\niof: " + iof + "%" +
-                        "\nvalor total: R$" + valor_total + "\n";
+                "\n- CPF do Usuario: " + cpf_usuario +
+                        "\n- Financeira: " + financeira +
+                        "\n- Renda Mensal: R$" + renda_mensal +
+                        "\n- Valor Emprestimo: R$" + valor_emprestimo +
+                        "\n- Tarifa: " + tarifa + "%" +
+                        "\n- Parcelas: " + parcelas + "x" +
+                        "\n- C.E.T.: " + cet + "%" +
+                        "\n- I.O.F.: " + iof + "%" +
+                        "\n- Valor Total: R$" + valor_total + "\n";
     }
 }

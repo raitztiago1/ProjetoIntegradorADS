@@ -88,6 +88,7 @@
                 android:hint="Senha"
                 android:minWidth="300dp"
                 android:minHeight="48dp"
+                app:passwordToggleEnabled="true"
                 tools:ignore="HardcodedText">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -137,9 +138,9 @@
 
             <TextView
                 android:id="@+id/logo"
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
                 android:fontFamily="sans-serif-light"
                 android:text="Equipe STW™ 2021 Copyright®"
                 android:textAlignment="center"
