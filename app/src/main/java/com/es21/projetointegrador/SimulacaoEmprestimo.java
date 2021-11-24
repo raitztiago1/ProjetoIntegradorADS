@@ -1,5 +1,6 @@
 package com.es21.projetointegrador;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -19,13 +20,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import com.es21.projetointegrador.http.HttpHelperLoja;
 import com.es21.projetointegrador.http.HttpHelperSimulacao;
+import com.es21.projetointegrador.http.JsonParse;
+import com.es21.projetointegrador.model.Loja;
 import com.es21.projetointegrador.model.Simulacao;
 import com.example.projetointegrador.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class SimulacaoEmprestimo extends AppCompatActivity {
     final Double tarifa = 0.017;
@@ -40,10 +46,22 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
     Double cet, cetPrint, iofFinal, iofPrint, tarifaPrint, valorParcela, valorFinal, valorInicial;
     int qtdParcelas;
 
-    String[] financeira = new String[]{"Selecione uma opção", "Financeira 1", "Financeira 2", "Financeira 3"};
     String[] parcelas = new String[]{"Selecione as Parcelas", "12", "24", "36", "48", "60"};
     private String auxTarifaPrint, auxCetPrint, auxIofPrint, auxValorInicial, auxValorParcela, auxValorFinal;
 
+    private static ArrayList<String> preencherDados(String s) {
+
+        ArrayList<String> novaLista = new ArrayList<>();
+
+        List<Loja> listaLoja;
+        listaLoja = JsonParse.JsonToListLoja(s);
+        for (int x = 0; x < listaLoja.size(); x++) {
+
+            novaLista.add(listaLoja.get(x).getRazao_social());
+
+        }
+        return novaLista;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +70,10 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
         setTitle("Simulação Emprestimo");
 
         inicializaComponentes();
-        escolhaFinan();
         escolhaPar();
+
+        SimulacaoEmprestimo.TarefaLojaAll tarefaLojaAll = new SimulacaoEmprestimo.TarefaLojaAll();
+        tarefaLojaAll.execute();
 
         btSimulTSP.setOnClickListener((view -> {
             if (!validaSimula()) {
@@ -78,6 +98,49 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
         btVoltarTSP.setOnClickListener(view -> finish());
 
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private class TarefaLojaAll extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            HttpHelperLoja controleUsuario = new HttpHelperLoja();
+            return controleUsuario.getLojaAll();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+            ArrayList<String> preenche = preencherDados(s);
+
+            ArrayAdapter<String> arrayAdapter;
+            arrayAdapter = new ArrayAdapter<>(SimulacaoEmprestimo.this, android.R.layout.simple_list_item_1, preenche);
+            spnFinanTSP.setAdapter(arrayAdapter);
+
+            btSimulTSP.setOnClickListener((view -> {
+                if (!validaSimula()) {
+                    definirParcela();
+                }
+            }));
+
+            btDataTSE.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogFragment dialogFragment = new DatePicker();
+                    dialogFragment.show(getSupportFragmentManager(), "DataInicial");
+                }
+            });
+
+            btConfirmaTSP.setOnClickListener((view -> {
+                if (!validaDados()) {
+                    TarefaPostSimulacao tarefa = new TarefaPostSimulacao();
+                    tarefa.execute();
+                }
+            }));
+
+            btVoltarTSP.setOnClickListener(view -> finish());
+
+        }
     }
 
     private class TarefaPostSimulacao extends AsyncTask<String, String, String> {
@@ -149,12 +212,6 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
         spnFinanTSP = findViewById(R.id.spnFinanTSP);
         spnParcelasTSP = findViewById(R.id.spnParcelasTSP);
-
-    }
-
-    private void escolhaFinan() {
-
-        spnFinanTSP.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.textview_spinner, financeira));
 
     }
 
@@ -321,12 +378,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
         boolean existeErros = false;
 
-        if (spnFinanTSP.getSelectedItem().toString().equals(financeira[0])) {
-
-            ((TextView) spnFinanTSP.getSelectedView()).setError("Campo Obrigatório");
-            existeErros = true;
-
-        } else if (edtRendaTSP.getText().toString().isEmpty()) {
+        if (edtRendaTSP.getText().toString().isEmpty()) {
 
             edtRendaTSP.setError("Campo Obrigatório");
             edtRendaTSP.requestFocus();
@@ -386,12 +438,7 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
     private boolean validaSimula() {
         boolean existeErros = false;
 
-        if (spnFinanTSP.getSelectedItem().toString().equals(financeira[0])) {
-
-            ((TextView) spnFinanTSP.getSelectedView()).setError("Campo Obrigatório");
-            existeErros = true;
-
-        } else if (edtRendaTSP.getText().toString().isEmpty()) {
+        if (edtRendaTSP.getText().toString().isEmpty()) {
 
             edtRendaTSP.setError("Campo Obrigatório");
             edtRendaTSP.requestFocus();
@@ -446,12 +493,13 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
 
                 edtDataTSPAux = dayCorrect + "/" + monthCorrect + "/" + year;
                 edtDataTSP.getEditText().setText(edtDataTSPAux);
-                edtDataTSPAux = year+"-"+monthCorrect+"-"+dayCorrect+":00:00";
+                edtDataTSPAux = year + "-" + monthCorrect + "-" + dayCorrect + ":00:00";
 
             } else {
                 Toast.makeText(getActivity(), "ERRO", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
 
 }
