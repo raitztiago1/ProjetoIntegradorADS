@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastraUsuario extends AppCompatActivity {
 
+    Autenticacoes autent = new Autenticacoes();
     Button btConfirmaTCU, btVoltarTCU;
     TextInputEditText edtCpfTCU, edtUserTCU, edtEmailTCU, edtCelTCU, edtSenhaTCU, edtRptSenhaTCU, edtOrgaoEmissorTCU, edtNaturalCidadeTCU;
 
@@ -28,7 +29,7 @@ public class CadastraUsuario extends AppCompatActivity {
         inicializarComponentes();
 
         btConfirmaTCU.setOnClickListener((view -> {
-            if (!validaDados()) {
+            if (!validaDados() && validaCpfLocal()) {
                 TarefaCadastra tarefa = new TarefaCadastra();
                 tarefa.execute();
             }
@@ -163,6 +164,18 @@ public class CadastraUsuario extends AppCompatActivity {
 
         return existeErros;
 
+    }
+
+    private boolean validaCpfLocal() {
+        String cpfAux = edtCpfTCU.getText().toString();
+        boolean existemErros = autent.validaCpfGlobal(cpfAux);
+
+        if (!existemErros) {
+            edtCpfTCU.setError("Campo Obrigatorio");
+            edtCpfTCU.requestFocus();
+            return false;
+        }
+        return true;
     }
 
 }

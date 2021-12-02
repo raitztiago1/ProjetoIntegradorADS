@@ -30,6 +30,8 @@ public class CadastraEndereco extends AppCompatActivity {
 
         inicializaComponentes();
 
+        btVoltaTCEn.setOnClickListener(v ->finish());
+
         btCepTCEn.setOnClickListener((view -> {
             cep = edtCepTCEn.getText().toString();
             if (cep.isEmpty()) {
