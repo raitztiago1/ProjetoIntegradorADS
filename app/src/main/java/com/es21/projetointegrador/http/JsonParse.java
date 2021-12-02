@@ -153,4 +153,26 @@ public class JsonParse {
             return null;
         }
     }
+
+    public static Loja JsonToLoja(String conteudo) {
+        try {
+            JSONObject jsonObject;
+            jsonObject = new JSONObject(conteudo);
+
+            return new Loja(
+                    jsonObject.getString("cnpj_loja"),
+                    jsonObject.getString("status_loja"),
+                    Integer.parseInt(jsonObject.getString("tipo_loja")),
+                    jsonObject.getString("inscricao_estadual"),
+                    jsonObject.getString("inscricao_municipal"),
+                    jsonObject.getString("ramo_negocio"),
+                    jsonObject.getString("motivo_aprovacao"),
+                    jsonObject.getString("percentual_clipse"),
+                    jsonObject.getString("razao_social"),
+                    jsonObject.getString("site")
+            );
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

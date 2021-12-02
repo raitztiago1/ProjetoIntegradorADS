@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -22,15 +21,18 @@ import androidx.fragment.app.DialogFragment;
 
 import com.es21.projetointegrador.http.HttpHelperLoja;
 import com.es21.projetointegrador.http.HttpHelperSimulacao;
+import com.es21.projetointegrador.http.HttpHelperUsuarioLoja;
 import com.es21.projetointegrador.http.JsonParse;
 import com.es21.projetointegrador.model.Loja;
 import com.es21.projetointegrador.model.Simulacao;
+import com.es21.projetointegrador.model.UsuarioLoja;
 import com.example.projetointegrador.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class SimulacaoEmprestimo extends AppCompatActivity {
@@ -81,12 +83,9 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             }
         }));
 
-        btDataTSE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment dialogFragment = new DatePicker();
-                dialogFragment.show(getSupportFragmentManager(), "DataInicial");
-            }
+        btDataTSE.setOnClickListener(v -> {
+            DialogFragment dialogFragment = new DatePicker();
+            dialogFragment.show(getSupportFragmentManager(), "DataInicial");
         });
 
         btConfirmaTSP.setOnClickListener((view -> {
@@ -123,12 +122,9 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
                 }
             }));
 
-            btDataTSE.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    DialogFragment dialogFragment = new DatePicker();
-                    dialogFragment.show(getSupportFragmentManager(), "DataInicial");
-                }
+            btDataTSE.setOnClickListener(v -> {
+                DialogFragment dialogFragment = new DatePicker();
+                dialogFragment.show(getSupportFragmentManager(), "DataInicial");
             });
 
             btConfirmaTSP.setOnClickListener((view -> {
@@ -175,19 +171,57 @@ public class SimulacaoEmprestimo extends AppCompatActivity {
             alerta.setTitle("Simulação");
             alerta.setCancelable(false);
 
+            try {
+                if (s != null) {
+                    new TarefaPostUsuarioLoja().execute();
+                } else {
+                    alerta.setMessage("Error ao enviar simulação, tente novamente").setNeutralButton("ok", null).show();
+                }
+            } catch (Exception e) {
+                alerta.setMessage("Error ao enviar simulação").setNeutralButton("ok", null).show();
+            }
+        }
+    }
+
+    private class TarefaPostUsuarioLoja extends  AsyncTask<String,String,String>{
+        String cpf = getIntent().getStringExtra("cpf");
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                HttpHelperLoja helperLoja = new HttpHelperLoja();
+                String loja = helperLoja.getLoja(spnFinanTSP.getSelectedItem().toString());
+                Loja lojaObjt = JsonParse.JsonToLoja(loja);
+                Date hora = new Date();
+
+                HttpHelperUsuarioLoja helperUsuarioLoja = new HttpHelperUsuarioLoja();
+                return helperUsuarioLoja.postUsuarioLoja(new UsuarioLoja(
+                        cpf,
+                        lojaObjt.getCnpj_loja(),
+                        "Simulacao",
+                        "2021-12-01:00:00"
+                ));
+            }catch (Exception e){
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            AlertDialog.Builder alerta = new AlertDialog.Builder(SimulacaoEmprestimo.this);
+            alerta.setTitle("Simulação");
+            alerta.setCancelable(false);
+
             Intent menu = new Intent(SimulacaoEmprestimo.this, Menu.class);
             menu.putExtra("cpf", cpf);
 
             try {
-                if (s != null) {
-                    alerta.setMessage("Simulação enviada com sucesso!")
-                            .setPositiveButton("ok", (dialogInterface, i) -> startActivity(menu))
-                            .create()
-                            .show();
-                    limpaCampos();
-                } else {
-                    alerta.setMessage("Error ao enviar simulação, tente novamente").setNeutralButton("ok", null).show();
-                }
+                alerta.setMessage("Simulação enviada com sucesso!")
+                        .setPositiveButton("ok", (dialogInterface, i) -> startActivity(menu))
+                        .create()
+                        .show();
+                limpaCampos();
             } catch (Exception e) {
                 alerta.setMessage("Error ao enviar simulação").setNeutralButton("ok", null).show();
             }

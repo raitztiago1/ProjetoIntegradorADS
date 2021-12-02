@@ -112,24 +112,25 @@ public class Simulacao {
                 "\n- Financeira: " + financeira +
                         "\n- Renda Mensal: R$" + renda_mensal +
                         "\n- Valor Emprestimo: R$" + valor_emprestimo +
-                        "\n- Tarifa: " + tarifa + "%" +
+                        "\n- Tarifa: " + String.format("%.2f", tarifa) + "%" +
                         "\n- Parcelas: " + parcelas + "x" +
-                        "\n- C.E.T.: " + cet + "%" +
-                        "\n- I.O.F.: " + iof + "%" +
+                        "\n- C.E.T.: " + String.format("%.2f", cet) + "%" +
+                        "\n- I.O.F.: " + String.format("%.2f", iof) + "%" +
                         "\n- Valor total: R$" + valor_total +
                         "\n- Data da Primeira Parcela: " + data_parcela + "\n";
     }
 
     public String toStringMaster() {
         return
+
                 "\n- CPF do Usuario: " + cpf_usuario +
                         "\n- Financeira: " + financeira +
                         "\n- Renda Mensal: R$" + renda_mensal +
                         "\n- Valor Emprestimo: R$" + valor_emprestimo +
-                        "\n- Tarifa: " + tarifa + "%" +
+                        "\n- Tarifa: " + String.format("%.2f", tarifa) + "%" +
                         "\n- Parcelas: " + parcelas + "x" +
-                        "\n- C.E.T.: " + cet + "%" +
-                        "\n- I.O.F.: " + iof + "%" +
+                        "\n- C.E.T.: " + String.format("%.2f", cet) + "%" +
+                        "\n- I.O.F.: " + String.format("%.2f", iof) + "%" +
                         "\n- Valor Total: R$" + valor_total + "\n";
     }
 }

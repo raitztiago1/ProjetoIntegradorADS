@@ -13,12 +13,13 @@ public class HttpHelperLoja {
 
     private static final String urlApi = "https://rest-api-projeto-integrador.herokuapp.com/loja";
     private static final String urlApiAll = "https://rest-api-projeto-integrador.herokuapp.com/loja/all";
+    private static final String urlApiLoja = "https://rest-api-projeto-integrador.herokuapp.com/loja/razao_social?razao_social=";
 
     public String getLoja(String loja) {
         BufferedReader buffReader = null;
 
         try {
-            URL url = new URL(urlApi + loja + "/json");
+            URL url = new URL(urlApiLoja + loja);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
             buffReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
