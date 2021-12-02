@@ -169,7 +169,6 @@ public class CadastraUsuario extends AppCompatActivity {
     private boolean validaCpfLocal() {
         String cpfAux = edtCpfTCU.getText().toString();
         boolean existemErros = autent.validaCpfGlobal(cpfAux);
-
         if (!existemErros) {
             edtCpfTCU.setError("Campo Obrigatorio");
             edtCpfTCU.requestFocus();
